@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The 90 Day Trading Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F1F3F1;--raised:#FBFCFB;--ink:#14201C;--ink-soft:#4A5A54;--ink-faint:#7C8B85;
+  --rule:#D3DAD6;--pine:#1B4D3E;--pine-soft:#E4EDE9;--rust:#93321A;--rust-soft:#F8E9E3;
+  --amber:#9C6B12;--amber-soft:#FAF1DC;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --nav-w:250px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+.shell{display:flex;min-height:100vh}
+.nav{width:var(--nav-w);flex:0 0 var(--nav-w);border-right:1px solid var(--rule);padding:32px 20px 60px;position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--raised)}
+.nav-brand{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:-.01em;line-height:1.25;margin:0 0 4px}
+.nav-sub{font-size:12px;color:var(--ink-faint);margin:0 0 24px;font-family:var(--mono)}
+.nav a{display:block;padding:7px 10px;margin:1px -10px;border-radius:5px;color:var(--ink-soft);text-decoration:none;font-size:14px;line-height:1.4}
+.nav a:hover{background:var(--pine-soft);color:var(--pine)}
+.nav a.on{background:var(--pine);color:#fff;font-weight:500}
+.nav a.sub{padding-left:22px;font-size:13px}
+.nav-group{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:22px 0 6px}
+.main{flex:1;min-width:0;padding:0 0 140px}
+.wrap{max-width:760px;margin:0 auto;padding:0 28px}
+
+.bar{display:none;position:sticky;top:0;z-index:40;background:var(--raised);border-bottom:1px solid var(--rule);padding:11px 18px;align-items:center;gap:12px}
+.bar-title{font-family:var(--display);font-weight:700;font-size:15px;flex:1;min-width:0}
+.burger{background:var(--pine);color:#fff;border:0;border-radius:5px;padding:8px 13px;font-family:var(--mono);font-size:12px;cursor:pointer}
+.bar-pct{font-family:var(--mono);font-size:12px;color:var(--pine);font-weight:500}
+@media(max-width:900px){
+  .shell{display:block}
+  .bar{display:flex}
+  .nav{position:fixed;top:0;left:0;height:100vh;z-index:50;transform:translateX(-100%);transition:transform .22s ease;width:270px;flex:none}
+  .nav.open{transform:translateX(0);box-shadow:2px 0 30px rgba(20,32,28,.18)}
+  .scrim{display:none;position:fixed;inset:0;background:rgba(20,32,28,.35);z-index:45}
+  .scrim.on{display:block}
+}
+
+.hero{border-bottom:1px solid var(--rule);padding:72px 0 60px;background:var(--raised)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--pine);margin:0 0 18px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(38px,7vw,62px);line-height:1.02;letter-spacing:-.03em;margin:0 0 22px}
+.lede{font-size:19px;line-height:1.6;color:var(--ink-soft);max-width:56ch;margin:0 0 12px}
+.lede strong{color:var(--ink);font-weight:600}
+
+.map{margin:44px 0 0;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--paper)}
+.map-head{padding:14px 18px;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.map-row{display:flex;align-items:stretch;border-bottom:1px solid var(--rule)}
+.map-row:last-child{border-bottom:0}
+.map-phase{flex:1;padding:15px 18px;min-width:0}
+.map-n{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.1em}
+.map-t{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.015em;margin-top:1px}
+.map-w{font-size:13px;color:var(--ink-faint);margin-top:2px}
+.map-gate{flex:0 0 120px;display:flex;flex-direction:column;justify-content:center;padding:12px 16px;border-left:1px solid var(--rule);background:var(--amber-soft)}
+.map-gate.done{background:var(--pine-soft)}
+.map-gate-l{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.map-gate.done .map-gate-l{color:var(--pine)}
+.map-gate-s{font-size:13px;font-weight:600;color:var(--amber);margin-top:1px}
+.map-gate.done .map-gate-s{color:var(--pine)}
+.map-row.opt .map-gate{background:var(--paper)}
+.map-row.opt .map-gate-l,.map-row.opt .map-gate-s{color:var(--ink-faint)}
+@media(max-width:560px){.map-gate{flex:0 0 92px;padding:12px}}
+
+section{padding:60px 0 0;scroll-margin-top:20px}
+@media(max-width:900px){section{scroll-margin-top:64px}}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(27px,4.2vw,36px);line-height:1.12;letter-spacing:-.025em;margin:0 0 8px}
+h3{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.015em;margin:36px 0 8px}
+h4{font-family:var(--body);font-weight:600;font-size:16px;margin:26px 0 6px}
+p{margin:0 0 16px;max-width:64ch}
+ul,ol{margin:0 0 16px;padding-left:22px;max-width:62ch}
+li{margin-bottom:7px}
+a{color:var(--pine)}
+strong{font-weight:600}
+code{font-family:var(--mono);font-size:.9em;background:var(--pine-soft);padding:1px 5px;border-radius:3px}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);margin:0 0 12px}
+.dek{font-size:18px;color:var(--ink-soft);margin:0 0 8px;max-width:58ch}
+hr.div{border:0;border-top:1px solid var(--rule);margin:56px 0 0}
+
+.phase-head{border-top:3px solid var(--ink);padding-top:18px;margin-bottom:6px}
+.phase-head.opt{border-top-color:var(--ink-faint)}
+.phase-meta{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 26px}
+.chip{font-family:var(--mono);font-size:11px;padding:4px 10px;border:1px solid var(--rule);border-radius:20px;color:var(--ink-soft);background:var(--raised)}
+
+.note{border-left:3px solid var(--pine);background:var(--pine-soft);padding:16px 18px;border-radius:0 6px 6px 0;margin:0 0 20px}
+.warn{border-left:3px solid var(--rust);background:var(--rust-soft);padding:16px 18px;border-radius:0 6px 6px 0;margin:0 0 20px}
+.opt-box{border-left:3px solid var(--ink-faint);background:var(--raised);padding:16px 18px;border-radius:0 6px 6px 0;margin:0 0 20px;border-top:1px solid var(--rule);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.note p:last-child,.warn p:last-child,.opt-box p:last-child,.note ul:last-child,.warn ul:last-child,.opt-box ul:last-child{margin-bottom:0}
+.note-l,.warn-l,.opt-l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 6px;font-weight:500}
+.note-l{color:var(--pine)}
+.warn-l{color:var(--rust)}
+.opt-l{color:var(--ink-faint)}
+
+.gate{border:2px solid var(--ink);border-radius:8px;background:var(--raised);margin:34px 0 0;overflow:hidden}
+.gate.clear{border-color:var(--pine)}
+.gate.opt{border-color:var(--ink-faint);border-width:1px}
+.gate-top{padding:16px 20px;background:var(--ink);color:#fff;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.gate.clear .gate-top{background:var(--pine)}
+.gate.opt .gate-top{background:var(--ink-soft)}
+.gate-n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.72}
+.gate-h{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em;flex:1;min-width:140px}
+.gate-stat{font-family:var(--mono);font-size:12px;background:rgba(255,255,255,.16);padding:4px 10px;border-radius:20px;white-space:nowrap}
+.gate-body{padding:18px 20px}
+.gate-body>p:first-child{margin-top:0}
+.gate-lock{padding:12px 20px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink-faint);background:var(--paper)}
+.gate.clear .gate-lock{color:var(--pine);font-weight:500}
+
+.check{list-style:none;padding:0;margin:0 0 4px;max-width:64ch}
+.check li{margin:0;border-bottom:1px solid var(--rule)}
+.check li:last-child{border-bottom:0}
+.check label{display:flex;gap:12px;align-items:flex-start;padding:11px 2px;cursor:pointer;font-size:15.5px;line-height:1.5}
+.check input{appearance:none;-webkit-appearance:none;flex:0 0 19px;width:19px;height:19px;margin:2px 0 0;border:1.5px solid var(--ink-faint);border-radius:4px;background:#fff;cursor:pointer;position:relative}
+.check input:checked{background:var(--pine);border-color:var(--pine)}
+.check input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(43deg)}
+.check input:focus-visible{outline:2px solid var(--pine);outline-offset:2px}
+.check input:checked+span{color:var(--ink-faint);text-decoration:line-through;text-decoration-color:var(--rule)}
+.opt-tag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);border:1px solid var(--rule);border-radius:20px;padding:1px 7px;margin-left:6px}
+
+.prompt{border:1px solid var(--rule);border-radius:7px;background:var(--raised);margin:0 0 16px;overflow:hidden}
+.prompt-top{display:flex;align-items:center;gap:10px;padding:9px 12px 9px 14px;border-bottom:1px solid var(--rule);background:var(--paper)}
+.prompt-tag{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--pine);flex:1;min-width:0}
+.copy{background:var(--ink);color:#fff;border:0;border-radius:5px;padding:6px 13px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;cursor:pointer;white-space:nowrap}
+.copy:hover,.copy.ok{background:var(--pine)}
+.copy:focus-visible{outline:2px solid var(--pine);outline-offset:2px}
+.prompt pre{margin:0;padding:15px;font-family:var(--mono);font-size:13.5px;line-height:1.62;white-space:pre-wrap;word-wrap:break-word;color:var(--ink)}
+
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:7px;background:var(--raised)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:500;background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td.yes{color:var(--rust);font-weight:600}
+td.no{color:var(--pine);font-weight:600}
+td.lvl{font-family:var(--mono);font-size:12px;color:var(--pine);white-space:nowrap}
+
+.gl{border-top:1px solid var(--rule);padding:14px 0;max-width:64ch}
+.gl-t{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--pine);margin-bottom:3px}
+.gl p{margin:0;font-size:15.5px}
+
+.prog{margin:26px 0 0;padding:16px 18px;border:1px solid var(--rule);border-radius:7px;background:var(--raised)}
+.prog-top{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-bottom:9px}
+.prog-bar{height:7px;background:var(--rule);border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;background:var(--pine);width:0;transition:width .3s ease}
+.reset{background:none;border:0;color:var(--ink-faint);font-family:var(--mono);font-size:11px;cursor:pointer;text-decoration:underline;padding:0;margin-top:10px}
+.reset:hover{color:var(--rust)}
+
+.listen{display:inline-flex;align-items:center;gap:7px;background:var(--raised);border:1px solid var(--rule);border-radius:20px;padding:5px 13px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--pine);cursor:pointer;margin:0 0 20px}
+.listen:hover{background:var(--pine-soft);border-color:var(--pine)}
+.listen.playing{background:var(--pine);color:#fff;border-color:var(--pine)}
+.listen:focus-visible{outline:2px solid var(--pine);outline-offset:2px}
+.listen-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.speed{margin:0 0 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
+.speed select,.speed button{font-family:var(--mono);font-size:12px;padding:5px 9px;border:1px solid var(--rule);border-radius:5px;background:var(--raised);color:var(--ink)}
+.speed button{cursor:pointer;color:var(--ink-soft)}
+.speed button:hover{border-color:var(--rust);color:var(--rust)}
+
+footer{border-top:1px solid var(--rule);margin-top:70px;padding:30px 0;font-size:13.5px;color:var(--ink-faint)}
+footer p{max-width:64ch}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <button class="burger" id="burger" aria-label="Open contents">Contents</button>
+  <span class="bar-title">The 90 Day Trading Plan</span>
+  <span class="bar-pct" id="barPct">0%</span>
+</div>
+<div class="scrim" id="scrim"></div>
+
+<div class="shell">
+
+<nav class="nav" id="nav">
+  <p class="nav-brand">The 90 Day Trading Plan</p>
+  <p class="nav-sub">Learn first. Test second. Risk last.</p>
+
+  <a href="#start">Start here</a>
+  <a href="#listen">Listen instead of reading</a>
+
+  <p class="nav-group">Before anything else</p>
+  <a href="#p0">0 &middot; What AI trading really is</a>
+  <a href="#g0" class="sub">Gate 0</a>
+  <a href="#rules">The ground rules</a>
+  <a href="#money">What $1,000 can do</a>
+
+  <p class="nav-group">The build</p>
+  <a href="#p1">1 &middot; Foundation</a>
+  <a href="#g1" class="sub">Gate 1</a>
+  <a href="#p2">2 &middot; Chart language</a>
+  <a href="#g2" class="sub">Gate 2</a>
+  <a href="#p3">3 &middot; Write the spec</a>
+  <a href="#g3" class="sub">Gate 3</a>
+  <a href="#p4">4 &middot; Backtest it</a>
+  <a href="#g4" class="sub">Gate 4</a>
+  <a href="#p5">5 &middot; Paper trade it</a>
+  <a href="#g5" class="sub">Gate 5</a>
+
+  <p class="nav-group">Deciding</p>
+  <a href="#decision">Go or no go</a>
+  <a href="#beforemoney">Before you spend</a>
+
+  <p class="nav-group">Optional</p>
+  <a href="#p6">6 &middot; Automate it</a>
+  <a href="#g6" class="sub">Gate 6</a>
+
+  <p class="nav-group">Reference</p>
+  <a href="#time">Time commitment</a>
+  <a href="#prompts">All the AI prompts</a>
+  <a href="#glossary">Plain English glossary</a>
+</nav>
+
+<main class="main">
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">A 90 day plan</p>
+    <h1>Learn first.<br>Test second.<br>Risk last.</h1>
+    <p class="lede">A step by step plan to go from <strong>wanting an AI trading bot</strong> to <strong>having a strategy good enough to put inside one</strong>.</p>
+    <p class="lede">No real money is risked for the first 90 days. Not one dollar. At the end you will have real evidence about whether your method works, and you will still have your money either way.</p>
+
+    <div class="map">
+      <div class="map-head">The route</div>
+      <div class="map-row">
+        <div class="map-phase"><div class="map-n">PHASE 0</div><div class="map-t">What AI trading really is</div><div class="map-w">About 1 hour of reading</div></div>
+        <div class="map-gate" data-gatemap="0"><div class="map-gate-l">Gate 0</div><div class="map-gate-s" data-gatemapstat="0">Locked</div></div>
+      </div>
+      <div class="map-row">
+        <div class="map-phase"><div class="map-n">PHASE 1</div><div class="map-t">Foundation and routine</div><div class="map-w">Weeks 1 to 2 &middot; about 6 hours</div></div>
+        <div class="map-gate" data-gatemap="1"><div class="map-gate-l">Gate 1</div><div class="map-gate-s" data-gatemapstat="1">Locked</div></div>
+      </div>
+      <div class="map-row">
+        <div class="map-phase"><div class="map-n">PHASE 2</div><div class="map-t">The language of charts</div><div class="map-w">Weeks 3 to 5 &middot; about 12 hours</div></div>
+        <div class="map-gate" data-gatemap="2"><div class="map-gate-l">Gate 2</div><div class="map-gate-s" data-gatemapstat="2">Locked</div></div>
+      </div>
+      <div class="map-row">
+        <div class="map-phase"><div class="map-n">PHASE 3</div><div class="map-t">Write the spec</div><div class="map-w">Weeks 6 to 7 &middot; about 10 hours</div></div>
+        <div class="map-gate" data-gatemap="3"><div class="map-gate-l">Gate 3</div><div class="map-gate-s" data-gatemapstat="3">Locked</div></div>
+      </div>
+      <div class="map-row">
+        <div class="map-phase"><div class="map-n">PHASE 4</div><div class="map-t">Backtest it with AI</div><div class="map-w">Week 8 &middot; where AI earns its keep</div></div>
+        <div class="map-gate" data-gatemap="4"><div class="map-gate-l">Gate 4</div><div class="map-gate-s" data-gatemapstat="4">Locked</div></div>
+      </div>
+      <div class="map-row">
+        <div class="map-phase"><div class="map-n">PHASE 5</div><div class="map-t">Paper trade it by hand</div><div class="map-w">Weeks 9 to 14 &middot; 40 trades minimum</div></div>
+        <div class="map-gate" data-gatemap="5"><div class="map-gate-l">Gate 5</div><div class="map-gate-s" data-gatemapstat="5">Locked</div></div>
+      </div>
+      <div class="map-row opt">
+        <div class="map-phase"><div class="map-n">PHASE 6 &middot; OPTIONAL</div><div class="map-t">Automate it</div><div class="map-w">Only after everything above</div></div>
+        <div class="map-gate" data-gatemap="6"><div class="map-gate-l">Gate 6</div><div class="map-gate-s" data-gatemapstat="6">Later</div></div>
+      </div>
+    </div>
+
+    <div class="prog">
+      <div class="prog-top"><span>Overall progress</span><span id="progText">0 of 0 steps</span></div>
+      <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+      <button class="reset" id="reset">Clear all my progress</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<section id="start">
+  <p class="kicker">Start here</p>
+  <h2>How this works</h2>
+  <p class="dek">Six phases. Six gates. You do not move forward until the gate is clear.</p>
+
+  <p>A gate is a checkpoint. Each one has a short list of things you must finish. Not "feel ready for." Actually finish, with something written down to prove it. The checkboxes on this page save automatically in your browser, so you can close the tab and come back.</p>
+
+  <h3>Why gates instead of just a schedule</h3>
+  <p>Almost everyone who loses money trading skipped a step. They learned some patterns, felt confident, and put real money down before they had a written rule they had tested. The gates exist to make that skip impossible.</p>
+
+  <h3>Read Phase 0 first, even if you skip everything else</h3>
+  <p>Phase 0 is about what AI trading actually is and is not. It is the shortest section and the most important one, because it decides whether the next three months build something real or chase something that was never there.</p>
+</section>
+
+<hr class="div">
+
+<section id="listen">
+  <p class="kicker">Accessibility</p>
+  <h2>Listen instead of reading</h2>
+  <p class="dek">Two ways. One is built into this page. The other sounds better.</p>
+
+  <h3>Built in</h3>
+  <p>Every section below has a Listen button next to its heading. It reads the writing out loud and skips the prompt boxes and checklists, since those are not useful as audio. Set the speed here.</p>
+
+  <div class="speed" id="speedPanel">
+    <span>Reading speed</span>
+    <select id="rate" aria-label="Reading speed">
+      <option value="0.85">Slower</option>
+      <option value="1" selected>Normal</option>
+      <option value="1.25">Faster</option>
+      <option value="1.5">Fastest</option>
+    </select>
+    <button id="stopAll" type="button">Stop reading</button>
+  </div>
+
+  <h3>Better voices, no buttons</h3>
+  <p>Your device already has a much better reader built in. These sound noticeably more natural than the one on this page.</p>
+  <ul>
+    <li><strong>Microsoft Edge:</strong> press Ctrl and Shift and U together, or right click the page and choose Read Aloud. The best free voices available.</li>
+    <li><strong>Safari on Mac:</strong> click the page settings icon in the address bar, then Listen to Page.</li>
+    <li><strong>iPhone or iPad:</strong> open the Share menu in Safari and choose Listen to Page. Or turn on Settings, Accessibility, Spoken Content, Speak Screen, then swipe down with two fingers from the top of the screen.</li>
+    <li><strong>Android:</strong> Settings, Accessibility, Select to Speak, then tap the icon and select the text.</li>
+  </ul>
+</section>
+
+<hr class="div">
+
+<section id="p0">
+  <div class="phase-head">
+    <p class="kicker">Phase 0 &middot; Read this first</p>
+    <h2>What AI trading really is</h2>
+  </div>
+  <p class="dek">You have seen the videos. Here is what is behind them, and here is the part that is genuinely real.</p>
+
+  <h3>Start with the regulator</h3>
+  <p>The U.S. Commodity Futures Trading Commission, the federal agency that oversees futures markets, published a customer advisory about exactly this. Their sentence was: "AI technology can't predict the future or sudden market changes."</p>
+  <p>That is not a cynic on the internet. That is the agency whose job is watching this market, telling you the marketing does not match reality.</p>
+
+  <h3>The numbers</h3>
+  <ul>
+    <li>Roughly <strong>95% of retail bots marketed as "AI"</strong> are ordinary rule based scripts running basic moving average or RSI logic, with AI branding added for marketing.</li>
+    <li><strong>Over 80% of retail bot users lose money.</strong></li>
+    <li>Most retail AI trading bots <strong>underperform simply buying and holding</strong> over any meaningful period.</li>
+    <li>Almost none of the performance claims you see are <strong>independently verified</strong>. There is no audit, no regulator checking the screenshot.</li>
+  </ul>
+
+  <h3>The scale problem nobody mentions</h3>
+  <p>A single trading strategy at a real quant firm involves a team: researchers with PhDs in statistics or physics, engineers building the data pipeline, traders managing live risk. Dozens of highly paid professionals on one strategy. Those firms run hundreds of researchers and thousands of experiments. Most experiments fail. The ones that work produce small, temporary edges that need constant refreshing.</p>
+  <p>A thirty dollar a month bot claims to replace all of that. It does not.</p>
+
+  <div class="warn">
+    <p class="warn-l">The single most important idea in this guide</p>
+    <p>Writing the bot is the easy 10%. Finding an edge is the hard 90%.</p>
+    <p style="margin-top:10px">An AI can write you a working trading bot this afternoon. It will connect to a broker, read prices, place orders, and manage stops without you. That problem is solved. What it cannot do is make the bot profitable, because profit comes from the strategy inside it, and the strategy is the part the videos never show.</p>
+    <p style="margin-top:10px">If the strategy is not proven, automation just executes your losses faster and more reliably than you could by hand.</p>
+  </div>
+
+  <h3>The five levels of "AI trading"</h3>
+  <p>When someone says AI trading, they could mean any of these. They are wildly different things.</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>Level</th><th>What it actually is</th><th>Real?</th></tr></thead>
+    <tbody>
+      <tr><td class="lvl">Level 1</td><td>A plain script with "AI" in the product name. Moving averages and RSI. No AI anywhere in it.</td><td>Marketing only</td></tr>
+      <tr><td class="lvl">Level 2</td><td>A human wrote the rules, AI wrote the code. The logic is entirely yours.</td><td><strong>This is what you will build</strong></td></tr>
+      <tr><td class="lvl">Level 3</td><td>Machine learning tunes the parameters of a human strategy against historical data.</td><td>Real, and where overfitting lives</td></tr>
+      <tr><td class="lvl">Level 4</td><td>A model generates the signals itself from engineered features.</td><td>Real, and institutional work</td></tr>
+      <tr><td class="lvl">Level 5</td><td>An autonomous agent deciding what to trade and why, unsupervised.</td><td>Mostly does not work at retail</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Almost every product sold to retail traders as Level 4 or 5 is actually Level 1. Level 2 is where you can realistically operate, and Level 2 is genuinely powerful, because the hard part becomes something you understand rather than something you rent.</p>
+
+  <h3>Overfitting, or why the ski slope charts are fake</h3>
+  <div class="note">
+    <p class="note-l">Learn this word and you can spot most of the fraud</p>
+    <p>Take any strategy. Test 500 different settings against the same three years of historical data. One of those 500 will show a 400% return with a chart that climbs in a beautiful smooth line.</p>
+    <p style="margin-top:10px">That setting did not find a pattern in the market. It found the random noise in <em>that specific stretch of history</em> and memorized it. Show it next month's data and it falls apart immediately.</p>
+    <p style="margin-top:10px">This is <strong>overfitting</strong>, and it is the mechanism behind nearly every stunning backtest chart in a trading video. The defense is simple and almost nobody does it: test on data you have never looked at. That is Phase 4.</p>
+  </div>
+
+  <h3>So what is actually real</h3>
+  <p>A research lead at the blockchain analytics firm Glassnode described AI trading tools as working like an assistant or intern who can work 24 hours a day, but who still needs human oversight for any decision that matters. The advice that comes out of the data is to start with AI assisted analysis and execution support, not full autonomy. Use it to remove your weaknesses, not to replace your judgment.</p>
+  <p>There is also no such thing as set and forget. Even people running successful bots actively monitor and adjust them. In fast moving conditions, a bot left alone for two days can quietly run into its stop loss because the market changed underneath it.</p>
+
+  <h4>Where AI genuinely helps you, starting today</h4>
+  <ol>
+    <li><strong>Backtesting.</strong> The big one. AI can write a script that tests your strategy against five years of history in an afternoon. This used to require a programmer. It answers "does this work" in days instead of months. Almost no retail trader does this, and it is the single biggest advantage available to you.</li>
+    <li><strong>Writing the execution bot</strong> once your rules are proven. Easy, real, appropriate.</li>
+    <li><strong>Analyzing your own trade log</strong> for behavioral patterns you cannot see about yourself.</li>
+    <li><strong>Stress testing your logic</strong> before it costs money, by asking it to attack your strategy instead of praise it.</li>
+    <li><strong>Explaining anything you do not understand</strong>, instantly, as many times as you need.</li>
+  </ol>
+
+  <h4>Where AI does not help</h4>
+  <p>Being the thing that decides. Language models are non deterministic, meaning you can ask the same question twice and get different answers. They are slow compared to markets. And they are trained to be agreeable and to find patterns, which is exactly backwards here. Ask an AI "is this a good trade" and it will find you reasons. That is the last thing you want holding the trigger.</p>
+
+  <h3>The scam checklist</h3>
+  <p>If a product, video, or person hits any of these, close it.</p>
+  <ul>
+    <li>Promises passive income or guaranteed returns with no monitoring required</li>
+    <li>Shows a backtest but no verified live track record</li>
+    <li>Profit screenshots with no third party statement behind them</li>
+    <li>Sells you the bot, the course, or the signals rather than trading with their own money</li>
+    <li>Says "AI" and "machine learning" but never explains what the model actually does</li>
+    <li>Pushes you toward a prop firm challenge with an upfront fee</li>
+    <li>Urgency, countdown timers, limited spots</li>
+    <li>The results chart climbs in a smooth line with no drawdowns. Real strategies have ugly stretches.</li>
+  </ul>
+
+  <h3>The honest math on $1,000</h3>
+  <p>Say everything works. Say you build something genuinely good and return 20% in a year, which would beat most professionals. On $1,000 that is $200.</p>
+  <p>The path from there to life changing money requires either a lot more capital or a lot more leverage. Leverage on a small account is how the account reaches zero, quickly, which is why every rule in this guide fights it.</p>
+  <p>So here is the honest frame: <strong>the prize is not this year's profit. The prize is a tested system and a real skill.</strong> If those turn out to be genuine, capital can follow later. That order is not a consolation prize. It is the only order that has ever worked for anybody.</p>
+
+  <div class="note">
+    <p class="note-l">The good news</p>
+    <p>Everything in this plan makes you a Level 2 operator with a strategy you tested yourself. That puts you ahead of the overwhelming majority of people buying bots, because you will know exactly what yours does and exactly what evidence says it works. Nobody can sell you a black box after this.</p>
+  </div>
+
+  <h3>Set up your tracking</h3>
+  <div class="opt-box">
+    <p class="opt-l">Optional, but it makes the AI far more useful</p>
+    <p>You can do this whole plan with a spreadsheet and a text document. Nothing here requires special software.</p>
+    <p style="margin-top:10px">That said: if your notes and trades live in one structured place, you can paste them into an AI and get real analysis back. Scattered notes across three apps cannot be reviewed by anything, including you. <strong>Structured tracking is what turns the AI from a search engine into a coach.</strong></p>
+  </div>
+
+  <p>Notion is free and works well for this. Set up your own account. Four pages is all you need.</p>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Copy &middot; your Notion structure</span><button class="copy" type="button">Copy</button></div>
+<pre>TRADING OS  (top level page)
+|
++-- 1. STRATEGY ONE PAGER
+|      Keep every version. Never edit in place.
+|      Title them: "v1 - Oct 3", "v2 - Nov 12"
+|      When the strategy changes, you make a NEW version.
+|
++-- 2. TRADE LOG  (make this a Table database, not a list)
+|      Columns:
+|      Date | Time | Instrument | Setup name | Entry | Stop | Target |
+|      Size | Dollars risked | Exit | Result in R | Followed rules? |
+|      Screenshot | Notes
+|
++-- 3. WEEKLY REVIEWS
+|      One page per week. Newest at the top.
+|      What happened, total R, biggest mistake, one change.
+|
++-- 4. GATE DELIVERABLES
+       One page per gate. Paste in what each gate asked you to write.
+       This is your proof you actually did the work.</pre>
+  </div>
+
+  <p>Make the Trade Log a real database. Notion databases export to CSV, which means you can hand six weeks of trades to an AI in one paste.</p>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; have AI review your progress</span><button class="copy" type="button">Copy</button></div>
+<pre>Here is my trading progress so far.
+
+MY STRATEGY:
+[PASTE THE CURRENT ONE PAGER]
+
+MY TRADE LOG:
+[PASTE OR EXPORT YOUR TRADES]
+
+MY LAST FEW WEEKLY REVIEWS:
+[PASTE THEM]
+
+Act as a coach who has no interest in making me feel good.
+
+1. What is actually improving, and what is not?
+2. Am I repeating the same mistake? Name it.
+3. Is my strategy quietly drifting from what I wrote down?
+4. What single change would help most in the next two weeks?
+
+Be direct. If the data is too thin to say anything, say that.</pre>
+  </div>
+
+  <div class="gate" id="g0" data-gate="0">
+    <div class="gate-top"><span class="gate-n">Checkpoint</span><span class="gate-h">Gate 0</span><span class="gate-stat" data-gatestat="0">0 of 5</span></div>
+    <div class="gate-body">
+      <p>This gate is about understanding, not doing. Answer in your own words.</p>
+      <ul class="check" data-gatelist="0">
+        <li><label><input type="checkbox" data-k="g0a"><span><strong>I can explain overfitting</strong> to someone else, and why it makes backtests look better than reality</span></label></li>
+        <li><label><input type="checkbox" data-k="g0b"><span><strong>I know which of the five levels</strong> I am building, and why the higher levels are not realistic for me</span></label></li>
+        <li><label><input type="checkbox" data-k="g0c"><span><strong>I accept that the strategy is the hard part</strong> and the code is the easy part</span></label></li>
+        <li><label><input type="checkbox" data-k="g0d"><span><strong>I have written down my honest goal</strong> for this project, given the math on $1,000</span></label></li>
+        <li><label><input type="checkbox" data-k="g0e"><span>Tracking set up, in Notion or a spreadsheet, whichever I will actually use <span class="opt-tag">optional</span></span></label></li>
+      </ul>
+    </div>
+    <div class="gate-lock" data-gatelock="0">Phase 1 opens when these are done.</div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="rules">
+  <p class="kicker">Non negotiable</p>
+  <h2>The ground rules</h2>
+  <p class="dek">Six rules. Read them once now, then again at Gate 5.</p>
+
+  <ol>
+    <li><strong>No real money until Gate 5 is clear.</strong> The $1,000 stays where it is.</li>
+    <li><strong>All practice happens in a paper account.</strong> A paper account is a free practice account that uses real market prices and fake money. It works exactly like the real thing.</li>
+    <li><strong>Every practice trade gets written down.</strong> If it is not in the log, it did not happen. This is not busywork. The log is the entire point of Phase 5.</li>
+    <li><strong>This is a personal account, not a business account.</strong> Trading is not the business's activity, and running it through the business adds paperwork for no benefit. Confirm with the tax preparer before funding anything.</li>
+    <li><strong>Never add to a losing trade.</strong> If a strategy tells you to buy more of something going against you, that strategy is out of scope for this plan. No exceptions. This is the rule that saves accounts.</li>
+    <li><strong>Risk 1% per trade, maximum.</strong> On a $1,000 account that is $10. If a setup needs more risk than that, you skip the setup. You do not stretch the rule to fit the trade.</li>
+  </ol>
+
+  <div class="warn">
+    <p class="warn-l">Read rule 5 again</p>
+    <p>A strategy that adds to losers will show you an amazing win rate. It will win 9 times out of 10 for months. Then one trade goes far enough against you that the account is gone. This is the single most common way small trading accounts end. If any course, video, or person tells you to average down, close it.</p>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="money">
+  <p class="kicker">The rules of the game</p>
+  <h2>What $1,000 can actually do</h2>
+  <p class="dek">A real regulation stops small accounts from day trading stocks. It decides what you can build.</p>
+
+  <p>It is called the <strong>Pattern Day Trader rule</strong>, or PDT. Plain version: if you use a <em>margin</em> stock account and make 4 or more day trades within 5 business days, your account gets flagged. Once flagged, you need $25,000 in the account to keep going. Below that, you get restricted.</p>
+  <p>That sounds like it kills the idea at $1,000. It does not, because the rule only applies to one kind of account.</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>Account type</th><th>PDT applies?</th><th>What actually limits you at $1,000</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Margin</strong> (stocks)</td><td class="yes">Yes</td><td>4+ day trades in 5 business days flags the account. Under $25,000 you get restricted. Avoid this account type.</td></tr>
+      <tr><td><strong>Cash</strong> (stocks)</td><td class="no">No</td><td>Trade freely, but money from a sale takes one business day to settle before you can use it again. In practice your $1,000 recycles about every other day.</td></tr>
+      <tr><td><strong>Futures</strong> (micro contracts)</td><td class="no">No</td><td>No trade count limit at all. Micro contracts are small enough for this account size. The real risk is leverage, not regulation.</td></tr>
+      <tr><td><strong>Crypto</strong></td><td class="no">No</td><td>Trades 24 hours a day, no settlement wait, no trade count limit. The risk is how fast prices move.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>So the choice is a <strong>cash stock account</strong> or a <strong>micro futures account</strong>. You decide at Gate 2, once you know enough to have an opinion.</p>
+
+  <div class="warn">
+    <p class="warn-l">One thing to watch for in courses</p>
+    <p>Some trading courses recommend a broker with very high leverage, trading something called US30 or DJ30 on a platform called MetaTrader. That setup is a CFD, and CFDs are <strong>not legal for US retail customers</strong>. If a course sends you to an offshore broker, stop and translate it. The legal US way to trade the Dow intraday is Micro E-mini Dow futures, ticker MYM, through a US futures broker.</p>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; check any broker before you sign up</span><button class="copy" type="button">Copy</button></div>
+<pre>I am a US resident and I want to open a small trading account with about
+$1,000. A course recommended [BROKER NAME] trading [INSTRUMENT] on
+[PLATFORM].
+
+Tell me:
+1. Is this broker regulated in the US and does it accept US retail clients?
+2. Is the instrument a CFD? If yes, explain why US retail clients cannot
+   legally use it.
+3. What is the closest legal US equivalent instrument and account type?
+4. Does the Pattern Day Trader rule apply to that account type?
+
+Be specific and tell me if you are unsure about anything.</pre>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="p1">
+  <div class="phase-head">
+    <p class="kicker">Phase 1 &middot; Weeks 1 to 2</p>
+    <h2>Foundation and routine</h2>
+  </div>
+  <p class="dek">Course: <strong>Day Trading: Breakouts, Chart Analysis &amp; Risk Management</strong> by Luca Moschini / SharperTrades.</p>
+  <div class="phase-meta"><span class="chip">4 hours</span><span class="chip">79 lectures</span><span class="chip">Rated 4.5</span><span class="chip">All levels</span></div>
+
+  <h3>Why this one goes first</h3>
+  <p>It is the shortest of the three, and the only one that teaches a <strong>routine</strong> rather than a pile of patterns. What to do before the market opens. How to decide where you get out before you get in. How big a position should be. How to review a trade after it closes.</p>
+  <p>That routine is the container everything else goes into. Learn patterns without it and you have trivia. Learn it first and the patterns become useful.</p>
+
+  <h3>What to do</h3>
+  <ul>
+    <li>Watch all 16 sections. Do the quizzes and the role play sections, do not skip them.</li>
+    <li>Open a free TradingView account. You will use it for the whole plan.</li>
+    <li>Keep notes in one place. Not scattered across notebooks and apps.</li>
+  </ul>
+
+  <h3>Use AI as you go</h3>
+  <p>After each section, paste your notes into Claude or ChatGPT with the prompt below. The point is not a summary. The point is finding where the idea breaks, because that is what nobody teaches you.</p>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; after finishing any section</span><button class="copy" type="button">Copy</button></div>
+<pre>I just learned this concept in a day trading course:
+
+[PASTE YOUR NOTES HERE]
+
+Do three things:
+1. Explain it back to me in plain language, like I am 14.
+2. Give me three specific situations where this concept fails or gives a
+   false signal.
+3. Tell me what a beginner most commonly gets wrong about it.
+
+Do not tell me it works well. I want the failure modes.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; when a term makes no sense</span><button class="copy" type="button">Copy</button></div>
+<pre>Explain "[TERM]" to me like I am 14 years old and have never traded.
+
+Then give me a concrete example with real numbers.
+Then tell me why a trader would care about it.
+
+Keep it under 200 words.</pre>
+  </div>
+
+  <div class="gate" id="g1" data-gate="1">
+    <div class="gate-top"><span class="gate-n">Checkpoint</span><span class="gate-h">Gate 1</span><span class="gate-stat" data-gatestat="1">0 of 6</span></div>
+    <div class="gate-body">
+      <p>Write a one page document answering four questions <strong>in your own words</strong>, without rewatching anything. If you have to go back and look, that section is not learned yet.</p>
+      <ul class="check" data-gatelist="1">
+        <li><label><input type="checkbox" data-k="g1a"><span>Finished all 16 sections of the Moschini course</span></label></li>
+        <li><label><input type="checkbox" data-k="g1b"><span>Free TradingView account created</span></label></li>
+        <li><label><input type="checkbox" data-k="g1c"><span><strong>Written:</strong> What is my routine before the market opens, step by step?</span></label></li>
+        <li><label><input type="checkbox" data-k="g1d"><span><strong>Written:</strong> How do I decide where my stop goes, before I enter a trade?</span></label></li>
+        <li><label><input type="checkbox" data-k="g1e"><span><strong>Written:</strong> How do I work out position size from my stop distance and my risk limit?</span></label></li>
+        <li><label><input type="checkbox" data-k="g1f"><span><strong>Written:</strong> What is my maximum loss for one day, and what do I do the moment I hit it?</span></label></li>
+      </ul>
+    </div>
+    <div class="gate-lock" data-gatelock="1">Phase 2 opens when all six are done.</div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="p2">
+  <div class="phase-head">
+    <p class="kicker">Phase 2 &middot; Weeks 3 to 5</p>
+    <h2>The language of charts</h2>
+  </div>
+  <p class="dek">Course: <strong>The Complete Day Trading Course</strong> by Wealthy Education.</p>
+  <div class="phase-meta"><span class="chip">12 hours</span><span class="chip">122 lectures</span><span class="chip">Rated 4.0</span><span class="chip">Use as reference</span></div>
+
+  <h3>Treat this one differently</h3>
+  <p>This is a <strong>dictionary, not a curriculum</strong>. Twelve hours of chart patterns and indicators. Do not try to master all of it. The goal is recognition: when a strategy mentions a flag, a failed breakout, or an RSI reading, you know what it means without stopping.</p>
+
+  <div class="warn">
+    <p class="warn-l">Be a skeptical customer here</p>
+    <p>This course promises a lot. "Start making a good living trading from home." "Never worry about money ever again." One listed prerequisite is literally a strong desire to get rich. Keep the mechanics, discount the promises. A 4.0 rating on Udemy is average, not great.</p>
+  </div>
+
+  <h3>What to watch, and what to skim</h3>
+  <ul>
+    <li><strong>Watch fully:</strong> Sections 1 to 5, foundations through chart patterns.</li>
+    <li><strong>Watch fully:</strong> Section 6, how to use TradingView. Practical setup you will actually use.</li>
+    <li><strong>Skim and reference:</strong> Sections 7 to 10. Watch the specific patterns that showed up in your Phase 1 notes. Come back to the rest when you need them.</li>
+  </ul>
+
+  <h3>Also do this in Phase 2</h3>
+  <ul>
+    <li><strong>Open a paper trading account.</strong> Two good options: TradingView's built in paper trading, free and simplest, or an Alpaca paper account, free with no minimum and useful later if you automate.</li>
+    <li><strong>Decide your account type.</strong> Cash stock or micro futures. Write down why.</li>
+  </ul>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; choosing your account type</span><button class="copy" type="button">Copy</button></div>
+<pre>I am a US resident with $1,000 to open a trading account. I plan to day
+trade, meaning I open and close positions on the same day.
+
+Compare these two options for me:
+A) A cash stock brokerage account
+B) A micro futures account
+
+For each one cover: whether the Pattern Day Trader rule applies, how many
+trades per week I can realistically make with $1,000, what a typical single
+trade risks, what the main danger is, and what it costs.
+
+Then tell me which you would pick for someone learning, and why.
+End with the strongest argument against your own pick.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; turn a pattern into a testable rule</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are my notes on a chart pattern or setup:
+
+[PASTE NOTES]
+
+Rewrite this as a list of if/then rules that are specific enough that
+someone could follow them without making a judgment call.
+
+Then flag every single place where my notes still require a judgment call
+I have not defined. List those separately as "undefined decisions."</pre>
+  </div>
+
+  <div class="gate" id="g2" data-gate="2">
+    <div class="gate-top"><span class="gate-n">Checkpoint</span><span class="gate-h">Gate 2</span><span class="gate-stat" data-gatestat="2">0 of 5</span></div>
+    <div class="gate-body">
+      <ul class="check" data-gatelist="2">
+        <li><label><input type="checkbox" data-k="g2a"><span>Watched Sections 1 to 6 of the Wealthy Education course in full</span></label></li>
+        <li><label><input type="checkbox" data-k="g2b"><span>Skimmed Sections 7 to 10 and watched the patterns that matter to me</span></label></li>
+        <li><label><input type="checkbox" data-k="g2c"><span>Paper trading account open, with simulated money in it</span></label></li>
+        <li><label><input type="checkbox" data-k="g2d"><span><strong>Written:</strong> account type decision, cash stock or micro futures, with my reasoning</span></label></li>
+        <li><label><input type="checkbox" data-k="g2e"><span>I can look at a chart and name what I am seeing without pausing to think</span></label></li>
+      </ul>
+    </div>
+    <div class="gate-lock" data-gatelock="2">Phase 3 opens when all five are done.</div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="p3">
+  <div class="phase-head">
+    <p class="kicker">Phase 3 &middot; Weeks 6 to 7</p>
+    <h2>Write the spec</h2>
+  </div>
+  <p class="dek">Course: <strong>Day Trading Strategy that can WIN even when you're Wrong</strong> by Reid FX. Output: the one document everything else depends on.</p>
+  <div class="phase-meta"><span class="chip">8.5 hours</span><span class="chip">62 lectures</span><span class="chip">Rated 4.6</span><span class="chip">Expert level</span></div>
+
+  <div class="note">
+    <p class="note-l">Why this phase is called "write the spec"</p>
+    <p>The document you produce here is not homework. It is the <strong>specification for your bot</strong>. Instrument, timeframe, entry conditions, stop rule, target rule, sizing formula, loss limits. Every one of those is something a program needs to be told.</p>
+    <p style="margin-top:10px">If you cannot fill in every line, a bot cannot be built, because there is nothing to build. This is the exact point where most people who want automation get stuck without understanding why.</p>
+  </div>
+
+  <h3>Why this course is last</h3>
+  <p>It is the highest rated of the three and the only one that hands you a single defined strategy instead of a survey. It is also listed as expert level and openly assumes you have been trading for a few months and understand position sizing and leverage. After Phases 1 and 2, you will.</p>
+
+  <div class="warn">
+    <p class="warn-l">Verify three things before you adopt anything from this course</p>
+    <p>This is the most important part of this section. Do not skip it.</p>
+  </div>
+
+  <h4>1. Does the strategy ever add to a losing position?</h4>
+  <p>The title is "WIN even when you're Wrong," and the description talks about managing your way out of most situations and exiting at breakeven or a smaller loss. That can describe two completely different things.</p>
+  <p>One is legitimate trade management: moving your stop, taking partial profits, cutting early. That is fine.</p>
+  <p>The other is averaging down: buying more as price goes against you so your breakeven point moves closer. That produces a beautiful win rate and eventually one loss that ends the account.</p>
+  <p><strong>Watch Section 4, The Strategy, and Section 7, Trade Management, with only this question in mind.</strong> If the method ever increases size on a losing trade, stop. Build your strategy from the Moschini breakout method instead. You will not have wasted anything.</p>
+
+  <h4>2. Can you legally use the recommended setup from the US?</h4>
+  <p>The course teaches US30 and DJ30 on MetaTrader 5 through a forex broker chosen for leverage and spreads. As covered above, that is a CFD setup and US retail clients cannot use it. Plan to translate to <strong>Micro E-mini Dow futures, ticker MYM</strong>, on a US futures broker. The price levels and logic should carry over. The platform, broker, and sizing math will not.</p>
+
+  <h4>3. Is there a defined maximum loss per trade?</h4>
+  <p>If the answer is ever "it depends on how the trade develops," that is a red flag. You need a number before you enter, every time. A bot certainly needs one.</p>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; the averaging down check</span><button class="copy" type="button">Copy</button></div>
+<pre>A trading course teaches a technique it describes like this:
+
+[PASTE THE COURSE'S OWN DESCRIPTION, AND YOUR NOTES FROM THE STRATEGY
+AND TRADE MANAGEMENT SECTIONS]
+
+Answer these directly:
+1. Mechanically, what is this technique actually doing?
+2. Does it ever increase position size on a trade that is currently
+   losing? Yes or no, and quote the part that tells you.
+3. If yes, what category of strategy is this (averaging down, martingale,
+   grid, recovery)?
+4. What is the historical failure mode of that category? Be specific about
+   how accounts get wiped out using it.
+5. If no, explain what it is doing instead and why that is different.
+
+Do not soften your answer.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; translate a setup to something legal in the US</span><button class="copy" type="button">Copy</button></div>
+<pre>A course teaches a day trading strategy on [INSTRUMENT] using [PLATFORM]
+through a broker offering [LEVERAGE].
+
+I am a US resident and cannot use CFDs.
+
+1. What is the closest instrument I can legally trade in the US that moves
+   the same way?
+2. What is the contract size, tick value, and typical margin requirement?
+3. If my max risk per trade is $10, what position size does that allow, and
+   is that even possible with the smallest available contract?
+4. What changes about the strategy when I make this switch?
+
+Show your math.</pre>
+  </div>
+
+  <h3>The spec</h3>
+  <p>One page. Specific enough that a stranger could follow it and place the same trades you would. Specific enough that a program could.</p>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Template &middot; the Strategy One Pager</span><button class="copy" type="button">Copy</button></div>
+<pre>MY STRATEGY ONE PAGER
+Version 1 - date: ____________
+
+INSTRUMENT
+What exactly am I trading?
+
+TIMEFRAME
+What chart am I watching? (1 minute, 5 minute, 15 minute?)
+
+SESSION
+What hours do I trade? What time do I stop, no matter what?
+
+ENTRY
+What exact conditions must ALL be true before I enter?
+1.
+2.
+3.
+
+STOP
+Where exactly does my stop go? State the RULE, not an example.
+
+TARGET
+Where exactly do I exit a winner? State the RULE.
+
+POSITION SIZE
+How do I calculate shares or contracts from my stop distance?
+Formula:
+
+MAX LOSS PER TRADE
+$______ (this is 1% of my account)
+
+MAX LOSS PER DAY
+$______ and here is exactly what I do when I hit it:
+
+INVALIDATION
+What would make me stop using this strategy entirely?</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; stress test your spec before you use it</span><button class="copy" type="button">Copy</button></div>
+<pre>Here is my trading strategy:
+
+[PASTE YOUR COMPLETED ONE PAGER]
+
+Act as a skeptical risk manager who has seen a lot of accounts blow up.
+
+1. Find every ambiguity and every undefined term.
+2. List every scenario my rules do not cover.
+3. Describe the specific market conditions where this strategy would lose
+   repeatedly, and estimate how many losses in a row are plausible.
+4. Tell me the single biggest hole.
+5. Tell me whether this is specific enough that a computer program could
+   follow it with no human judgment. Point at every line that is not.
+
+Do not be encouraging. I need this picked apart now rather than later.</pre>
+  </div>
+
+  <div class="gate" id="g3" data-gate="3">
+    <div class="gate-top"><span class="gate-n">Checkpoint</span><span class="gate-h">Gate 3</span><span class="gate-stat" data-gatestat="3">0 of 6</span></div>
+    <div class="gate-body">
+      <ul class="check" data-gatelist="3">
+        <li><label><input type="checkbox" data-k="g3a"><span>Watched the Reid FX course, especially Section 4 and Section 7</span></label></li>
+        <li><label><input type="checkbox" data-k="g3b"><span><strong>Confirmed:</strong> the strategy never adds to a losing position, or I abandoned it and built from Moschini instead</span></label></li>
+        <li><label><input type="checkbox" data-k="g3c"><span><strong>Confirmed:</strong> my instrument and broker are legal for a US retail client, no CFDs</span></label></li>
+        <li><label><input type="checkbox" data-k="g3d"><span><strong>Confirmed:</strong> there is a defined dollar maximum loss per trade</span></label></li>
+        <li><label><input type="checkbox" data-k="g3e"><span>Strategy One Pager written, saved as v1, and <em>every single line filled in</em></span></label></li>
+        <li><label><input type="checkbox" data-k="g3f"><span>Stress tested it and fixed the holes, including every line a program could not follow</span></label></li>
+      </ul>
+    </div>
+    <div class="gate-lock" data-gatelock="3">Phase 4 opens when all six are done. If any line is blank, the spec is not ready.</div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="p4">
+  <div class="phase-head">
+    <p class="kicker">Phase 4 &middot; Week 8</p>
+    <h2>Backtest it with AI</h2>
+  </div>
+  <p class="dek">This is where AI genuinely changes what is possible for you. Almost no retail trader does this step.</p>
+
+  <h3>What a backtest is</h3>
+  <p>Running your strategy against years of past price data to see what would have happened, without risking anything and without waiting. If your strategy is garbage, a backtest tells you in an afternoon instead of six weeks.</p>
+  <p>This used to require hiring a programmer. It does not anymore. That is the real, unhyped version of "AI changes trading," and it is available to you right now.</p>
+
+  <div class="warn">
+    <p class="warn-l">The rule that makes a backtest honest</p>
+    <p>Split your history into two pieces before you start. Call them <strong>in sample</strong> and <strong>out of sample</strong>.</p>
+    <p style="margin-top:10px">Example: use 2020 through 2023 to build and adjust. Then <em>do not look at</em> 2024 and 2025 until you are completely done adjusting. When you finally run it on those untouched years, that result is your real answer.</p>
+    <p style="margin-top:10px">If you tweak the strategy after seeing the out of sample result, that data is burned. You have to split again with new data. This is annoying and it is the whole point. Skipping it is how you overfit.</p>
+  </div>
+
+  <h3>What to do</h3>
+  <ol>
+    <li>Get free historical price data. For stocks, a Python library called <code>yfinance</code> works and costs nothing. For futures or crypto, your broker's API provides it.</li>
+    <li>Have AI write the backtest script from your Strategy One Pager. You paste the spec, it writes the code.</li>
+    <li>Run it on your in sample years. Look at the results.</li>
+    <li>Fix any place where the code does not match what you actually meant. This will happen and it is normal.</li>
+    <li>Run it once on the out of sample years. Write down the result before you react to it.</li>
+  </ol>
+
+  <div class="note">
+    <p class="note-l">You do not need to know how to code</p>
+    <p>You need to describe your strategy precisely, paste it into an AI, run a file, and read the output. The AI writes the code. Your job is checking that the code does what you meant, which you can do by asking it to explain each part back to you in plain English.</p>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; write my backtest</span><button class="copy" type="button">Copy</button></div>
+<pre>I want to backtest a day trading strategy. I am not a programmer, so
+explain each step and tell me exactly what to install and run.
+
+MY STRATEGY:
+[PASTE YOUR STRATEGY ONE PAGER]
+
+DATA: I want to test [INSTRUMENT] on the [TIMEFRAME] chart, using the
+years [IN-SAMPLE YEARS].
+
+Write me a Python script that:
+1. Downloads the historical data
+2. Applies my entry, stop, target, and position sizing rules exactly
+3. Assumes I risk 1% per trade
+4. Outputs: number of trades, win rate, average win in R, average loss
+   in R, total R, expectancy per trade, largest losing streak, and
+   largest drawdown
+5. Saves every simulated trade to a CSV so I can inspect them
+
+Before the code, list every assumption you had to make because my
+strategy was not specific enough. I need to fix those.
+
+After the code, tell me in plain English exactly what to type to run it.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; check the code matches my strategy</span><button class="copy" type="button">Copy</button></div>
+<pre>Here is my written strategy:
+[PASTE ONE PAGER]
+
+Here is the backtest code you wrote:
+[PASTE THE CODE]
+
+Go through the code line by line and tell me in plain English what it is
+doing at each step.
+
+Then answer:
+1. Where does the code NOT match what I wrote?
+2. Is it accidentally using data it would not have had at the time? (this
+   is called lookahead bias, and it fakes good results)
+3. Does it account for the spread and realistic fills, or is it assuming
+   perfect prices?
+4. What would make these results look better than reality?</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; the out of sample verdict</span><button class="copy" type="button">Copy</button></div>
+<pre>I built and adjusted my strategy using data from [IN-SAMPLE YEARS].
+Here were those results:
+[PASTE IN-SAMPLE RESULTS]
+
+I then ran it once on [OUT-OF-SAMPLE YEARS], which I had never looked at.
+Here are those results:
+[PASTE OUT-OF-SAMPLE RESULTS]
+
+1. How much worse did it get, and is that gap normal or alarming?
+2. Does this look overfitted? Explain what specifically tells you that.
+3. Based only on the out of sample numbers, is this strategy worth paper
+   trading with my hands for six weeks?
+4. If no, is the honest answer to fix it or to abandon it?
+
+Do not be encouraging. Tell me if I found noise.</pre>
+  </div>
+
+  <div class="warn">
+    <p class="warn-l">A backtest is evidence, not proof</p>
+    <p>A good backtest means the strategy is worth testing with your hands. It does not mean it works. Historical data cannot show you slippage, bad fills, or the fact that you will hesitate on the third losing trade in a row. That is why Phase 5 still happens.</p>
+    <p style="margin-top:10px">And a bad backtest is genuinely great news. It just saved you six weeks and possibly $1,000.</p>
+  </div>
+
+  <div class="gate" id="g4" data-gate="4">
+    <div class="gate-top"><span class="gate-n">Checkpoint</span><span class="gate-h">Gate 4</span><span class="gate-stat" data-gatestat="4">0 of 5</span></div>
+    <div class="gate-body">
+      <ul class="check" data-gatelist="4">
+        <li><label><input type="checkbox" data-k="g4a"><span>Backtest script written and running without errors</span></label></li>
+        <li><label><input type="checkbox" data-k="g4b"><span>Checked the code line by line against my one pager, and fixed the mismatches</span></label></li>
+        <li><label><input type="checkbox" data-k="g4c"><span>Tested on at least two years of <strong>in sample</strong> data</span></label></li>
+        <li><label><input type="checkbox" data-k="g4d"><span>Tested once on <strong>out of sample</strong> data I had never looked at, and wrote the result down</span></label></li>
+        <li><label><input type="checkbox" data-k="g4e"><span>Out of sample expectancy is <strong>positive</strong>. If not, I fixed the strategy and re split with fresh data, or abandoned it</span></label></li>
+      </ul>
+    </div>
+    <div class="gate-lock" data-gatelock="4">Phase 5 opens when all five are done.</div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="p5">
+  <div class="phase-head">
+    <p class="kicker">Phase 5 &middot; Weeks 9 to 14</p>
+    <h2>Paper trade it by hand</h2>
+  </div>
+  <p class="dek">Six weeks minimum. Forty trades minimum. Still no real money.</p>
+
+  <h3>Why do this if the backtest passed</h3>
+  <p>Because a backtest tests the strategy. This tests <em>you executing the strategy</em>. Those are different things, and the gap between them is where most people lose money. You will hesitate. You will take a trade that does not qualify. You will move a stop. Better to find that out now.</p>
+
+  <ul>
+    <li><strong>Minimum 40 logged trades before you evaluate anything.</strong> Fewer than 40 is noise.</li>
+    <li><strong>Do not change the strategy mid sample.</strong> Write the idea down, finish the 40, then test the change as a new version.</li>
+    <li><strong>Trade at the same time of day.</strong> Consistency is what makes results readable.</li>
+  </ul>
+
+  <h3>Understanding R</h3>
+  <div class="note">
+    <p class="note-l">The only number that matters</p>
+    <p><strong>R</strong> means how much you risked on a trade. Risk $10 and make $20, that trade is <strong>+2R</strong>. Risk $10 and lose it, that is <strong>-1R</strong>.</p>
+    <p style="margin-top:10px">Dollar amounts in a paper account are meaningless, because the money is fake. R is not, because it tells you whether the strategy makes more than it loses relative to what you put at risk. Track R. Ignore the fake dollars.</p>
+  </div>
+
+  <h3>The trade log</h3>
+  <p>One row per trade. Copy these headers into your Notion database or a spreadsheet.</p>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Copy &middot; trade log columns</span><button class="copy" type="button">Copy</button></div>
+<pre>Date	Time	Instrument	Setup name	Entry price	Stop price	Target price	Position size	Dollars risked	Exit price	Result in R	Followed rules (Y/N)	Screenshot link	Notes</pre>
+  </div>
+
+  <p>The "Followed rules" column is the most valuable one there. A profitable strategy you follow 60% of the time is not a profitable strategy. You need to know which trades were the strategy and which were you.</p>
+
+  <h3>The Sunday review, 30 minutes</h3>
+  <ul>
+    <li>How many trades? How many followed the rules?</li>
+    <li>Total R for the week.</li>
+    <li>Biggest single loss in R. Was it bigger than planned? Why?</li>
+    <li>One thing to do differently, written down.</li>
+  </ul>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; weekly log review</span><button class="copy" type="button">Copy</button></div>
+<pre>Here is my paper trading log for this week:
+
+[PASTE YOUR ROWS]
+
+Calculate and show me:
+- Number of trades
+- Win rate
+- Average win in R and average loss in R
+- Expectancy per trade in R
+- Rule adherence rate (percentage marked Y)
+- Largest single loss in R
+
+Then tell me the single biggest problem visible in this data, and what
+specifically I should change next week.
+
+Do not congratulate me. If the sample is too small to conclude anything,
+say that instead of finding a pattern.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; compare your hands to the backtest</span><button class="copy" type="button">Copy</button></div>
+<pre>My backtest of this strategy produced these results:
+[PASTE BACKTEST SUMMARY]
+
+My real paper trading of the same strategy produced these:
+[PASTE PAPER SUMMARY]
+
+1. How big is the gap, and which direction?
+2. Is the gap explained by execution (my timing, my fills) or by me not
+   following the rules?
+3. Which specific trades in my log would the backtest never have taken?
+4. What does this tell me about whether I should be the one executing
+   this, or whether it should eventually be automated?</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; when you broke your own rules</span><button class="copy" type="button">Copy</button></div>
+<pre>I broke my own trading rule today. Here is what happened:
+
+[DESCRIBE THE TRADE AND WHAT RULE YOU BROKE AND WHY]
+
+1. What was the actual trigger? (fear of missing out, wanting to make back
+   a loss, boredom, overconfidence after a win, something else)
+2. Is this the same trigger as last time? Here are my past notes:
+   [PASTE OR WRITE NONE]
+3. What is one specific, mechanical change that would make breaking this
+   rule harder next time? Not "be more disciplined." Something concrete.</pre>
+  </div>
+
+  <div class="gate" id="g5" data-gate="5">
+    <div class="gate-top"><span class="gate-n">Checkpoint</span><span class="gate-h">Gate 5</span><span class="gate-stat" data-gatestat="5">0 of 4</span></div>
+    <div class="gate-body">
+      <ul class="check" data-gatelist="5">
+        <li><label><input type="checkbox" data-k="g5a"><span>40 or more paper trades completed and fully logged</span></label></li>
+        <li><label><input type="checkbox" data-k="g5b"><span>Six weeks of Sunday reviews written down</span></label></li>
+        <li><label><input type="checkbox" data-k="g5c"><span>Summary calculated: win rate, average win in R, average loss in R, total R, biggest drawdown, rule adherence percentage</span></label></li>
+        <li><label><input type="checkbox" data-k="g5d"><span>The Strategy One Pager did not change during the 40 trades</span></label></li>
+      </ul>
+    </div>
+    <div class="gate-lock" data-gatelock="5">The go or no go decision unlocks when all four are done.</div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="decision">
+  <p class="kicker">End of week 14</p>
+  <h2>Go or no go</h2>
+  <p class="dek">Fund the $1,000 only if all five are true. Not four. Five.</p>
+
+  <ul class="check" data-gatelist="d">
+    <li><label><input type="checkbox" data-k="d1"><span><strong>40 or more</strong> paper trades completed and logged</span></label></li>
+    <li><label><input type="checkbox" data-k="d2"><span><strong>Total R is positive</strong> across the whole sample</span></label></li>
+    <li><label><input type="checkbox" data-k="d3"><span><strong>Rule adherence is 90% or higher.</strong> Not negotiable</span></label></li>
+    <li><label><input type="checkbox" data-k="d4"><span><strong>The biggest single loss</strong> did not exceed the planned maximum</span></label></li>
+    <li><label><input type="checkbox" data-k="d5"><span><strong>The Strategy One Pager never changed</strong> during the sample</span></label></li>
+  </ul>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; the final review</span><button class="copy" type="button">Copy</button></div>
+<pre>I have finished 40+ paper trades. Here is my full log:
+
+[PASTE THE WHOLE LOG]
+
+Here is my strategy:
+
+[PASTE THE ONE PAGER]
+
+Here is my out of sample backtest result:
+
+[PASTE IT]
+
+Evaluate whether I should fund a real $1,000 account, against these five
+criteria:
+1. 40 or more trades logged
+2. Total R positive across the sample
+3. Rule adherence 90% or higher
+4. Largest single loss did not exceed my planned maximum
+5. The strategy did not change during the sample
+
+Give me a clear yes or no on each, then an overall verdict.
+If the answer is no, tell me exactly what to fix and how long another
+cycle should take.
+
+Be the person who tells me the truth, not the person who tells me what I
+want to hear.</pre>
+  </div>
+
+  <h3>If any of them fail</h3>
+  <p>Another paper cycle. Not real money. Nothing is lost by waiting, because the strategy is either real or it is not, and another six weeks will tell you which. The market is not going anywhere.</p>
+
+  <h3>If all five pass</h3>
+  <p>Fund $1,000. Same strategy, same rules, 1% risk per trade. Treat the first 40 live trades as a third test, not as the payoff.</p>
+
+  <div class="warn">
+    <p class="warn-l">Expect live results to be worse</p>
+    <p>They always are. Paper accounts do not simulate slippage, bad fills, or what it feels like to watch real money move. A strategy that made +8R on paper might make +2R live, or nothing. That gap is normal and it is not a sign you did something wrong. Plan for it instead of being surprised by it.</p>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="beforemoney">
+  <p class="kicker">Admin</p>
+  <h2>Before you spend a dollar</h2>
+
+  <ul class="check" data-gatelist="b">
+    <li><label><input type="checkbox" data-k="b1"><span>Confirmed with the tax preparer that this is a <strong>personal</strong> account, not a business one</span></label></li>
+    <li><label><input type="checkbox" data-k="b2"><span>Confirmed the broker is US regulated and accepts US retail clients</span></label></li>
+    <li><label><input type="checkbox" data-k="b3"><span>Confirmed the instrument is legal to trade from the US, no CFDs</span></label></li>
+    <li><label><input type="checkbox" data-k="b4"><span>Confirmed the Pattern Day Trader rule does not apply to my account type</span></label></li>
+    <li><label><input type="checkbox" data-k="b5"><span>Understood the tax reporting: every trade is reportable, short term capital gains rates apply, wash sale rules apply</span></label></li>
+  </ul>
+
+  <div class="note">
+    <p class="note-l">On taxes</p>
+    <p>Every single trade is a reportable transaction. Forty trades means forty lines on a tax form. Profits held under a year are taxed at ordinary income rates, not the lower long term rate. There is also a wash sale rule that can disallow losses if you rebuy the same thing within 30 days. None of this is a reason not to trade. It is a reason to tell your tax preparer before you start, not in April.</p>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="p6">
+  <div class="phase-head opt">
+    <p class="kicker">Phase 6 &middot; Optional &middot; After everything above</p>
+    <h2>Automate it</h2>
+  </div>
+  <p class="dek">The thing you wanted from the start. Here is why it comes last, and how to do it without wrecking anything.</p>
+
+  <h3>You already wrote the bot</h3>
+  <p>Your Strategy One Pager is the specification. Your backtest script already contains the logic. What is left is connecting that logic to a live broker and adding safety rails. That is the smallest part of this project, and it is only small because you did everything else first.</p>
+
+  <div class="warn">
+    <p class="warn-l">The rule that governs this entire phase</p>
+    <p><strong>The bot earns its own 40 paper trades before it touches real money.</strong> Same standard you had to meet. A bot is a brand new trader with no track record, and the fact that you tested the strategy by hand does not transfer. Code has bugs. Your hands did not.</p>
+  </div>
+
+  <h3>What a bot needs that a human does not</h3>
+  <ol>
+    <li><strong>A kill switch.</strong> One command that closes everything and stops trading. Test it before you need it.</li>
+    <li><strong>A daily loss limit enforced in code.</strong> Not in your willpower. The bot stops itself and does not restart until you restart it.</li>
+    <li><strong>A maximum position check</strong> that refuses to place an order bigger than your rules allow, no matter what the logic says.</li>
+    <li><strong>Logging of every decision</strong>, including the trades it decided not to take. When something goes wrong you need to know why.</li>
+    <li><strong>A heartbeat.</strong> Something that tells you it is alive and connected. Silent failure is the worst failure.</li>
+    <li><strong>An answer for disconnection.</strong> What happens if your internet drops with a position open? Decide before it happens.</li>
+  </ol>
+
+  <h3>No set and forget</h3>
+  <p>Even people running successful bots watch and adjust them. A bot left alone for two days in fast conditions can run into its stop loss because the market changed underneath it. Automation removes the emotion, not the responsibility.</p>
+
+  <h3>Why there is no code on this page</h3>
+  <div class="note">
+    <p class="note-l">On purpose</p>
+    <p>Broker APIs change frequently. Anything written today would be out of date by the time you get here, and debugging stale code is worse than writing fresh code. More importantly, the right code depends on whether you chose stocks or futures, which you did not decide until Gate 2.</p>
+    <p style="margin-top:10px">So instead: the prompts below generate current code against whatever the API looks like on the day you need it. Same approach as every other phase.</p>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; build the bot</span><button class="copy" type="button">Copy</button></div>
+<pre>I want to automate a trading strategy I have already tested by hand.
+I am not a programmer. Explain every step and tell me what to install.
+
+MY STRATEGY:
+[PASTE THE ONE PAGER]
+
+MY BACKTEST CODE (the logic already works here):
+[PASTE THE BACKTEST SCRIPT]
+
+MY BROKER: [BROKER NAME]
+MY ACCOUNT TYPE: [cash stock / micro futures]
+
+Build me a live execution script that:
+1. Runs in PAPER MODE by default, and requires me to change an obvious
+   setting to go live
+2. Applies my strategy rules exactly as the backtest does
+3. Has a hard daily loss limit that stops all trading when hit
+4. Has a maximum position size check that refuses oversized orders
+5. Has a kill switch command that flattens everything and stops
+6. Logs every decision, including trades it chose NOT to take
+7. Alerts me if it loses connection or stops running
+
+Before the code: list every safety risk in what I have asked for.
+After the code: tell me exactly how to test the kill switch first.
+
+Check the current API documentation before writing anything, because
+these change often.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; audit the bot before it runs</span><button class="copy" type="button">Copy</button></div>
+<pre>Here is my live trading bot code:
+[PASTE THE CODE]
+
+And here is the strategy it is supposed to follow:
+[PASTE THE ONE PAGER]
+
+Act as a code reviewer whose only job is to find the thing that empties
+my account.
+
+1. Where could this place an order larger than my rules allow?
+2. Where could it place duplicate or repeated orders?
+3. What happens if it loses connection with a position open?
+4. What happens if the broker rejects an order? Does it retry forever?
+5. Could it ever add to a losing position, even accidentally?
+6. Is the paper/live switch obvious enough that I cannot flip it by
+   accident?
+7. What is the worst case loss in a single day if everything goes wrong
+   at once?
+
+Assume I will run this unattended. Find the failure I have not thought of.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; did the bot match my hands?</span><button class="copy" type="button">Copy</button></div>
+<pre>My bot has now completed 40 paper trades. Here is its log:
+[PASTE BOT LOG]
+
+Here is my own manual paper trading log of the same strategy:
+[PASTE YOUR LOG]
+
+And my backtest results:
+[PASTE BACKTEST]
+
+1. Do all three roughly agree? Where do they diverge?
+2. If the bot differs from the backtest, is that a code bug or a real
+   world execution difference?
+3. If the bot differs from my hands, which one was following the rules?
+4. Is this bot ready for real money, or is something unexplained?
+
+Do not tell me it looks good unless the numbers actually agree.</pre>
+  </div>
+
+  <div class="gate opt" id="g6" data-gate="6">
+    <div class="gate-top"><span class="gate-n">Optional checkpoint</span><span class="gate-h">Gate 6</span><span class="gate-stat" data-gatestat="6">0 of 6</span></div>
+    <div class="gate-body">
+      <ul class="check" data-gatelist="6">
+        <li><label><input type="checkbox" data-k="g6a"><span>Bot written and running in <strong>paper mode</strong></span></label></li>
+        <li><label><input type="checkbox" data-k="g6b"><span>Kill switch tested and confirmed working, before anything else</span></label></li>
+        <li><label><input type="checkbox" data-k="g6c"><span>Daily loss limit and max position size enforced in code, and tested</span></label></li>
+        <li><label><input type="checkbox" data-k="g6d"><span>Code audited for the failure modes, and the findings fixed</span></label></li>
+        <li><label><input type="checkbox" data-k="g6e"><span><strong>Bot completed its own 40 paper trades</strong></span></label></li>
+        <li><label><input type="checkbox" data-k="g6f"><span>Bot results, my manual results, and the backtest all roughly agree, and I can explain any gap</span></label></li>
+      </ul>
+    </div>
+    <div class="gate-lock" data-gatelock="6">If you get here, bring your one pager, your logs, and your code to Imani before going live.</div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="time">
+  <p class="kicker">Honest accounting</p>
+  <h2>What this costs you in time</h2>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>Phase</th><th>Time</th><th>Spread over</th></tr></thead>
+    <tbody>
+      <tr><td>Phase 0 &middot; Reality check</td><td>About 1 hour</td><td>One sitting</td></tr>
+      <tr><td>Phase 1 &middot; Foundation</td><td>About 6 hours</td><td>2 weeks</td></tr>
+      <tr><td>Phase 2 &middot; Chart language</td><td>About 12 hours</td><td>3 weeks</td></tr>
+      <tr><td>Phase 3 &middot; The spec</td><td>About 10 hours</td><td>2 weeks</td></tr>
+      <tr><td>Phase 4 &middot; Backtest</td><td>About 5 hours</td><td>1 week</td></tr>
+      <tr><td>Phase 5 &middot; Paper trade</td><td>45 to 60 min per trading day, plus 30 min Sunday</td><td>6 weeks</td></tr>
+      <tr><td>Phase 6 &middot; Automate</td><td>Optional, open ended</td><td>After everything</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Roughly <strong>34 hours of work</strong> and <strong>six weeks of daily practice</strong> before any money is at risk.</p>
+  <p>If that is not realistic right now, that is a completely valid answer. It is far cheaper to find that out on day one than at Gate 5.</p>
+</section>
+
+<hr class="div">
+
+<section id="prompts">
+  <p class="kicker">Reference</p>
+  <h2>All the AI prompts</h2>
+  <p class="dek">Every prompt from this plan in one place. Works in Claude or ChatGPT.</p>
+
+  <div class="note">
+    <p class="note-l">Why these are written the way they are</p>
+    <p>AI tools default to being encouraging. That is exactly wrong for this. Every prompt here explicitly asks for failure modes, holes, and disagreement, because an assistant that tells you your strategy looks great is worse than no assistant at all.</p>
+  </div>
+
+  <h3>Learning</h3>
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Understand a concept, then break it</span><button class="copy" type="button">Copy</button></div>
+<pre>I just learned this concept in a day trading course:
+
+[PASTE YOUR NOTES HERE]
+
+Do three things:
+1. Explain it back to me in plain language, like I am 14.
+2. Give me three specific situations where this concept fails or gives a
+   false signal.
+3. Tell me what a beginner most commonly gets wrong about it.
+
+Do not tell me it works well. I want the failure modes.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Define a term simply</span><button class="copy" type="button">Copy</button></div>
+<pre>Explain "[TERM]" to me like I am 14 years old and have never traded.
+
+Then give me a concrete example with real numbers.
+Then tell me why a trader would care about it.
+
+Keep it under 200 words.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Turn notes into testable rules</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are my notes on a chart pattern or setup:
+
+[PASTE NOTES]
+
+Rewrite this as a list of if/then rules that are specific enough that
+someone could follow them without making a judgment call.
+
+Then flag every single place where my notes still require a judgment call
+I have not defined. List those separately as "undefined decisions."</pre>
+  </div>
+
+  <h3>Safety checks</h3>
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Is this product a scam?</span><button class="copy" type="button">Copy</button></div>
+<pre>I saw a product or video promoting an AI trading bot. Here is what it
+claims:
+
+[PASTE THE CLAIMS, OR DESCRIBE THE VIDEO]
+
+1. What level of "AI" is this actually, on a scale from a plain script
+   with AI branding up to a genuine machine learning system?
+2. What evidence would exist if the claims were true, and is any of it
+   present?
+3. What is the actual business model here? Are they making money trading,
+   or from selling me something?
+4. List every marketing red flag present.
+5. Would this survive an out of sample test, or does it look overfitted?
+
+Assume it is oversold until proven otherwise.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">The averaging down check</span><button class="copy" type="button">Copy</button></div>
+<pre>A trading course teaches a technique it describes like this:
+
+[PASTE THE COURSE'S OWN DESCRIPTION AND YOUR NOTES]
+
+Answer these directly:
+1. Mechanically, what is this technique actually doing?
+2. Does it ever increase position size on a trade that is currently
+   losing? Yes or no, and quote the part that tells you.
+3. If yes, what category of strategy is this (averaging down, martingale,
+   grid, recovery)?
+4. What is the historical failure mode of that category? Be specific about
+   how accounts get wiped out using it.
+5. If no, explain what it is doing instead and why that is different.
+
+Do not soften your answer.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Check a broker before signing up</span><button class="copy" type="button">Copy</button></div>
+<pre>I am a US resident and I want to open a small trading account with about
+$1,000. A course recommended [BROKER NAME] trading [INSTRUMENT] on
+[PLATFORM].
+
+Tell me:
+1. Is this broker regulated in the US and does it accept US retail clients?
+2. Is the instrument a CFD? If yes, explain why US retail clients cannot
+   legally use it.
+3. What is the closest legal US equivalent instrument and account type?
+4. Does the Pattern Day Trader rule apply to that account type?
+
+Be specific and tell me if you are unsure about anything.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Translate a setup to something legal in the US</span><button class="copy" type="button">Copy</button></div>
+<pre>A course teaches a day trading strategy on [INSTRUMENT] using [PLATFORM]
+through a broker offering [LEVERAGE].
+
+I am a US resident and cannot use CFDs.
+
+1. What is the closest instrument I can legally trade in the US that moves
+   the same way?
+2. What is the contract size, tick value, and typical margin requirement?
+3. If my max risk per trade is $10, what position size does that allow, and
+   is that even possible with the smallest available contract?
+4. What changes about the strategy when I make this switch?
+
+Show your math.</pre>
+  </div>
+
+  <h3>Strategy</h3>
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Choose your account type</span><button class="copy" type="button">Copy</button></div>
+<pre>I am a US resident with $1,000 to open a trading account. I plan to day
+trade, meaning I open and close positions on the same day.
+
+Compare these two options for me:
+A) A cash stock brokerage account
+B) A micro futures account
+
+For each one cover: whether the Pattern Day Trader rule applies, how many
+trades per week I can realistically make with $1,000, what a typical single
+trade risks, what the main danger is, and what it costs.
+
+Then tell me which you would pick for someone learning, and why.
+End with the strongest argument against your own pick.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Stress test the spec</span><button class="copy" type="button">Copy</button></div>
+<pre>Here is my trading strategy:
+
+[PASTE YOUR COMPLETED ONE PAGER]
+
+Act as a skeptical risk manager who has seen a lot of accounts blow up.
+
+1. Find every ambiguity and every undefined term.
+2. List every scenario my rules do not cover.
+3. Describe the specific market conditions where this strategy would lose
+   repeatedly, and estimate how many losses in a row are plausible.
+4. Tell me the single biggest hole.
+5. Tell me whether this is specific enough that a computer program could
+   follow it with no human judgment. Point at every line that is not.
+
+Do not be encouraging. I need this picked apart now rather than later.</pre>
+  </div>
+
+  <h3>Backtesting</h3>
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Write my backtest</span><button class="copy" type="button">Copy</button></div>
+<pre>I want to backtest a day trading strategy. I am not a programmer, so
+explain each step and tell me exactly what to install and run.
+
+MY STRATEGY:
+[PASTE YOUR STRATEGY ONE PAGER]
+
+DATA: I want to test [INSTRUMENT] on the [TIMEFRAME] chart, using the
+years [IN-SAMPLE YEARS].
+
+Write me a Python script that:
+1. Downloads the historical data
+2. Applies my entry, stop, target, and position sizing rules exactly
+3. Assumes I risk 1% per trade
+4. Outputs: number of trades, win rate, average win in R, average loss
+   in R, total R, expectancy per trade, largest losing streak, and
+   largest drawdown
+5. Saves every simulated trade to a CSV so I can inspect them
+
+Before the code, list every assumption you had to make because my
+strategy was not specific enough. I need to fix those.
+
+After the code, tell me in plain English exactly what to type to run it.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Check the code matches the strategy</span><button class="copy" type="button">Copy</button></div>
+<pre>Here is my written strategy:
+[PASTE ONE PAGER]
+
+Here is the backtest code you wrote:
+[PASTE THE CODE]
+
+Go through the code line by line and tell me in plain English what it is
+doing at each step.
+
+Then answer:
+1. Where does the code NOT match what I wrote?
+2. Is it accidentally using data it would not have had at the time? (this
+   is called lookahead bias, and it fakes good results)
+3. Does it account for the spread and realistic fills, or is it assuming
+   perfect prices?
+4. What would make these results look better than reality?</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">The out of sample verdict</span><button class="copy" type="button">Copy</button></div>
+<pre>I built and adjusted my strategy using data from [IN-SAMPLE YEARS].
+Here were those results:
+[PASTE IN-SAMPLE RESULTS]
+
+I then ran it once on [OUT-OF-SAMPLE YEARS], which I had never looked at.
+Here are those results:
+[PASTE OUT-OF-SAMPLE RESULTS]
+
+1. How much worse did it get, and is that gap normal or alarming?
+2. Does this look overfitted? Explain what specifically tells you that.
+3. Based only on the out of sample numbers, is this strategy worth paper
+   trading with my hands for six weeks?
+4. If no, is the honest answer to fix it or to abandon it?
+
+Do not be encouraging. Tell me if I found noise.</pre>
+  </div>
+
+  <h3>Practice and review</h3>
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Weekly log review</span><button class="copy" type="button">Copy</button></div>
+<pre>Here is my paper trading log for this week:
+
+[PASTE YOUR ROWS]
+
+Calculate and show me:
+- Number of trades
+- Win rate
+- Average win in R and average loss in R
+- Expectancy per trade in R
+- Rule adherence rate (percentage marked Y)
+- Largest single loss in R
+
+Then tell me the single biggest problem visible in this data, and what
+specifically I should change next week.
+
+Do not congratulate me. If the sample is too small to conclude anything,
+say that instead of finding a pattern.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Overall progress check</span><button class="copy" type="button">Copy</button></div>
+<pre>Here is my trading progress so far.
+
+MY STRATEGY:
+[PASTE THE CURRENT ONE PAGER]
+
+MY TRADE LOG:
+[PASTE OR EXPORT YOUR TRADES]
+
+MY LAST FEW WEEKLY REVIEWS:
+[PASTE THEM]
+
+Act as a coach who has no interest in making me feel good.
+
+1. What is actually improving, and what is not?
+2. Am I repeating the same mistake? Name it.
+3. Is my strategy quietly drifting from what I wrote down?
+4. What single change would help most in the next two weeks?
+
+Be direct. If the data is too thin to say anything, say that.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Compare your hands to the backtest</span><button class="copy" type="button">Copy</button></div>
+<pre>My backtest of this strategy produced these results:
+[PASTE BACKTEST SUMMARY]
+
+My real paper trading of the same strategy produced these:
+[PASTE PAPER SUMMARY]
+
+1. How big is the gap, and which direction?
+2. Is the gap explained by execution (my timing, my fills) or by me not
+   following the rules?
+3. Which specific trades in my log would the backtest never have taken?
+4. What does this tell me about whether I should be the one executing
+   this, or whether it should eventually be automated?</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">After breaking your own rules</span><button class="copy" type="button">Copy</button></div>
+<pre>I broke my own trading rule today. Here is what happened:
+
+[DESCRIBE THE TRADE AND WHAT RULE YOU BROKE AND WHY]
+
+1. What was the actual trigger? (fear of missing out, wanting to make back
+   a loss, boredom, overconfidence after a win, something else)
+2. Is this the same trigger as last time? Here are my past notes:
+   [PASTE OR WRITE NONE]
+3. What is one specific, mechanical change that would make breaking this
+   rule harder next time? Not "be more disciplined." Something concrete.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Position sizing math</span><button class="copy" type="button">Copy</button></div>
+<pre>My account is $[AMOUNT]. My maximum risk per trade is 1%.
+
+My entry price is [PRICE].
+My stop price is [PRICE].
+I am trading [INSTRUMENT].
+
+Calculate my correct position size and show every step of the math.
+Then tell me if the smallest tradeable size already risks more than my
+limit, because if so I need to skip this trade.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">The final go or no go review</span><button class="copy" type="button">Copy</button></div>
+<pre>I have finished 40+ paper trades. Here is my full log:
+
+[PASTE THE WHOLE LOG]
+
+Here is my strategy:
+
+[PASTE THE ONE PAGER]
+
+Here is my out of sample backtest result:
+
+[PASTE IT]
+
+Evaluate whether I should fund a real $1,000 account, against these five
+criteria:
+1. 40 or more trades logged
+2. Total R positive across the sample
+3. Rule adherence 90% or higher
+4. Largest single loss did not exceed my planned maximum
+5. The strategy did not change during the sample
+
+Give me a clear yes or no on each, then an overall verdict.
+If the answer is no, tell me exactly what to fix and how long another
+cycle should take.
+
+Be the person who tells me the truth, not the person who tells me what I
+want to hear.</pre>
+  </div>
+
+  <h3>Automation</h3>
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Build the bot</span><button class="copy" type="button">Copy</button></div>
+<pre>I want to automate a trading strategy I have already tested by hand.
+I am not a programmer. Explain every step and tell me what to install.
+
+MY STRATEGY:
+[PASTE THE ONE PAGER]
+
+MY BACKTEST CODE (the logic already works here):
+[PASTE THE BACKTEST SCRIPT]
+
+MY BROKER: [BROKER NAME]
+MY ACCOUNT TYPE: [cash stock / micro futures]
+
+Build me a live execution script that:
+1. Runs in PAPER MODE by default, and requires me to change an obvious
+   setting to go live
+2. Applies my strategy rules exactly as the backtest does
+3. Has a hard daily loss limit that stops all trading when hit
+4. Has a maximum position size check that refuses oversized orders
+5. Has a kill switch command that flattens everything and stops
+6. Logs every decision, including trades it chose NOT to take
+7. Alerts me if it loses connection or stops running
+
+Before the code: list every safety risk in what I have asked for.
+After the code: tell me exactly how to test the kill switch first.
+
+Check the current API documentation before writing anything, because
+these change often.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Audit the bot before it runs</span><button class="copy" type="button">Copy</button></div>
+<pre>Here is my live trading bot code:
+[PASTE THE CODE]
+
+And here is the strategy it is supposed to follow:
+[PASTE THE ONE PAGER]
+
+Act as a code reviewer whose only job is to find the thing that empties
+my account.
+
+1. Where could this place an order larger than my rules allow?
+2. Where could it place duplicate or repeated orders?
+3. What happens if it loses connection with a position open?
+4. What happens if the broker rejects an order? Does it retry forever?
+5. Could it ever add to a losing position, even accidentally?
+6. Is the paper/live switch obvious enough that I cannot flip it by
+   accident?
+7. What is the worst case loss in a single day if everything goes wrong
+   at once?
+
+Assume I will run this unattended. Find the failure I have not thought of.</pre>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Did the bot match my hands?</span><button class="copy" type="button">Copy</button></div>
+<pre>My bot has now completed 40 paper trades. Here is its log:
+[PASTE BOT LOG]
+
+Here is my own manual paper trading log of the same strategy:
+[PASTE YOUR LOG]
+
+And my backtest results:
+[PASTE BACKTEST]
+
+1. Do all three roughly agree? Where do they diverge?
+2. If the bot differs from the backtest, is that a code bug or a real
+   world execution difference?
+3. If the bot differs from my hands, which one was following the rules?
+4. Is this bot ready for real money, or is something unexplained?
+
+Do not tell me it looks good unless the numbers actually agree.</pre>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="glossary">
+  <p class="kicker">Reference</p>
+  <h2>Plain English glossary</h2>
+  <p class="dek">Every term in this plan, explained once.</p>
+
+  <div class="gl"><div class="gl-t">Day trade</div><p>Buying and selling the same thing on the same day, so you hold nothing overnight.</p></div>
+  <div class="gl"><div class="gl-t">Paper trading</div><p>A free practice account that uses real market prices and fake money. Everything works the same except nothing is at risk.</p></div>
+  <div class="gl"><div class="gl-t">Backtest</div><p>Running your strategy against past price data to see what would have happened. Fast, free, and easy to fool yourself with.</p></div>
+  <div class="gl"><div class="gl-t">Overfitting</div><p>When a strategy is tuned so tightly to past data that it memorized random noise instead of finding a real pattern. Looks brilliant on old data and falls apart on new data. The cause of most fake results.</p></div>
+  <div class="gl"><div class="gl-t">In sample and out of sample</div><p>Splitting your history in two. You build and adjust on the first part, in sample, and never look at the second part, out of sample, until you are finished. The out of sample result is the honest one.</p></div>
+  <div class="gl"><div class="gl-t">Lookahead bias</div><p>A bug where a backtest accidentally uses information that would not have existed yet at that moment. Makes results look far better than reality.</p></div>
+  <div class="gl"><div class="gl-t">Position size</div><p>How many shares or contracts you buy. Calculated from your stop distance and your risk limit, never from a gut feeling.</p></div>
+  <div class="gl"><div class="gl-t">Stop (stop loss)</div><p>An order that automatically closes your trade at a set price so a loss cannot keep growing. You decide where it goes before you enter.</p></div>
+  <div class="gl"><div class="gl-t">R</div><p>The amount you risked on a trade. Risk $10 and make $20, that is +2R. Risk $10 and lose it, that is -1R. The only fair way to compare trades of different sizes.</p></div>
+  <div class="gl"><div class="gl-t">Expectancy</div><p>The average amount you make or lose per trade, measured in R. Positive expectancy means the strategy makes money over many trades. The number that matters most.</p></div>
+  <div class="gl"><div class="gl-t">Drawdown</div><p>How far your account fell from its highest point before recovering. It tells you how bad the worst stretch felt.</p></div>
+  <div class="gl"><div class="gl-t">Margin account</div><p>A brokerage account that lets you borrow money to trade. The account type the Pattern Day Trader rule applies to.</p></div>
+  <div class="gl"><div class="gl-t">Cash account</div><p>A brokerage account with no borrowing. No Pattern Day Trader rule, but money from a sale takes a day to settle before you can use it again.</p></div>
+  <div class="gl"><div class="gl-t">Pattern Day Trader (PDT) rule</div><p>A US regulation. Make 4 or more day trades in 5 business days in a margin account and you need $25,000 to keep going. Does not apply to cash accounts, futures, or crypto.</p></div>
+  <div class="gl"><div class="gl-t">Settlement (T+1)</div><p>After you sell, the money takes one business day to become usable again. What limits how often a small cash account can trade.</p></div>
+  <div class="gl"><div class="gl-t">Leverage</div><p>Controlling a large position with a small amount of money. Multiplies gains and losses equally. The reason small accounts disappear quickly.</p></div>
+  <div class="gl"><div class="gl-t">CFD</div><p>Contract for Difference. A product that mimics an asset's price without owning it. Common overseas, and not legal for US retail customers.</p></div>
+  <div class="gl"><div class="gl-t">Micro E-mini futures</div><p>Small futures contracts, MYM for the Dow and MES for the S&amp;P 500, designed for smaller accounts. Legal in the US, no PDT rule.</p></div>
+  <div class="gl"><div class="gl-t">Averaging down</div><p>Buying more of something as it moves against you. Makes your win rate look great and is the most common way a small account gets wiped out. Banned in this plan.</p></div>
+  <div class="gl"><div class="gl-t">Slippage</div><p>The gap between the price you expected and the price you actually got. Small but constant, and why live results are worse than paper results.</p></div>
+  <div class="gl"><div class="gl-t">Wash sale rule</div><p>A tax rule. If you sell at a loss and buy the same thing back within 30 days, you may not be able to claim the loss that year.</p></div>
+  <div class="gl"><div class="gl-t">Breakout</div><p>When a price pushes past a level it has been stuck under or above, often leading to a fast move in that direction.</p></div>
+  <div class="gl"><div class="gl-t">Support and resistance</div><p>Price levels where buying or selling has repeatedly stopped a move. Traders use them to decide where to enter and where to put stops.</p></div>
+  <div class="gl"><div class="gl-t">API</div><p>The connection that lets a program talk to your broker directly, placing orders without a human clicking anything. What a bot runs on.</p></div>
+  <div class="gl"><div class="gl-t">Kill switch</div><p>A single command that closes every position and stops the bot immediately. The first thing you build and the first thing you test.</p></div>
+</section>
+
+<footer>
+  <div>
+    <p><strong>Educational only.</strong> Nothing on this page is investment, legal, or tax advice. Trading involves real risk of loss, and most people who day trade lose money. Confirm account structure and tax treatment with a qualified professional before funding anything.</p>
+    <p style="margin-top:12px">Progress is saved in this browser only. Clearing browser data will reset it.</p>
+  </div>
+</footer>
+
+</div>
+</main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var KEY="tp90.v2", store={};
+  function load(){ try{var r=localStorage.getItem(KEY); if(r) store=JSON.parse(r)||{};}catch(e){store={};} }
+  function save(){ try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){} }
+
+  var boxes=Array.prototype.slice.call(document.querySelectorAll('.check input[type=checkbox]'));
+  document.querySelectorAll('[data-gatelock]').forEach(function(l){ l.setAttribute('data-orig',l.textContent); });
+
+  function refresh(){
+    document.querySelectorAll('[data-gatelist]').forEach(function(list){
+      var id=list.getAttribute('data-gatelist');
+      var items=list.querySelectorAll('input[type=checkbox]');
+      var done=list.querySelectorAll('input[type=checkbox]:checked').length;
+      var full=(items.length>0 && done===items.length);
+
+      var stat=document.querySelector('[data-gatestat="'+id+'"]');
+      if(stat) stat.textContent=done+' of '+items.length;
+
+      var gate=document.querySelector('[data-gate="'+id+'"]');
+      if(gate) gate.classList.toggle('clear',full);
+
+      var lock=document.querySelector('[data-gatelock="'+id+'"]');
+      if(lock) lock.textContent = full ? 'Gate clear. Move on.' : lock.getAttribute('data-orig');
+
+      var m=document.querySelector('[data-gatemap="'+id+'"]');
+      if(m){
+        m.classList.toggle('done',full);
+        var ms=document.querySelector('[data-gatemapstat="'+id+'"]');
+        if(ms) ms.textContent = full ? 'Clear' : (done+'/'+items.length);
+      }
+    });
+
+    var total=boxes.length, done=boxes.filter(function(b){return b.checked;}).length;
+    var pct= total? Math.round(done/total*100):0;
+    var f=document.getElementById('progFill'); if(f) f.style.width=pct+'%';
+    var t=document.getElementById('progText'); if(t) t.textContent=done+' of '+total+' steps';
+    var bp=document.getElementById('barPct'); if(bp) bp.textContent=pct+'%';
+  }
+
+  load();
+  boxes.forEach(function(b){
+    var k=b.getAttribute('data-k');
+    if(store[k]) b.checked=true;
+    b.addEventListener('change',function(){
+      if(b.checked) store[k]=true; else delete store[k];
+      save(); refresh();
+    });
+  });
+  refresh();
+
+  var rst=document.getElementById('reset');
+  if(rst) rst.addEventListener('click',function(){
+    if(!confirm('Clear every checkbox on this page? This cannot be undone.')) return;
+    store={}; save();
+    boxes.forEach(function(b){ b.checked=false; });
+    refresh();
+  });
+
+  document.querySelectorAll('.prompt').forEach(function(card){
+    var btn=card.querySelector('.copy'), pre=card.querySelector('pre');
+    if(!btn||!pre) return;
+    btn.addEventListener('click',function(){
+      var text=pre.textContent;
+      function done(){
+        var old=btn.textContent;
+        btn.textContent='Copied'; btn.classList.add('ok');
+        setTimeout(function(){ btn.textContent=old; btn.classList.remove('ok'); },1600);
+      }
+      function fallback(){
+        var ta=document.createElement('textarea');
+        ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); done(); }catch(e){ btn.textContent='Select manually'; }
+        document.body.removeChild(ta);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  });
+
+  var nav=document.getElementById('nav'), scrim=document.getElementById('scrim'), burger=document.getElementById('burger');
+  function closeNav(){ nav.classList.remove('open'); scrim.classList.remove('on'); }
+  if(burger) burger.addEventListener('click',function(){ nav.classList.toggle('open'); scrim.classList.toggle('on'); });
+  if(scrim) scrim.addEventListener('click',closeNav);
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',closeNav); });
+
+  var links=Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+  var targets=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var best=0,y=window.scrollY+120;
+    targets.forEach(function(el,i){ if(el && el.offsetTop<=y) best=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i===best); });
+  }
+  window.addEventListener('scroll',spy,{passive:true});
+  spy();
+
+  /* ---- text to speech ---- */
+  var synth = window.speechSynthesis;
+  if(!synth || typeof window.SpeechSynthesisUtterance === 'undefined'){
+    var sp=document.getElementById('speedPanel');
+    if(sp) sp.style.display='none';
+    return;
+  }
+
+  var rate=1, current=null, queue=[], qi=0;
+
+  try{ synth.getVoices(); }catch(e){}
+  if(typeof synth.onvoiceschanged !== 'undefined'){ synth.onvoiceschanged=function(){ try{synth.getVoices();}catch(e){} }; }
+
+  function collect(sec){
+    var parts=[];
+    sec.querySelectorAll('h2,h3,h4,p,li,td').forEach(function(n){
+      if(n.closest('.prompt')) return;
+      if(n.closest('.check')) return;
+      if(n.closest('.speed')) return;
+      if(n.classList.contains('kicker')||n.classList.contains('eyebrow')) return;
+      var t=(n.textContent||'').replace(/\s+/g,' ').trim();
+      if(t) parts.push(t);
+    });
+    return parts.join('. ').replace(/\.\.+/g,'.');
+  }
+
+  function chunk(text){
+    var sentences=text.match(/[^.!?]+[.!?]*/g)||[text];
+    var out=[],buf='';
+    sentences.forEach(function(s){
+      if((buf+s).length>180){ if(buf) out.push(buf.trim()); buf=s; }
+      else buf+=s;
+    });
+    if(buf.trim()) out.push(buf.trim());
+    return out;
+  }
+
+  function stopReading(){
+    try{ synth.cancel(); }catch(e){}
+    queue=[]; qi=0; current=null;
+    document.querySelectorAll('.listen.playing').forEach(function(b){
+      b.classList.remove('playing');
+      var lbl=b.querySelector('.listen-label');
+      if(lbl) lbl.textContent='Listen';
+    });
+  }
+
+  function speakNext(){
+    if(qi>=queue.length){ stopReading(); return; }
+    var u=new SpeechSynthesisUtterance(queue[qi]);
+    u.rate=rate; u.pitch=1;
+    u.onend=function(){ qi++; speakNext(); };
+    u.onerror=function(){ qi++; speakNext(); };
+    try{ synth.speak(u); }catch(e){ stopReading(); }
+  }
+
+  function startReading(btn){
+    var sec=btn.closest('section');
+    if(!sec) return;
+    var text=collect(sec);
+    if(!text) return;
+    queue=chunk(text); qi=0; current=btn;
+    btn.classList.add('playing');
+    var lbl=btn.querySelector('.listen-label');
+    if(lbl) lbl.textContent='Stop';
+    speakNext();
+  }
+
+  document.querySelectorAll('section').forEach(function(sec){
+    var h=sec.querySelector('h2');
+    if(!h) return;
+    var next=h.nextElementSibling;
+    var anchor=(next && next.classList.contains('dek')) ? next : h;
+
+    var btn=document.createElement('button');
+    btn.className='listen';
+    btn.type='button';
+    btn.setAttribute('aria-label','Read this section aloud');
+    btn.innerHTML='<span class="listen-dot"></span><span class="listen-label">Listen</span>';
+    anchor.insertAdjacentElement('afterend',btn);
+
+    btn.addEventListener('click',function(){
+      var wasPlaying=btn.classList.contains('playing');
+      stopReading();
+      if(!wasPlaying) startReading(btn);
+    });
+  });
+
+  var rateSel=document.getElementById('rate');
+  if(rateSel) rateSel.addEventListener('change',function(){
+    rate=parseFloat(rateSel.value)||1;
+    var b=current;
+    if(b){ stopReading(); startReading(b); }
+  });
+
+  var stopBtn=document.getElementById('stopAll');
+  if(stopBtn) stopBtn.addEventListener('click',stopReading);
+  window.addEventListener('beforeunload',function(){ try{synth.cancel();}catch(e){} });
+})();
+</script>
+</body>
+</html>
