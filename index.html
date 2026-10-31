@@ -164,6 +164,16 @@ td.lvl{font-family:var(--mono);font-size:12px;color:var(--pine);white-space:nowr
 .speed button{cursor:pointer;color:var(--ink-soft)}
 .speed button:hover{border-color:var(--rust);color:var(--rust)}
 
+.hero-links{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+.btn{display:inline-block;background:var(--pine);color:#fff;border:1px solid var(--pine);border-radius:6px;padding:9px 15px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-decoration:none;cursor:pointer;line-height:1.3}
+.btn:hover{background:var(--ink);border-color:var(--ink)}
+.btn.ghost{background:var(--raised);color:var(--pine)}
+.btn.ghost:hover{background:var(--pine-soft)}
+.btn:focus-visible{outline:2px solid var(--pine);outline-offset:2px}
+.steps{counter-reset:s;list-style:none;padding:0;max-width:64ch}
+.steps>li{counter-increment:s;position:relative;padding:0 0 14px 40px;margin:0}
+.steps>li::before{content:counter(s);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;background:var(--pine);color:#fff;font-family:var(--mono);font-size:12px;display:flex;align-items:center;justify-content:center}
+.src{font-size:13px;color:var(--ink-faint)}
 footer{border-top:1px solid var(--rule);margin-top:70px;padding:30px 0;font-size:13.5px;color:var(--ink-faint)}
 footer p{max-width:64ch}
 </style>
@@ -184,10 +194,10 @@ footer p{max-width:64ch}
   <p class="nav-sub">Learn first. Test second. Risk last.</p>
 
   <a href="#start">Start here</a>
-  <a href="#listen">Listen instead of reading</a>
+  <a href="#try">Try it with Claude</a>
 
   <p class="nav-group">Before anything else</p>
-  <a href="#p0">0 &middot; What AI trading really is</a>
+  <a href="#p0">0 &middot; What AI trading is</a>
   <a href="#g0" class="sub">Gate 0</a>
   <a href="#rules">The ground rules</a>
   <a href="#money">What $1,000 can do</a>
@@ -206,10 +216,10 @@ footer p{max-width:64ch}
 
   <p class="nav-group">Deciding</p>
   <a href="#decision">Go or no go</a>
-  <a href="#beforemoney">Before you spend</a>
+  <a href="#beforemoney">Before you fund</a>
 
-  <p class="nav-group">Optional</p>
-  <a href="#p6">6 &middot; Automate it</a>
+  <p class="nav-group">The agent</p>
+  <a href="#p6">6 &middot; Build the agent</a>
   <a href="#g6" class="sub">Gate 6</a>
 
   <p class="nav-group">Reference</p>
@@ -225,12 +235,13 @@ footer p{max-width:64ch}
     <p class="eyebrow">A 90 day plan</p>
     <h1>Learn first.<br>Test second.<br>Risk last.</h1>
     <p class="lede">A step by step plan to go from <strong>wanting an AI trading bot</strong> to <strong>having a strategy good enough to put inside one</strong>.</p>
-    <p class="lede">No real money is risked for the first 90 days. Not one dollar. At the end you will have real evidence about whether your method works, and you will still have your money either way.</p>
+    <p class="lede">You risk no real money for the first 90 days. At the end you will know from your own test results whether your method works.</p>
+    <p class="hero-links"><a class="btn" href="trading-plan-quick-guide.pdf" download>Quick guide (PDF)</a> <a class="btn ghost" href="#try">Try it with Claude</a> <button class="btn ghost" type="button" id="playAll">Listen to the whole plan</button></p>
 
     <div class="map">
       <div class="map-head">The route</div>
       <div class="map-row">
-        <div class="map-phase"><div class="map-n">PHASE 0</div><div class="map-t">What AI trading really is</div><div class="map-w">About 1 hour of reading</div></div>
+        <div class="map-phase"><div class="map-n">PHASE 0</div><div class="map-t">What AI trading is</div><div class="map-w">About 1 hour of reading</div></div>
         <div class="map-gate" data-gatemap="0"><div class="map-gate-l">Gate 0</div><div class="map-gate-s" data-gatemapstat="0">Locked</div></div>
       </div>
       <div class="map-row">
@@ -254,7 +265,7 @@ footer p{max-width:64ch}
         <div class="map-gate" data-gatemap="5"><div class="map-gate-l">Gate 5</div><div class="map-gate-s" data-gatemapstat="5">Locked</div></div>
       </div>
       <div class="map-row opt">
-        <div class="map-phase"><div class="map-n">PHASE 6 &middot; OPTIONAL</div><div class="map-t">Automate it</div><div class="map-w">Only after everything above</div></div>
+        <div class="map-phase"><div class="map-n">PHASE 6</div><div class="map-t">Build the YouTube-trained agent</div><div class="map-w">Paper mode any time &middot; live after Gate 5</div></div>
         <div class="map-gate" data-gatemap="6"><div class="map-gate-l">Gate 6</div><div class="map-gate-s" data-gatemapstat="6">Later</div></div>
       </div>
     </div>
@@ -269,156 +280,137 @@ footer p{max-width:64ch}
 
 <div class="wrap">
 
-<section id="start">
+<section id="start" data-audio>
   <p class="kicker">Start here</p>
-  <h2>How this works</h2>
-  <p class="dek">Six phases. Six gates. You do not move forward until the gate is clear.</p>
-
-  <p>A gate is a checkpoint. Each one has a short list of things you must finish. Not "feel ready for." Actually finish, with something written down to prove it. The checkboxes on this page save automatically in your browser, so you can close the tab and come back.</p>
-
-  <h3>Why gates instead of just a schedule</h3>
-  <p>Almost everyone who loses money trading skipped a step. They learned some patterns, felt confident, and put real money down before they had a written rule they had tested. The gates exist to make that skip impossible.</p>
-
-  <h3>Read Phase 0 first, even if you skip everything else</h3>
-  <p>Phase 0 is about what AI trading actually is and is not. It is the shortest section and the most important one, because it decides whether the next three months build something real or chase something that was never there.</p>
+  <h2>How to use this plan</h2>
+  <p>This guide walks you through a step by step process, from learning the basics to testing a trading bot with paper money. Each phase ends in a gate: a short checklist of work to finish, in writing, before the next phase. The checkboxes save in your browser, so you can close the tab and come back.</p>
+  <p>Every section has a "Listen" button that plays a narrated version of it. To try the YouTube-to-bot build in paper mode first, start with <a href="#try">Try it with Claude</a>.</p>
 </section>
 
 <hr class="div">
 
-<section id="listen">
-  <p class="kicker">Accessibility</p>
-  <h2>Listen instead of reading</h2>
-  <p class="dek">Two ways. One is built into this page. The other sounds better.</p>
+<section id="try" data-audio>
+  <p class="kicker">Fast path &middot; paper money only</p>
+  <h2>Try it with Claude</h2>
+  <p class="dek">Claude Code, inside the Claude desktop app, installs the tools, pulls a video's transcript, writes and backtests the rules, and runs them in a paper account.</p>
 
-  <h3>Built in</h3>
-  <p>Every section below has a Listen button next to its heading. It reads the writing out loud and skips the prompt boxes and checklists, since those are not useful as audio. Set the speed here.</p>
+  <p>This is the Phase 6 build in its shortest form. It answers one question: does the strategy in this video pass a backtest and a paper test? Real money still waits for the go or no go gate.</p>
 
-  <div class="speed" id="speedPanel">
-    <span>Reading speed</span>
-    <select id="rate" aria-label="Reading speed">
-      <option value="0.85">Slower</option>
-      <option value="1" selected>Normal</option>
-      <option value="1.25">Faster</option>
-      <option value="1.5">Fastest</option>
-    </select>
-    <button id="stopAll" type="button">Stop reading</button>
+  <h3>What you need</h3>
+  <ul>
+    <li>A Mac with macOS 13 or later, or a Windows 10 (version 1809 or later) or Windows 11 PC.</li>
+    <li>A Claude Pro plan, $20 a month. Claude Code is not included in the free plan.</li>
+    <li>A free Alpaca paper trading account, which needs only an email address.</li>
+    <li>A link to one YouTube video that teaches a day trading strategy with a clear entry, stop and target.</li>
+    <li>About two hours for setup and the backtest. The paper test then runs during market hours until it has 40 trades.</li>
+  </ul>
+
+  <h3>Set it up</h3>
+  <ol class="steps">
+    <li><strong>Get Claude Pro.</strong> Sign up or upgrade at <a href="https://claude.com/pricing">claude.com/pricing</a>.</li>
+    <li><strong>Install the desktop app.</strong> Download it from <a href="https://claude.com/download">claude.com/download</a> (Mac, or Windows x64 or ARM64), install it, open it and sign in.</li>
+    <li><strong>Make a project folder.</strong> Create an empty folder named <code>trading-agent</code> in your Documents folder.</li>
+    <li><strong>Add the starter file.</strong> Download <a href="starter/CLAUDE.md" download="CLAUDE.md">CLAUDE.md</a> and save it inside <code>trading-agent</code>. Keep the name <code>CLAUDE.md</code>. Claude reads it at the start of every session, so the steps and safety limits carry over from day to day.</li>
+    <li><strong>Open a Code session.</strong> In the app, click "Code" at the top. In the row under the prompt box, choose a local environment, click the folder control and select <code>trading-agent</code>, and set the permission mode to "Manual" so Claude asks before every change.</li>
+    <li><strong>Paste the start prompt</strong> below, fill in the brackets, and press Enter.</li>
+    <li><strong>Approve each step.</strong> Claude asks before each install and shows each file before saving it. Click to approve, then type "next" when you are ready for the next step.</li>
+    <li><strong>Add your Alpaca keys yourself.</strong> At step 7 Claude asks you to log in at <a href="https://alpaca.markets">alpaca.markets</a>, open the paper trading dashboard, generate API keys and paste them into the <code>.env</code> file it created. Never paste keys into the chat.</li>
+  </ol>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; start the session</span><button class="copy" type="button">Copy</button></div>
+<pre>Read CLAUDE.md in this folder and follow it. I want to test whether a
+day-trading strategy from a YouTube video works, using paper money only.
+
+About me: [I am new to coding / I can read some Python]. My computer is
+[Mac / Windows]. I [have / do not have] a free Alpaca paper account.
+
+Start with step 1. Ask before installing anything, do one step at a time,
+and wait for me to say "next" before each new step.</pre>
   </div>
 
-  <h3>Better voices, no buttons</h3>
-  <p>Your device already has a much better reader built in. These sound noticeably more natural than the one on this page.</p>
-  <ul>
-    <li><strong>Microsoft Edge:</strong> press Ctrl and Shift and U together, or right click the page and choose Read Aloud. The best free voices available.</li>
-    <li><strong>Safari on Mac:</strong> click the page settings icon in the address bar, then Listen to Page.</li>
-    <li><strong>iPhone or iPad:</strong> open the Share menu in Safari and choose Listen to Page. Or turn on Settings, Accessibility, Spoken Content, Speak Screen, then swipe down with two fingers from the top of the screen.</li>
-    <li><strong>Android:</strong> Settings, Accessibility, Select to Speak, then tap the icon and select the text.</li>
-  </ul>
+  <h3>What you get</h3>
+  <p>Claude reports pass or fail at two gates, with the numbers: the backtest on data the rules never saw, then 40 paper trades. A fail at either gate is a result too. Try another video, or work through Phases 1 to 5 to build a strategy of your own.</p>
+  <p class="src">On Windows, Claude Code works without Git and uses PowerShell. Installing Git for Windows is optional. Requirements and plans from <a href="https://code.claude.com/docs/en/setup">Claude Code setup</a> and <a href="https://claude.com/pricing">Claude pricing</a>, checked Oct 30, 2026.</p>
 </section>
 
 <hr class="div">
 
-<section id="p0">
+<section id="p0" data-audio>
   <div class="phase-head">
     <p class="kicker">Phase 0 &middot; Read this first</p>
-    <h2>What AI trading really is</h2>
+    <h2>What AI trading is</h2>
   </div>
-  <p class="dek">You have seen the videos. Here is what is behind them, and here is the part that is genuinely real.</p>
+  <p class="dek">What the trading videos sell, and what AI can do for you today.</p>
 
   <h3>Start with the regulator</h3>
-  <p>The U.S. Commodity Futures Trading Commission, the federal agency that oversees futures markets, published a customer advisory about exactly this. Their sentence was: "AI technology can't predict the future or sudden market changes."</p>
-  <p>That is not a cynic on the internet. That is the agency whose job is watching this market, telling you the marketing does not match reality.</p>
-
-  <h3>The numbers</h3>
-  <ul>
-    <li>Roughly <strong>95% of retail bots marketed as "AI"</strong> are ordinary rule based scripts running basic moving average or RSI logic, with AI branding added for marketing.</li>
-    <li><strong>Over 80% of retail bot users lose money.</strong></li>
-    <li>Most retail AI trading bots <strong>underperform simply buying and holding</strong> over any meaningful period.</li>
-    <li>Almost none of the performance claims you see are <strong>independently verified</strong>. There is no audit, no regulator checking the screenshot.</li>
-  </ul>
-
-  <h3>The scale problem nobody mentions</h3>
-  <p>A single trading strategy at a real quant firm involves a team: researchers with PhDs in statistics or physics, engineers building the data pipeline, traders managing live risk. Dozens of highly paid professionals on one strategy. Those firms run hundreds of researchers and thousands of experiments. Most experiments fail. The ones that work produce small, temporary edges that need constant refreshing.</p>
-  <p>A thirty dollar a month bot claims to replace all of that. It does not.</p>
+  <p>The U.S. Commodity Futures Trading Commission, the federal agency that oversees futures markets, warns in a customer advisory that "AI technology can't predict the future or sudden market changes." (<a href="https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/AITradingBots.html">CFTC advisory</a>)</p>
 
   <div class="warn">
-    <p class="warn-l">The single most important idea in this guide</p>
+    <p class="warn-l">The main idea of this guide</p>
     <p>Writing the bot is the easy 10%. Finding an edge is the hard 90%.</p>
-    <p style="margin-top:10px">An AI can write you a working trading bot this afternoon. It will connect to a broker, read prices, place orders, and manage stops without you. That problem is solved. What it cannot do is make the bot profitable, because profit comes from the strategy inside it, and the strategy is the part the videos never show.</p>
-    <p style="margin-top:10px">If the strategy is not proven, automation just executes your losses faster and more reliably than you could by hand.</p>
+    <p style="margin-top:10px">AI can write a working trading bot in an afternoon: it connects to a broker, reads prices, places orders and manages stops. Profit comes from the strategy inside the bot, and an untested strategy only loses money faster when a bot runs it.</p>
   </div>
 
   <h3>The five levels of "AI trading"</h3>
-  <p>When someone says AI trading, they could mean any of these. They are wildly different things.</p>
+  <p>"AI trading" can mean any of these five things.</p>
 
   <div class="tw">
   <table>
-    <thead><tr><th>Level</th><th>What it actually is</th><th>Real?</th></tr></thead>
+    <thead><tr><th>Level</th><th>What it is</th><th>Where it fits</th></tr></thead>
     <tbody>
-      <tr><td class="lvl">Level 1</td><td>A plain script with "AI" in the product name. Moving averages and RSI. No AI anywhere in it.</td><td>Marketing only</td></tr>
-      <tr><td class="lvl">Level 2</td><td>A human wrote the rules, AI wrote the code. The logic is entirely yours.</td><td><strong>This is what you will build</strong></td></tr>
-      <tr><td class="lvl">Level 3</td><td>Machine learning tunes the parameters of a human strategy against historical data.</td><td>Real, and where overfitting lives</td></tr>
-      <tr><td class="lvl">Level 4</td><td>A model generates the signals itself from engineered features.</td><td>Real, and institutional work</td></tr>
-      <tr><td class="lvl">Level 5</td><td>An autonomous agent deciding what to trade and why, unsupervised.</td><td>Mostly does not work at retail</td></tr>
+      <tr><td class="lvl">Level 1</td><td>A plain script with "AI" in the product name. Moving averages and RSI, no AI.</td><td>Marketing only</td></tr>
+      <tr><td class="lvl">Level 2</td><td>A human writes the rules, AI writes the code.</td><td><strong>Phases 1 to 5 build this</strong></td></tr>
+      <tr><td class="lvl">Level 3</td><td>AI pulls the rules out of trading videos, and testing tunes their settings against history.</td><td><strong>Phase 6 adds this</strong>, and overfitting lives here</td></tr>
+      <tr><td class="lvl">Level 4</td><td>A model generates the signals itself from engineered features.</td><td>Institutional work</td></tr>
+      <tr><td class="lvl">Level 5</td><td>An autonomous agent deciding what to trade and why, unsupervised.</td><td>Does not work reliably at retail</td></tr>
     </tbody>
   </table>
   </div>
 
-  <p>Almost every product sold to retail traders as Level 4 or 5 is actually Level 1. Level 2 is where you can realistically operate, and Level 2 is genuinely powerful, because the hard part becomes something you understand rather than something you rent.</p>
+  <p>Most retail products sold as Level 4 or 5 are Level 1. At Level 2 and 3 you understand every rule your bot follows, because you wrote it or approved it.</p>
 
   <h3>Overfitting, or why the ski slope charts are fake</h3>
   <div class="note">
     <p class="note-l">Learn this word and you can spot most of the fraud</p>
-    <p>Take any strategy. Test 500 different settings against the same three years of historical data. One of those 500 will show a 400% return with a chart that climbs in a beautiful smooth line.</p>
-    <p style="margin-top:10px">That setting did not find a pattern in the market. It found the random noise in <em>that specific stretch of history</em> and memorized it. Show it next month's data and it falls apart immediately.</p>
-    <p style="margin-top:10px">This is <strong>overfitting</strong>, and it is the mechanism behind nearly every stunning backtest chart in a trading video. The defense is simple and almost nobody does it: test on data you have never looked at. That is Phase 4.</p>
+    <p>Test 500 different settings of any strategy against the same three years of data, and one of them will show a 400% return on a smooth, climbing chart. That setting memorized the random noise in that stretch of history, and it falls apart on next month's data.</p>
+    <p style="margin-top:10px">This is <strong>overfitting</strong>, the mechanism behind most stunning backtest charts in trading videos. The defense is to test on data you have never looked at. That is Phase 4.</p>
   </div>
 
-  <h3>So what is actually real</h3>
-  <p>A research lead at the blockchain analytics firm Glassnode described AI trading tools as working like an assistant or intern who can work 24 hours a day, but who still needs human oversight for any decision that matters. The advice that comes out of the data is to start with AI assisted analysis and execution support, not full autonomy. Use it to remove your weaknesses, not to replace your judgment.</p>
-  <p>There is also no such thing as set and forget. Even people running successful bots actively monitor and adjust them. In fast moving conditions, a bot left alone for two days can quietly run into its stop loss because the market changed underneath it.</p>
-
-  <h4>Where AI genuinely helps you, starting today</h4>
+  <h3>Where AI helps</h3>
   <ol>
-    <li><strong>Backtesting.</strong> The big one. AI can write a script that tests your strategy against five years of history in an afternoon. This used to require a programmer. It answers "does this work" in days instead of months. Almost no retail trader does this, and it is the single biggest advantage available to you.</li>
-    <li><strong>Writing the execution bot</strong> once your rules are proven. Easy, real, appropriate.</li>
-    <li><strong>Analyzing your own trade log</strong> for behavioral patterns you cannot see about yourself.</li>
-    <li><strong>Stress testing your logic</strong> before it costs money, by asking it to attack your strategy instead of praise it.</li>
-    <li><strong>Explaining anything you do not understand</strong>, instantly, as many times as you need.</li>
+    <li><strong>Backtesting.</strong> AI writes a script that tests your strategy against five years of history in an afternoon, so you learn whether it works in days instead of months.</li>
+    <li><strong>Reading trading videos for you.</strong> AI pulls transcripts and turns a trader's method into written, testable rules (Phase 6).</li>
+    <li><strong>Writing the execution bot</strong> once your rules pass their tests.</li>
+    <li><strong>Reviewing your trade log</strong> for patterns in your own behavior.</li>
+    <li><strong>Stress testing your logic</strong> by attacking your strategy instead of praising it.</li>
+    <li><strong>Explaining any term</strong> as many times as you need.</li>
   </ol>
 
-  <h4>Where AI does not help</h4>
-  <p>Being the thing that decides. Language models are non deterministic, meaning you can ask the same question twice and get different answers. They are slow compared to markets. And they are trained to be agreeable and to find patterns, which is exactly backwards here. Ask an AI "is this a good trade" and it will find you reasons. That is the last thing you want holding the trigger.</p>
+  <h4>Where AI should not decide</h4>
+  <p>Language models can give different answers to the same question, run slower than markets, and tend to agree with whoever is asking. Ask one "is this a good trade" and it will find reasons. Keep the model out of the live decision: it writes the rules and the code ahead of time, and the tested code places the trades.</p>
 
   <h3>The scam checklist</h3>
-  <p>If a product, video, or person hits any of these, close it.</p>
+  <p>Close any product, video or person that does any of these:</p>
   <ul>
-    <li>Promises passive income or guaranteed returns with no monitoring required</li>
-    <li>Shows a backtest but no verified live track record</li>
-    <li>Profit screenshots with no third party statement behind them</li>
-    <li>Sells you the bot, the course, or the signals rather than trading with their own money</li>
-    <li>Says "AI" and "machine learning" but never explains what the model actually does</li>
-    <li>Pushes you toward a prop firm challenge with an upfront fee</li>
-    <li>Urgency, countdown timers, limited spots</li>
-    <li>The results chart climbs in a smooth line with no drawdowns. Real strategies have ugly stretches.</li>
+    <li>Promises guaranteed returns or passive income with no monitoring</li>
+    <li>Shows a backtest or profit screenshots but no verified live track record</li>
+    <li>Makes its money selling the bot, course or signals rather than trading</li>
+    <li>Says "AI" but never explains what the model does</li>
+    <li>Pushes a prop firm challenge with an upfront fee, or uses countdown timers and limited spots</li>
+    <li>Shows a results chart with no drawdowns. Real strategies have losing stretches.</li>
   </ul>
 
-  <h3>The honest math on $1,000</h3>
-  <p>Say everything works. Say you build something genuinely good and return 20% in a year, which would beat most professionals. On $1,000 that is $200.</p>
-  <p>The path from there to life changing money requires either a lot more capital or a lot more leverage. Leverage on a small account is how the account reaches zero, quickly, which is why every rule in this guide fights it.</p>
-  <p>So here is the honest frame: <strong>the prize is not this year's profit. The prize is a tested system and a real skill.</strong> If those turn out to be genuine, capital can follow later. That order is not a consolation prize. It is the only order that has ever worked for anybody.</p>
-
-  <div class="note">
-    <p class="note-l">The good news</p>
-    <p>Everything in this plan makes you a Level 2 operator with a strategy you tested yourself. That puts you ahead of the overwhelming majority of people buying bots, because you will know exactly what yours does and exactly what evidence says it works. Nobody can sell you a black box after this.</p>
-  </div>
+  <h3>The math on $1,000</h3>
+  <p>A 20% year, which beats most professionals, makes $200 on $1,000. Leverage is the only way to make more from a small account quickly, and leverage is also how small accounts reach zero, so every rule in this plan limits it. The goal this year is a tested system and the skill to build it. Capital can follow if the evidence holds up.</p>
 
   <h3>Set up your tracking</h3>
   <div class="opt-box">
     <p class="opt-l">Optional, but it makes the AI far more useful</p>
-    <p>You can do this whole plan with a spreadsheet and a text document. Nothing here requires special software.</p>
-    <p style="margin-top:10px">That said: if your notes and trades live in one structured place, you can paste them into an AI and get real analysis back. Scattered notes across three apps cannot be reviewed by anything, including you. <strong>Structured tracking is what turns the AI from a search engine into a coach.</strong></p>
+    <p>A spreadsheet and a text document are enough for this plan. Keep notes and trades in one structured place so you can paste them into an AI and get analysis back.</p>
   </div>
 
-  <p>Notion is free and works well for this. Set up your own account. Four pages is all you need.</p>
+  <p>Notion is free and works well for this. You need four pages.</p>
 
   <div class="prompt">
     <div class="prompt-top"><span class="prompt-tag">Copy &middot; your Notion structure</span><button class="copy" type="button">Copy</button></div>
@@ -444,7 +436,7 @@ footer p{max-width:64ch}
        This is your proof you actually did the work.</pre>
   </div>
 
-  <p>Make the Trade Log a real database. Notion databases export to CSV, which means you can hand six weeks of trades to an AI in one paste.</p>
+  <p>Make the Trade Log a database. Notion databases export to CSV, so you can hand six weeks of trades to an AI in one paste.</p>
 
   <div class="prompt">
     <div class="prompt-top"><span class="prompt-tag">Prompt &middot; have AI review your progress</span><button class="copy" type="button">Copy</button></div>
@@ -477,8 +469,8 @@ Be direct. If the data is too thin to say anything, say that.</pre>
         <li><label><input type="checkbox" data-k="g0a"><span><strong>I can explain overfitting</strong> to someone else, and why it makes backtests look better than reality</span></label></li>
         <li><label><input type="checkbox" data-k="g0b"><span><strong>I know which of the five levels</strong> I am building, and why the higher levels are not realistic for me</span></label></li>
         <li><label><input type="checkbox" data-k="g0c"><span><strong>I accept that the strategy is the hard part</strong> and the code is the easy part</span></label></li>
-        <li><label><input type="checkbox" data-k="g0d"><span><strong>I have written down my honest goal</strong> for this project, given the math on $1,000</span></label></li>
-        <li><label><input type="checkbox" data-k="g0e"><span>Tracking set up, in Notion or a spreadsheet, whichever I will actually use <span class="opt-tag">optional</span></span></label></li>
+        <li><label><input type="checkbox" data-k="g0d"><span><strong>I have written down my goal</strong> for this project, given the math on $1,000</span></label></li>
+        <li><label><input type="checkbox" data-k="g0e"><span>Tracking set up, in Notion or a spreadsheet, whichever I will use <span class="opt-tag">optional</span></span></label></li>
       </ul>
     </div>
     <div class="gate-lock" data-gatelock="0">Phase 1 opens when these are done.</div>
@@ -487,53 +479,48 @@ Be direct. If the data is too thin to say anything, say that.</pre>
 
 <hr class="div">
 
-<section id="rules">
+<section id="rules" data-audio>
   <p class="kicker">Non negotiable</p>
   <h2>The ground rules</h2>
-  <p class="dek">Six rules. Read them once now, then again at Gate 5.</p>
+  <p class="dek">Read these six rules now and again at Gate 5.</p>
 
   <ol>
     <li><strong>No real money until Gate 5 is clear.</strong> The $1,000 stays where it is.</li>
-    <li><strong>All practice happens in a paper account.</strong> A paper account is a free practice account that uses real market prices and fake money. It works exactly like the real thing.</li>
-    <li><strong>Every practice trade gets written down.</strong> If it is not in the log, it did not happen. This is not busywork. The log is the entire point of Phase 5.</li>
-    <li><strong>This is a personal account, not a business account.</strong> Trading is not the business's activity, and running it through the business adds paperwork for no benefit. Confirm with the tax preparer before funding anything.</li>
-    <li><strong>Never add to a losing trade.</strong> If a strategy tells you to buy more of something going against you, that strategy is out of scope for this plan. No exceptions. This is the rule that saves accounts.</li>
-    <li><strong>Risk 1% per trade, maximum.</strong> On a $1,000 account that is $10. If a setup needs more risk than that, you skip the setup. You do not stretch the rule to fit the trade.</li>
+    <li><strong>All practice happens in a paper account:</strong> a free practice account with real market prices and fake money.</li>
+    <li><strong>Every practice trade goes in the log.</strong> Phase 5 depends on it.</li>
+    <li><strong>Use a personal account, not a business account.</strong> Trading is not the business's activity, and running it through the business adds paperwork. Confirm with the tax preparer before funding anything.</li>
+    <li><strong>Never add to a losing trade.</strong> A strategy that buys more as price moves against you wins 9 times out of 10 for months, then one trade empties the account. Drop any course or video that teaches averaging down.</li>
+    <li><strong>Risk 1% per trade, maximum.</strong> On a $1,000 account that is $10. Skip any setup that needs more.</li>
   </ol>
 
-  <div class="warn">
-    <p class="warn-l">Read rule 5 again</p>
-    <p>A strategy that adds to losers will show you an amazing win rate. It will win 9 times out of 10 for months. Then one trade goes far enough against you that the account is gone. This is the single most common way small trading accounts end. If any course, video, or person tells you to average down, close it.</p>
-  </div>
 </section>
 
 <hr class="div">
 
-<section id="money">
-  <p class="kicker">The rules of the game</p>
-  <h2>What $1,000 can actually do</h2>
-  <p class="dek">A real regulation stops small accounts from day trading stocks. It decides what you can build.</p>
+<section id="money" data-audio>
+  <p class="kicker">Account rules</p>
+  <h2>What $1,000 can do</h2>
+  <p class="dek">The account type decides how often $1,000 can trade.</p>
 
-  <p>It is called the <strong>Pattern Day Trader rule</strong>, or PDT. Plain version: if you use a <em>margin</em> stock account and make 4 or more day trades within 5 business days, your account gets flagged. Once flagged, you need $25,000 in the account to keep going. Below that, you get restricted.</p>
-  <p>That sounds like it kills the idea at $1,000. It does not, because the rule only applies to one kind of account.</p>
+  <p>The <strong>Pattern Day Trader rule</strong> (PDT) used to flag any margin stock account that made 4 or more day trades in 5 business days and require $25,000 to keep trading. FINRA replaced it with intraday margin requirements that took effect June 4, 2026, with no $25,000 minimum for day trading. Brokers may keep the old rule until October 20, 2027, so ask yours which rule it applies. Leveraged margin trading still needs $2,000 in equity. (<a href="https://www.finra.org/investors/insights/intraday-margin-requirements">FINRA</a>, checked Oct 30, 2026)</p>
 
   <div class="tw">
   <table>
-    <thead><tr><th>Account type</th><th>PDT applies?</th><th>What actually limits you at $1,000</th></tr></thead>
+    <thead><tr><th>Account type</th><th>Day trade limit?</th><th>What limits you at $1,000</th></tr></thead>
     <tbody>
-      <tr><td><strong>Margin</strong> (stocks)</td><td class="yes">Yes</td><td>4+ day trades in 5 business days flags the account. Under $25,000 you get restricted. Avoid this account type.</td></tr>
-      <tr><td><strong>Cash</strong> (stocks)</td><td class="no">No</td><td>Trade freely, but money from a sale takes one business day to settle before you can use it again. In practice your $1,000 recycles about every other day.</td></tr>
-      <tr><td><strong>Futures</strong> (micro contracts)</td><td class="no">No</td><td>No trade count limit at all. Micro contracts are small enough for this account size. The real risk is leverage, not regulation.</td></tr>
-      <tr><td><strong>Crypto</strong></td><td class="no">No</td><td>Trades 24 hours a day, no settlement wait, no trade count limit. The risk is how fast prices move.</td></tr>
+      <tr><td><strong>Margin</strong> (stocks)</td><td class="yes">Depends on broker</td><td>Under the new rule, no trade count limit, but leverage needs $2,000. A broker still on the old rule restricts accounts under $25,000 after 4 day trades in 5 business days.</td></tr>
+      <tr><td><strong>Cash</strong> (stocks)</td><td class="no">No</td><td>Money from a sale takes one business day to settle before you can reuse it, so $1,000 recycles about every other day.</td></tr>
+      <tr><td><strong>Futures</strong> (micro contracts)</td><td class="no">No</td><td>No trade count limit. Micro contracts fit this account size. The risk is leverage.</td></tr>
+      <tr><td><strong>Crypto</strong></td><td class="no">No</td><td>Trades 24 hours a day with no settlement wait. The risk is how fast prices move.</td></tr>
     </tbody>
   </table>
   </div>
 
-  <p>So the choice is a <strong>cash stock account</strong> or a <strong>micro futures account</strong>. You decide at Gate 2, once you know enough to have an opinion.</p>
+  <p>For $1,000, use a <strong>cash stock account</strong> or a <strong>micro futures account</strong>. You decide at Gate 2.</p>
 
   <div class="warn">
     <p class="warn-l">One thing to watch for in courses</p>
-    <p>Some trading courses recommend a broker with very high leverage, trading something called US30 or DJ30 on a platform called MetaTrader. That setup is a CFD, and CFDs are <strong>not legal for US retail customers</strong>. If a course sends you to an offshore broker, stop and translate it. The legal US way to trade the Dow intraday is Micro E-mini Dow futures, ticker MYM, through a US futures broker.</p>
+    <p>Some trading courses recommend a broker with very high leverage, trading something called US30 or DJ30 on a platform called MetaTrader. That setup is a CFD, and CFDs are <strong>not legal for US retail customers</strong>. If a course sends you to an offshore broker, translate the setup first. The legal US way to trade the Dow intraday is Micro E-mini Dow futures, ticker MYM, through a US futures broker.</p>
   </div>
 
   <div class="prompt">
@@ -547,7 +534,8 @@ Tell me:
 2. Is the instrument a CFD? If yes, explain why US retail clients cannot
    legally use it.
 3. What is the closest legal US equivalent instrument and account type?
-4. Does the Pattern Day Trader rule apply to that account type?
+4. Which day trading rule does this broker apply to that account type:
+   the old Pattern Day Trader rule or the 2026 intraday margin rule?
 
 Be specific and tell me if you are unsure about anything.</pre>
   </div>
@@ -555,7 +543,7 @@ Be specific and tell me if you are unsure about anything.</pre>
 
 <hr class="div">
 
-<section id="p1">
+<section id="p1" data-audio>
   <div class="phase-head">
     <p class="kicker">Phase 1 &middot; Weeks 1 to 2</p>
     <h2>Foundation and routine</h2>
@@ -565,17 +553,17 @@ Be specific and tell me if you are unsure about anything.</pre>
 
   <h3>Why this one goes first</h3>
   <p>It is the shortest of the three, and the only one that teaches a <strong>routine</strong> rather than a pile of patterns. What to do before the market opens. How to decide where you get out before you get in. How big a position should be. How to review a trade after it closes.</p>
-  <p>That routine is the container everything else goes into. Learn patterns without it and you have trivia. Learn it first and the patterns become useful.</p>
+  <p>Patterns are only useful once you have this routine to apply them in.</p>
 
   <h3>What to do</h3>
   <ul>
-    <li>Watch all 16 sections. Do the quizzes and the role play sections, do not skip them.</li>
+    <li>Watch all 16 sections, including the quizzes and role play sections.</li>
     <li>Open a free TradingView account. You will use it for the whole plan.</li>
-    <li>Keep notes in one place. Not scattered across notebooks and apps.</li>
+    <li>Keep all your notes in one place.</li>
   </ul>
 
   <h3>Use AI as you go</h3>
-  <p>After each section, paste your notes into Claude or ChatGPT with the prompt below. The point is not a summary. The point is finding where the idea breaks, because that is what nobody teaches you.</p>
+  <p>After each section, paste your notes into Claude or ChatGPT with the prompt below. It asks where the idea breaks, which courses rarely teach.</p>
 
   <div class="prompt">
     <div class="prompt-top"><span class="prompt-tag">Prompt &middot; after finishing any section</span><button class="copy" type="button">Copy</button></div>
@@ -605,7 +593,7 @@ Keep it under 200 words.</pre>
   <div class="gate" id="g1" data-gate="1">
     <div class="gate-top"><span class="gate-n">Checkpoint</span><span class="gate-h">Gate 1</span><span class="gate-stat" data-gatestat="1">0 of 6</span></div>
     <div class="gate-body">
-      <p>Write a one page document answering four questions <strong>in your own words</strong>, without rewatching anything. If you have to go back and look, that section is not learned yet.</p>
+      <p>Write a one page document answering four questions <strong>in your own words</strong>, without rewatching anything. If you have to look something up, relearn that section.</p>
       <ul class="check" data-gatelist="1">
         <li><label><input type="checkbox" data-k="g1a"><span>Finished all 16 sections of the Moschini course</span></label></li>
         <li><label><input type="checkbox" data-k="g1b"><span>Free TradingView account created</span></label></li>
@@ -621,7 +609,7 @@ Keep it under 200 words.</pre>
 
 <hr class="div">
 
-<section id="p2">
+<section id="p2" data-audio>
   <div class="phase-head">
     <p class="kicker">Phase 2 &middot; Weeks 3 to 5</p>
     <h2>The language of charts</h2>
@@ -630,23 +618,23 @@ Keep it under 200 words.</pre>
   <div class="phase-meta"><span class="chip">12 hours</span><span class="chip">122 lectures</span><span class="chip">Rated 4.0</span><span class="chip">Use as reference</span></div>
 
   <h3>Treat this one differently</h3>
-  <p>This is a <strong>dictionary, not a curriculum</strong>. Twelve hours of chart patterns and indicators. Do not try to master all of it. The goal is recognition: when a strategy mentions a flag, a failed breakout, or an RSI reading, you know what it means without stopping.</p>
+  <p>Use this course as a <strong>dictionary, not a curriculum</strong>: twelve hours of chart patterns and indicators. The goal is recognition, so that when a strategy mentions a flag, a failed breakout or an RSI reading, you know what it means.</p>
 
   <div class="warn">
-    <p class="warn-l">Be a skeptical customer here</p>
-    <p>This course promises a lot. "Start making a good living trading from home." "Never worry about money ever again." One listed prerequisite is literally a strong desire to get rich. Keep the mechanics, discount the promises. A 4.0 rating on Udemy is average, not great.</p>
+    <p class="warn-l">Discount the promises</p>
+    <p>The course description promises you will "never worry about money ever again" and lists a strong desire to get rich as a prerequisite. Keep the mechanics and ignore the promises. A 4.0 rating on Udemy is average.</p>
   </div>
 
   <h3>What to watch, and what to skim</h3>
   <ul>
     <li><strong>Watch fully:</strong> Sections 1 to 5, foundations through chart patterns.</li>
-    <li><strong>Watch fully:</strong> Section 6, how to use TradingView. Practical setup you will actually use.</li>
-    <li><strong>Skim and reference:</strong> Sections 7 to 10. Watch the specific patterns that showed up in your Phase 1 notes. Come back to the rest when you need them.</li>
+    <li><strong>Watch fully:</strong> Section 6, how to use TradingView.</li>
+    <li><strong>Skim:</strong> Sections 7 to 10. Watch the patterns from your Phase 1 notes and come back to the rest as needed.</li>
   </ul>
 
   <h3>Also do this in Phase 2</h3>
   <ul>
-    <li><strong>Open a paper trading account.</strong> Two good options: TradingView's built in paper trading, free and simplest, or an Alpaca paper account, free with no minimum and useful later if you automate.</li>
+    <li><strong>Open a paper trading account.</strong> TradingView's built in paper trading is free and simplest. An Alpaca paper account is free, has no minimum, and is the account Phase 6 uses.</li>
     <li><strong>Decide your account type.</strong> Cash stock or micro futures. Write down why.</li>
   </ul>
 
@@ -659,7 +647,7 @@ Compare these two options for me:
 A) A cash stock brokerage account
 B) A micro futures account
 
-For each one cover: whether the Pattern Day Trader rule applies, how many
+For each one cover: which day trading rule applies, how many
 trades per week I can realistically make with $1,000, what a typical single
 trade risks, what the main danger is, and what it costs.
 
@@ -697,7 +685,7 @@ I have not defined. List those separately as "undefined decisions."</pre>
 
 <hr class="div">
 
-<section id="p3">
+<section id="p3" data-audio>
   <div class="phase-head">
     <p class="kicker">Phase 3 &middot; Weeks 6 to 7</p>
     <h2>Write the spec</h2>
@@ -707,29 +695,28 @@ I have not defined. List those separately as "undefined decisions."</pre>
 
   <div class="note">
     <p class="note-l">Why this phase is called "write the spec"</p>
-    <p>The document you produce here is not homework. It is the <strong>specification for your bot</strong>. Instrument, timeframe, entry conditions, stop rule, target rule, sizing formula, loss limits. Every one of those is something a program needs to be told.</p>
-    <p style="margin-top:10px">If you cannot fill in every line, a bot cannot be built, because there is nothing to build. This is the exact point where most people who want automation get stuck without understanding why.</p>
+    <p>The document you write here is the <strong>specification for your bot</strong>: instrument, timeframe, entry conditions, stop rule, target rule, sizing formula and loss limits. A program needs every one of those, so a blank line means there is nothing to build yet. Phase 6 produces the same document from a trader's videos.</p>
   </div>
 
   <h3>Why this course is last</h3>
-  <p>It is the highest rated of the three and the only one that hands you a single defined strategy instead of a survey. It is also listed as expert level and openly assumes you have been trading for a few months and understand position sizing and leverage. After Phases 1 and 2, you will.</p>
+  <p>It is the highest rated of the three and the only one that teaches a single defined strategy. It is listed as expert level and assumes you understand position sizing and leverage, which Phases 1 and 2 cover.</p>
 
   <div class="warn">
     <p class="warn-l">Verify three things before you adopt anything from this course</p>
-    <p>This is the most important part of this section. Do not skip it.</p>
+    <p>Run the same three checks on any strategy you take from a video in Phase 6.</p>
   </div>
 
   <h4>1. Does the strategy ever add to a losing position?</h4>
-  <p>The title is "WIN even when you're Wrong," and the description talks about managing your way out of most situations and exiting at breakeven or a smaller loss. That can describe two completely different things.</p>
+  <p>The title is "WIN even when you're Wrong," and the description talks about managing your way out of most situations and exiting at breakeven or a smaller loss. That can describe two different things.</p>
   <p>One is legitimate trade management: moving your stop, taking partial profits, cutting early. That is fine.</p>
   <p>The other is averaging down: buying more as price goes against you so your breakeven point moves closer. That produces a beautiful win rate and eventually one loss that ends the account.</p>
-  <p><strong>Watch Section 4, The Strategy, and Section 7, Trade Management, with only this question in mind.</strong> If the method ever increases size on a losing trade, stop. Build your strategy from the Moschini breakout method instead. You will not have wasted anything.</p>
+  <p><strong>Watch Section 4, The Strategy, and Section 7, Trade Management, with only this question in mind.</strong> If the method ever increases size on a losing trade, build your strategy from the Moschini breakout method instead.</p>
 
   <h4>2. Can you legally use the recommended setup from the US?</h4>
-  <p>The course teaches US30 and DJ30 on MetaTrader 5 through a forex broker chosen for leverage and spreads. As covered above, that is a CFD setup and US retail clients cannot use it. Plan to translate to <strong>Micro E-mini Dow futures, ticker MYM</strong>, on a US futures broker. The price levels and logic should carry over. The platform, broker, and sizing math will not.</p>
+  <p>The course teaches US30 and DJ30 on MetaTrader 5 through a forex broker chosen for leverage and spreads. That is a CFD setup, which US retail clients cannot use. Plan to translate to <strong>Micro E-mini Dow futures, ticker MYM</strong>, on a US futures broker. The price levels and logic should carry over. The platform, broker, and sizing math will not.</p>
 
   <h4>3. Is there a defined maximum loss per trade?</h4>
-  <p>If the answer is ever "it depends on how the trade develops," that is a red flag. You need a number before you enter, every time. A bot certainly needs one.</p>
+  <p>"It depends on how the trade develops" is a red flag. You and the bot both need a dollar number before every entry.</p>
 
   <div class="prompt">
     <div class="prompt-top"><span class="prompt-tag">Prompt &middot; the averaging down check</span><button class="copy" type="button">Copy</button></div>
@@ -838,7 +825,7 @@ Do not be encouraging. I need this picked apart now rather than later.</pre>
         <li><label><input type="checkbox" data-k="g3b"><span><strong>Confirmed:</strong> the strategy never adds to a losing position, or I abandoned it and built from Moschini instead</span></label></li>
         <li><label><input type="checkbox" data-k="g3c"><span><strong>Confirmed:</strong> my instrument and broker are legal for a US retail client, no CFDs</span></label></li>
         <li><label><input type="checkbox" data-k="g3d"><span><strong>Confirmed:</strong> there is a defined dollar maximum loss per trade</span></label></li>
-        <li><label><input type="checkbox" data-k="g3e"><span>Strategy One Pager written, saved as v1, and <em>every single line filled in</em></span></label></li>
+        <li><label><input type="checkbox" data-k="g3e"><span>Strategy One Pager written, saved as v1, and <em>every line filled in</em></span></label></li>
         <li><label><input type="checkbox" data-k="g3f"><span>Stress tested it and fixed the holes, including every line a program could not follow</span></label></li>
       </ul>
     </div>
@@ -848,22 +835,21 @@ Do not be encouraging. I need this picked apart now rather than later.</pre>
 
 <hr class="div">
 
-<section id="p4">
+<section id="p4" data-audio>
   <div class="phase-head">
     <p class="kicker">Phase 4 &middot; Week 8</p>
     <h2>Backtest it with AI</h2>
   </div>
-  <p class="dek">This is where AI genuinely changes what is possible for you. Almost no retail trader does this step.</p>
+  <p class="dek">AI makes this step possible without a programmer, and most retail traders skip it.</p>
 
   <h3>What a backtest is</h3>
-  <p>Running your strategy against years of past price data to see what would have happened, without risking anything and without waiting. If your strategy is garbage, a backtest tells you in an afternoon instead of six weeks.</p>
-  <p>This used to require hiring a programmer. It does not anymore. That is the real, unhyped version of "AI changes trading," and it is available to you right now.</p>
+  <p>A backtest runs your strategy against years of past price data to show what would have happened. A losing strategy shows up in an afternoon instead of six weeks of paper trading.</p>
 
   <div class="warn">
-    <p class="warn-l">The rule that makes a backtest honest</p>
+    <p class="warn-l">The rule that keeps a backtest fair</p>
     <p>Split your history into two pieces before you start. Call them <strong>in sample</strong> and <strong>out of sample</strong>.</p>
-    <p style="margin-top:10px">Example: use 2020 through 2023 to build and adjust. Then <em>do not look at</em> 2024 and 2025 until you are completely done adjusting. When you finally run it on those untouched years, that result is your real answer.</p>
-    <p style="margin-top:10px">If you tweak the strategy after seeing the out of sample result, that data is burned. You have to split again with new data. This is annoying and it is the whole point. Skipping it is how you overfit.</p>
+    <p style="margin-top:10px">Example: use 2020 through 2023 to build and adjust. Then <em>do not look at</em> 2024 and 2025 until you finish adjusting. When you finally run it on those untouched years, that result is your real answer.</p>
+    <p style="margin-top:10px">If you change the strategy after seeing the out of sample result, that data is used up and you need a new split with fresh data. Skipping this step is how backtests overfit.</p>
   </div>
 
   <h3>What to do</h3>
@@ -871,13 +857,13 @@ Do not be encouraging. I need this picked apart now rather than later.</pre>
     <li>Get free historical price data. For stocks, a Python library called <code>yfinance</code> works and costs nothing. For futures or crypto, your broker's API provides it.</li>
     <li>Have AI write the backtest script from your Strategy One Pager. You paste the spec, it writes the code.</li>
     <li>Run it on your in sample years. Look at the results.</li>
-    <li>Fix any place where the code does not match what you actually meant. This will happen and it is normal.</li>
+    <li>Fix every place where the code does not match what you meant. Expect a few.</li>
     <li>Run it once on the out of sample years. Write down the result before you react to it.</li>
   </ol>
 
   <div class="note">
     <p class="note-l">You do not need to know how to code</p>
-    <p>You need to describe your strategy precisely, paste it into an AI, run a file, and read the output. The AI writes the code. Your job is checking that the code does what you meant, which you can do by asking it to explain each part back to you in plain English.</p>
+    <p>You describe the strategy, paste it into an AI, run a file and read the output. To check the code does what you meant, ask the AI to explain each part in plain English.</p>
   </div>
 
   <div class="prompt">
@@ -947,8 +933,7 @@ Do not be encouraging. Tell me if I found noise.</pre>
 
   <div class="warn">
     <p class="warn-l">A backtest is evidence, not proof</p>
-    <p>A good backtest means the strategy is worth testing with your hands. It does not mean it works. Historical data cannot show you slippage, bad fills, or the fact that you will hesitate on the third losing trade in a row. That is why Phase 5 still happens.</p>
-    <p style="margin-top:10px">And a bad backtest is genuinely great news. It just saved you six weeks and possibly $1,000.</p>
+    <p>A good backtest earns the strategy a paper trading test. Historical data cannot show slippage, bad fills, or how you will act on the third losing trade in a row, so Phase 5 still happens. A bad backtest saves you six weeks and possibly $1,000.</p>
   </div>
 
   <div class="gate" id="g4" data-gate="4">
@@ -968,27 +953,27 @@ Do not be encouraging. Tell me if I found noise.</pre>
 
 <hr class="div">
 
-<section id="p5">
+<section id="p5" data-audio>
   <div class="phase-head">
     <p class="kicker">Phase 5 &middot; Weeks 9 to 14</p>
     <h2>Paper trade it by hand</h2>
   </div>
-  <p class="dek">Six weeks minimum. Forty trades minimum. Still no real money.</p>
+  <p class="dek">Six weeks and at least 40 trades, still with no real money.</p>
 
   <h3>Why do this if the backtest passed</h3>
-  <p>Because a backtest tests the strategy. This tests <em>you executing the strategy</em>. Those are different things, and the gap between them is where most people lose money. You will hesitate. You will take a trade that does not qualify. You will move a stop. Better to find that out now.</p>
+  <p>Because a backtest tests the strategy. This tests <em>you executing the strategy</em>. Most losses come from the gap between the two: hesitating, taking trades that do not qualify, moving stops. Paper trading shows you that gap for free.</p>
 
   <ul>
     <li><strong>Minimum 40 logged trades before you evaluate anything.</strong> Fewer than 40 is noise.</li>
     <li><strong>Do not change the strategy mid sample.</strong> Write the idea down, finish the 40, then test the change as a new version.</li>
-    <li><strong>Trade at the same time of day.</strong> Consistency is what makes results readable.</li>
+    <li><strong>Trade at the same time of day</strong> so the results are comparable.</li>
   </ul>
 
   <h3>Understanding R</h3>
   <div class="note">
     <p class="note-l">The only number that matters</p>
     <p><strong>R</strong> means how much you risked on a trade. Risk $10 and make $20, that trade is <strong>+2R</strong>. Risk $10 and lose it, that is <strong>-1R</strong>.</p>
-    <p style="margin-top:10px">Dollar amounts in a paper account are meaningless, because the money is fake. R is not, because it tells you whether the strategy makes more than it loses relative to what you put at risk. Track R. Ignore the fake dollars.</p>
+    <p style="margin-top:10px">Paper dollars are fake, but R shows whether the strategy makes more than it loses relative to what it risks. Track R.</p>
   </div>
 
   <h3>The trade log</h3>
@@ -999,7 +984,7 @@ Do not be encouraging. Tell me if I found noise.</pre>
 <pre>Date	Time	Instrument	Setup name	Entry price	Stop price	Target price	Position size	Dollars risked	Exit price	Result in R	Followed rules (Y/N)	Screenshot link	Notes</pre>
   </div>
 
-  <p>The "Followed rules" column is the most valuable one there. A profitable strategy you follow 60% of the time is not a profitable strategy. You need to know which trades were the strategy and which were you.</p>
+  <p>The "Followed rules" column separates the strategy's trades from yours. A profitable strategy you follow 60% of the time is not a profitable strategy.</p>
 
   <h3>The Sunday review, 30 minutes</h3>
   <ul>
@@ -1076,10 +1061,10 @@ My real paper trading of the same strategy produced these:
 
 <hr class="div">
 
-<section id="decision">
+<section id="decision" data-audio>
   <p class="kicker">End of week 14</p>
   <h2>Go or no go</h2>
-  <p class="dek">Fund the $1,000 only if all five are true. Not four. Five.</p>
+  <p class="dek">Fund the $1,000 only if all five are true.</p>
 
   <ul class="check" data-gatelist="d">
     <li><label><input type="checkbox" data-k="d1"><span><strong>40 or more</strong> paper trades completed and logged</span></label></li>
@@ -1120,112 +1105,231 @@ want to hear.</pre>
   </div>
 
   <h3>If any of them fail</h3>
-  <p>Another paper cycle. Not real money. Nothing is lost by waiting, because the strategy is either real or it is not, and another six weeks will tell you which. The market is not going anywhere.</p>
+  <p>Run another paper cycle. Six more weeks will show whether the strategy works, and waiting costs nothing.</p>
 
   <h3>If all five pass</h3>
   <p>Fund $1,000. Same strategy, same rules, 1% risk per trade. Treat the first 40 live trades as a third test, not as the payoff.</p>
 
   <div class="warn">
     <p class="warn-l">Expect live results to be worse</p>
-    <p>They always are. Paper accounts do not simulate slippage, bad fills, or what it feels like to watch real money move. A strategy that made +8R on paper might make +2R live, or nothing. That gap is normal and it is not a sign you did something wrong. Plan for it instead of being surprised by it.</p>
+    <p>Paper accounts do not simulate slippage, bad fills, or the pressure of real money. A strategy that made +8R on paper might make +2R live, or nothing. Plan for that gap.</p>
   </div>
 </section>
 
 <hr class="div">
 
-<section id="beforemoney">
+<section id="beforemoney" data-audio>
   <p class="kicker">Admin</p>
-  <h2>Before you spend a dollar</h2>
+  <h2>Before you fund the account</h2>
 
   <ul class="check" data-gatelist="b">
     <li><label><input type="checkbox" data-k="b1"><span>Confirmed with the tax preparer that this is a <strong>personal</strong> account, not a business one</span></label></li>
     <li><label><input type="checkbox" data-k="b2"><span>Confirmed the broker is US regulated and accepts US retail clients</span></label></li>
     <li><label><input type="checkbox" data-k="b3"><span>Confirmed the instrument is legal to trade from the US, no CFDs</span></label></li>
-    <li><label><input type="checkbox" data-k="b4"><span>Confirmed the Pattern Day Trader rule does not apply to my account type</span></label></li>
+    <li><label><input type="checkbox" data-k="b4"><span>Confirmed which day trading rule my broker applies to my account type</span></label></li>
     <li><label><input type="checkbox" data-k="b5"><span>Understood the tax reporting: every trade is reportable, short term capital gains rates apply, wash sale rules apply</span></label></li>
   </ul>
 
   <div class="note">
     <p class="note-l">On taxes</p>
-    <p>Every single trade is a reportable transaction. Forty trades means forty lines on a tax form. Profits held under a year are taxed at ordinary income rates, not the lower long term rate. There is also a wash sale rule that can disallow losses if you rebuy the same thing within 30 days. None of this is a reason not to trade. It is a reason to tell your tax preparer before you start, not in April.</p>
+    <p>Every trade is a reportable transaction, so forty trades means forty lines on a tax form. Profits on positions held under a year are taxed at ordinary income rates, and the wash sale rule can disallow a loss if you rebuy the same thing within 30 days. Tell your tax preparer before you start, not in April.</p>
   </div>
 </section>
 
 <hr class="div">
 
-<section id="p6">
-  <div class="phase-head opt">
-    <p class="kicker">Phase 6 &middot; Optional &middot; After everything above</p>
-    <h2>Automate it</h2>
+<section id="p6" data-audio>
+  <div class="phase-head">
+    <p class="kicker">Phase 6 &middot; Paper mode any time &middot; Live money after Gate 5</p>
+    <h2>Build the YouTube-trained agent</h2>
   </div>
-  <p class="dek">The thing you wanted from the start. Here is why it comes last, and how to do it without wrecking anything.</p>
+  <p class="dek">An AI agent reads a trader's videos, writes the rules, tests them, and runs them in a paper account.</p>
 
-  <h3>You already wrote the bot</h3>
-  <p>Your Strategy One Pager is the specification. Your backtest script already contains the logic. What is left is connecting that logic to a live broker and adding safety rails. That is the smallest part of this project, and it is only small because you did everything else first.</p>
+  <p>The risk in one line: most strategies taken from videos fail the backtest, and the gates in this phase catch them before they cost money.</p>
 
-  <div class="warn">
-    <p class="warn-l">The rule that governs this entire phase</p>
-    <p><strong>The bot earns its own 40 paper trades before it touches real money.</strong> Same standard you had to meet. A bot is a brand new trader with no track record, and the fact that you tested the strategy by hand does not transfer. Code has bugs. Your hands did not.</p>
-  </div>
-
-  <h3>What a bot needs that a human does not</h3>
-  <ol>
-    <li><strong>A kill switch.</strong> One command that closes everything and stops trading. Test it before you need it.</li>
-    <li><strong>A daily loss limit enforced in code.</strong> Not in your willpower. The bot stops itself and does not restart until you restart it.</li>
-    <li><strong>A maximum position check</strong> that refuses to place an order bigger than your rules allow, no matter what the logic says.</li>
-    <li><strong>Logging of every decision</strong>, including the trades it decided not to take. When something goes wrong you need to know why.</li>
-    <li><strong>A heartbeat.</strong> Something that tells you it is alive and connected. Silent failure is the worst failure.</li>
-    <li><strong>An answer for disconnection.</strong> What happens if your internet drops with a position open? Decide before it happens.</li>
+  <h3>How the pipeline works</h3>
+  <ol class="steps">
+    <li><strong>Harvest.</strong> Pull the transcripts of one trader's strategy videos.</li>
+    <li><strong>Extract.</strong> AI turns the transcripts into a strategy file with exact rules.</li>
+    <li><strong>Backtest.</strong> Code runs the strategy file against years of price data.</li>
+    <li><strong>Paper trade.</strong> A bot runs the same file in a paper account for 40 trades.</li>
+    <li><strong>Go small.</strong> After Gate 5 and the go or no go check, the bot trades real money at 1% risk.</li>
   </ol>
+  <p>The language model does its work in steps 1 and 2, before the market opens. During market hours, tested code follows the strategy file and places the orders.</p>
 
-  <h3>No set and forget</h3>
-  <p>Even people running successful bots watch and adjust them. A bot left alone for two days in fast conditions can run into its stop loss because the market changed underneath it. Automation removes the emotion, not the responsibility.</p>
+  <h3>Step 1 &middot; Harvest the knowledge</h3>
+  <h4>Choose the channel and the strategy</h4>
+  <ul>
+    <li>Pick a trader who states exact rules on screen: instrument, timeframe, entry, stop and target.</li>
+    <li>Prefer traders who show losing trades and their own account, not only winners.</li>
+    <li>Check that the instrument fits your account: US stocks and ETFs, micro futures, or crypto. No CFDs.</li>
+    <li>Test one strategy from one trader per run. Blending several traders hides which rule did the work.</li>
+    <li>Collect every video where that trader explains or reviews the strategy, so the rules come from more than one explanation.</li>
+  </ul>
 
-  <h3>Why there is no code on this page</h3>
-  <div class="note">
-    <p class="note-l">On purpose</p>
-    <p>Broker APIs change frequently. Anything written today would be out of date by the time you get here, and debugging stale code is worse than writing fresh code. More importantly, the right code depends on whether you chose stocks or futures, which you did not decide until Gate 2.</p>
-    <p style="margin-top:10px">So instead: the prompts below generate current code against whatever the API looks like on the day you need it. Same approach as every other phase.</p>
+  <h4>Get the transcripts</h4>
+  <div class="tw">
+  <table>
+    <thead><tr><th>Tool</th><th>What it does</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td><strong><a href="https://pypi.org/project/youtube-transcript-api/">youtube-transcript-api</a></strong></td><td>Python library that downloads a video's captions. No API key. YouTube blocks most cloud server addresses, so run it on your own computer.</td><td>Free</td></tr>
+      <tr><td><strong><a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a></strong></td><td>Command line downloader. The command <code>yt-dlp --write-auto-subs --skip-download --sub-langs en URL</code> saves the auto captions without the video. The fallback when the library is blocked.</td><td>Free</td></tr>
+      <tr><td><strong><a href="https://support.google.com/notebooklm/answer/16215270">NotebookLM</a></strong></td><td>Add public YouTube links with captions as sources, then ask questions across all of them. Videos under 72 hours old may fail to import. Free plan: 50 sources per notebook. Google AI Plus: 100.</td><td>Free, or <a href="https://one.google.com/about/plans">$9.99 a month</a> for AI Plus</td></tr>
+      <tr><td><strong><a href="https://supadata.ai/pricing">Supadata</a></strong></td><td>Paid transcript API for when you need many videos without blocks. One credit per existing transcript.</td><td>100 credits a month free; Pro $17 a month for 3,000</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The official YouTube Data API only downloads captions for videos you own, so it does not work for this (<a href="https://developers.google.com/youtube/v3/docs/captions/download">YouTube docs</a>).</p>
+  <p>Use NotebookLM to cross-check: put all of one trader's videos in a notebook and ask it to list every rule with the video and timestamp it came from. Write the strategy file from the transcripts themselves, so every rule traces to a quote.</p>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; transcripts to testable rules</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are transcripts of [NUMBER] videos where [TRADER] explains one day
+trading strategy:
+
+[PASTE TRANSCRIPTS, EACH WITH ITS VIDEO TITLE AND LINK]
+
+1. Write the strategy as a YAML file with these fields: name, source,
+   instrument, timeframe, session, signals, entry, stop, target,
+   position_size, max_trades_per_day, max_loss_per_day, invalidation,
+   undefined.
+2. Every rule must be specific enough for a program to follow with no
+   judgment call. Quote the transcript line behind each rule.
+3. Size every trade so it risks 1% of the account.
+4. List every vague or missing point under "undefined" as a question.
+5. Tell me if any video describes adding to a losing position, averaging
+   down, martingale or grid trading. Quote it.
+6. Tell me if the videos contradict each other, and quote both sides.</pre>
+  </div>
+
+  <h3>Step 2 &middot; Make the rules runnable</h3>
+  <p>The strategy file is the Phase 3 one pager in a format a program reads. Each part maps to code:</p>
+  <ul>
+    <li><strong>Signals</strong> are values the code calculates from each new price bar, such as the opening range high or a moving average.</li>
+    <li><strong>Entries</strong> are conditions that must all be true at the close of a bar.</li>
+    <li><strong>Exits</strong> are the stop, the target, and the session end, whichever comes first.</li>
+    <li><strong>Position size</strong> is 1% of equity divided by the distance from entry to stop, rounded down. If one share or contract risks more than 1%, the bot skips the trade.</li>
+  </ul>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Example &middot; strategy.yaml</span><button class="copy" type="button">Copy</button></div>
+<pre>name: Opening range breakout (from [VIDEO TITLE], [CHANNEL])
+source: https://www.youtube.com/watch?v=[ID]
+instrument: SPY
+timeframe: 5m
+session: {start: "09:30", stop: "11:30", flatten: "15:55"}   # New York time
+signals:
+  opening_high: highest high of the first three 5m bars
+  opening_low: lowest low of the first three 5m bars
+  volume_ok: breakout bar volume > 1.5 x average of the last 20 bars
+entry:
+  long:  close > opening_high and volume_ok     # all must be true
+  short: close < opening_low and volume_ok
+stop: opposite side of the opening range
+target: 2R
+position_size: floor((0.01 * equity) / abs(entry - stop))
+max_trades_per_day: 1
+max_loss_per_day: 2R
+never: add to a losing position
+invalidation: out of sample expectancy at or below 0R
+undefined: []    # every vague point from the video goes here until decided</pre>
+  </div>
+  <p>Run the three checks from Phase 3 on every strategy file: no adding to losers, a legal US instrument, and a dollar maximum loss per trade. Decide every "undefined" item before the backtest, and write the decision into the file.</p>
+
+  <h3>Step 3 &middot; Data and execution</h3>
+  <h4>Market data</h4>
+  <div class="tw">
+  <table>
+    <thead><tr><th>Source</th><th>What you get</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td><strong><a href="https://github.com/ranaroussi/yfinance">yfinance</a></strong></td><td>Stock and ETF bars from Yahoo. Intraday history is short: 1 minute bars go back about 8 days, 2 to 90 minute bars 60 days, hourly bars 730 days.</td><td>Free</td></tr>
+      <tr><td><strong><a href="https://alpaca.markets/data">Alpaca</a></strong></td><td>US stocks, 7+ years of history. The free plan uses the IEX exchange feed only, with API data delayed 15 minutes.</td><td>Free; Algo Trader Plus $99 a month for all exchanges in real time</td></tr>
+      <tr><td><strong><a href="https://massive.com/pricing?product=stocks">Massive</a></strong> (formerly Polygon.io)</td><td>US stocks. Starter: 15 minute delay, 5 years of history. Advanced: real time, 20+ years.</td><td>$29 to $199 a month</td></tr>
+      <tr><td><strong><a href="https://databento.com/pricing">Databento</a></strong></td><td>CME futures data, including micro contracts. Historical data is pay per use.</td><td>$125 free credit for new accounts; live data from $199 a month</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>For a 5 minute strategy, two years of Alpaca's free bars give a far larger backtest than yfinance's 60 days.</p>
+
+  <h4>Brokers with an API and paper trading</h4>
+  <div class="tw">
+  <table>
+    <thead><tr><th>Broker</th><th>Paper account</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><strong><a href="https://docs.alpaca.markets/docs/paper-trading">Alpaca</a></strong></td><td>Free with an email, starts with $100,000 of fake money</td><td>US stocks, ETFs, options and crypto, commission free. No futures. Paper fills ignore slippage. The default for this phase.</td></tr>
+      <tr><td><strong><a href="https://www.ibkrguides.com/clientportal/aboutpapertradingaccounts.htm">Interactive Brokers</a></strong></td><td>Needs an approved, funded live account first</td><td>The route for micro futures. Cash account minimum $0. Micro E-mini commissions $0.10 to $0.25 per contract plus exchange fees (<a href="https://www.interactivebrokers.com/en/pricing/commissions-futures.php">IBKR</a>).</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>TradingView's strategy tester runs Pine Script rules against its charts and simulates orders without a broker, which makes it a quick no-code check of a rule before building anything (<a href="https://www.tradingview.com/pine-script-docs/concepts/strategies/">TradingView docs</a>).</p>
+
+  <h4>How the agent places orders</h4>
+  <ol class="steps">
+    <li>At each new bar, the bot recalculates the signals from the strategy file.</li>
+    <li>If every entry condition is true, it calculates the position size from the stop distance.</li>
+    <li>It checks the limits: trades today, daily loss, maximum position size. Any failed check means no order.</li>
+    <li>It sends a bracket order, which is the entry with its stop and target attached, so the exit exists at the broker even if the bot disconnects.</li>
+    <li>It logs the decision, including every trade it skipped and why.</li>
+    <li>At the session end it cancels open orders and closes any position.</li>
+  </ol>
+  <p>Alpaca's official <a href="https://github.com/alpacahq/alpaca-mcp-server">MCP server</a> lets Claude read a paper account and place orders by chat, and it defaults to paper trading. It suits exploring the account and checking positions. The bot script runs the strategy itself, because the script does the same thing every time.</p>
+
+  <h4>What the bot needs that a human does not</h4>
+  <ul>
+    <li><strong>A kill switch:</strong> one command that closes everything and stops the bot. Test it first.</li>
+    <li><strong>A daily loss limit in code</strong> that stops trading until you restart it.</li>
+    <li><strong>A maximum position check</strong> that refuses any order larger than the rules allow.</li>
+    <li><strong>A log of every decision</strong>, including skipped trades.</li>
+    <li><strong>A heartbeat</strong> that alerts you if the bot stops or loses its connection.</li>
+    <li><strong>A plan for disconnection</strong>, which the bracket orders above provide.</li>
+  </ul>
+  <p>Check the bot and its log every trading day.</p>
+
+  <h3>Step 4 &middot; Test path and gates</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>Stage</th><th>Pass to move on</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Backtest</strong></td><td>At least 30 trades in the out of sample data. Expectancy above 0R and maximum drawdown under 10R, both out of sample. Spread and commission included. No settings changed after seeing the out of sample result.</td></tr>
+      <tr><td><strong>Paper trade</strong></td><td>At least 40 trades. Expectancy above 0R. No loss larger than the planned 1R plus slippage. The log shows the bot followed the strategy file on every trade. Kill switch tested.</td></tr>
+      <tr><td><strong>Small live</strong></td><td>Only after Gate 5 and the go or no go check. 1% risk per trade. Stop and return to paper if drawdown reaches 10R, or if expectancy is at or below 0R after 40 live trades.</td></tr>
+    </tbody>
+  </table>
   </div>
 
   <div class="prompt">
     <div class="prompt-top"><span class="prompt-tag">Prompt &middot; build the bot</span><button class="copy" type="button">Copy</button></div>
-<pre>I want to automate a trading strategy I have already tested by hand.
+<pre>I want to run a tested strategy in an Alpaca paper account.
 I am not a programmer. Explain every step and tell me what to install.
 
-MY STRATEGY:
-[PASTE THE ONE PAGER]
+MY STRATEGY FILE:
+[PASTE strategy.yaml]
 
 MY BACKTEST CODE (the logic already works here):
 [PASTE THE BACKTEST SCRIPT]
 
-MY BROKER: [BROKER NAME]
-MY ACCOUNT TYPE: [cash stock / micro futures]
-
-Build me a live execution script that:
-1. Runs in PAPER MODE by default, and requires me to change an obvious
-   setting to go live
-2. Applies my strategy rules exactly as the backtest does
-3. Has a hard daily loss limit that stops all trading when hit
-4. Has a maximum position size check that refuses oversized orders
-5. Has a kill switch command that flattens everything and stops
-6. Logs every decision, including trades it chose NOT to take
-7. Alerts me if it loses connection or stops running
+Build me a script with alpaca-py that:
+1. Connects to the paper endpoint only, with keys read from a .env file
+2. Applies the strategy file exactly as the backtest does
+3. Sends every entry as a bracket order with its stop and target
+4. Has a hard daily loss limit that stops all trading when hit
+5. Has a maximum position size check that refuses oversized orders
+6. Has a kill switch command that flattens everything and stops
+7. Logs every decision to CSV, including trades it chose NOT to take
+8. Alerts me if it loses connection or stops running
 
 Before the code: list every safety risk in what I have asked for.
 After the code: tell me exactly how to test the kill switch first.
-
-Check the current API documentation before writing anything, because
-these change often.</pre>
+Check the current alpaca-py documentation before writing anything.</pre>
   </div>
 
   <div class="prompt">
     <div class="prompt-top"><span class="prompt-tag">Prompt &middot; audit the bot before it runs</span><button class="copy" type="button">Copy</button></div>
-<pre>Here is my live trading bot code:
+<pre>Here is my trading bot code:
 [PASTE THE CODE]
 
-And here is the strategy it is supposed to follow:
-[PASTE THE ONE PAGER]
+And here is the strategy file it is supposed to follow:
+[PASTE strategy.yaml]
 
 Act as a code reviewer whose only job is to find the thing that empties
 my account.
@@ -1235,8 +1339,7 @@ my account.
 3. What happens if it loses connection with a position open?
 4. What happens if the broker rejects an order? Does it retry forever?
 5. Could it ever add to a losing position, even accidentally?
-6. Is the paper/live switch obvious enough that I cannot flip it by
-   accident?
+6. Could it ever connect to a live account instead of paper?
 7. What is the worst case loss in a single day if everything goes wrong
    at once?
 
@@ -1244,64 +1347,81 @@ Assume I will run this unattended. Find the failure I have not thought of.</pre>
   </div>
 
   <div class="prompt">
-    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; did the bot match my hands?</span><button class="copy" type="button">Copy</button></div>
+    <div class="prompt-top"><span class="prompt-tag">Prompt &middot; did the bot match the backtest?</span><button class="copy" type="button">Copy</button></div>
 <pre>My bot has now completed 40 paper trades. Here is its log:
 [PASTE BOT LOG]
 
-Here is my own manual paper trading log of the same strategy:
-[PASTE YOUR LOG]
-
-And my backtest results:
+And my backtest results for the same strategy file:
 [PASTE BACKTEST]
 
-1. Do all three roughly agree? Where do they diverge?
-2. If the bot differs from the backtest, is that a code bug or a real
-   world execution difference?
-3. If the bot differs from my hands, which one was following the rules?
-4. Is this bot ready for real money, or is something unexplained?
+1. Do they roughly agree? Where do they diverge?
+2. Is each difference a code bug or a real world execution difference?
+3. Did the bot follow the strategy file on every trade? List any trade
+   where it did not.
+4. Does this pass the paper gate: 40+ trades, expectancy above 0R, no
+   loss larger than 1R plus slippage?
 
-Do not tell me it looks good unless the numbers actually agree.</pre>
+Do not tell me it looks good unless the numbers agree.</pre>
   </div>
 
+  <h3>Step 5 &middot; Tools and rough costs</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>Tool</th><th>Used for</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://claude.com/pricing">Claude Pro</a></td><td>Claude Code: writes and runs everything</td><td>$20 a month, or $17 a month billed yearly</td></tr>
+      <tr><td><a href="https://pypi.org/project/youtube-transcript-api/">youtube-transcript-api</a>, <a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a></td><td>Transcripts</td><td>Free</td></tr>
+      <tr><td><a href="https://support.google.com/notebooklm/answer/16213268">NotebookLM</a></td><td>Cross-checking rules across many videos</td><td>Free, or $9.99 a month with Google AI Plus</td></tr>
+      <tr><td><a href="https://pypi.org/project/backtesting/">backtesting.py</a></td><td>Backtests in Python</td><td>Free (AGPL license)</td></tr>
+      <tr><td><a href="https://pypi.org/project/vectorbt/">vectorbt</a></td><td>Testing many settings at once</td><td>Free; <a href="https://vectorbt.pro/">PRO</a> from $25 a month</td></tr>
+      <tr><td><a href="https://www.quantconnect.com/pricing">QuantConnect</a></td><td>Hosted backtests with its own data</td><td>Free for backtests; $84 a month to paper or live trade</td></tr>
+      <tr><td><a href="https://docs.alpaca.markets/docs/paper-trading">Alpaca</a></td><td>Paper account, data and order API</td><td>Free; real time data $99 a month</td></tr>
+      <tr><td><a href="https://databento.com/pricing">Databento</a></td><td>Futures data</td><td>$125 free credit, then pay per use</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The minimum to run the full build in paper mode is $20 a month for Claude Pro. Everything else above has a free tier.</p>
+  <p class="src">Prices and limits from each vendor's own page, checked Oct 30, 2026.</p>
+
   <div class="gate opt" id="g6" data-gate="6">
-    <div class="gate-top"><span class="gate-n">Optional checkpoint</span><span class="gate-h">Gate 6</span><span class="gate-stat" data-gatestat="6">0 of 6</span></div>
+    <div class="gate-top"><span class="gate-n">Checkpoint</span><span class="gate-h">Gate 6</span><span class="gate-stat" data-gatestat="6">0 of 6</span></div>
     <div class="gate-body">
       <ul class="check" data-gatelist="6">
-        <li><label><input type="checkbox" data-k="g6a"><span>Bot written and running in <strong>paper mode</strong></span></label></li>
-        <li><label><input type="checkbox" data-k="g6b"><span>Kill switch tested and confirmed working, before anything else</span></label></li>
-        <li><label><input type="checkbox" data-k="g6c"><span>Daily loss limit and max position size enforced in code, and tested</span></label></li>
-        <li><label><input type="checkbox" data-k="g6d"><span>Code audited for the failure modes, and the findings fixed</span></label></li>
-        <li><label><input type="checkbox" data-k="g6e"><span><strong>Bot completed its own 40 paper trades</strong></span></label></li>
-        <li><label><input type="checkbox" data-k="g6f"><span>Bot results, my manual results, and the backtest all roughly agree, and I can explain any gap</span></label></li>
+        <li><label><input type="checkbox" data-k="g6a"><span>Strategy file written from transcripts, every rule quoted, nothing left under "undefined"</span></label></li>
+        <li><label><input type="checkbox" data-k="g6b"><span><strong>Backtest gate passed</strong> on out of sample data</span></label></li>
+        <li><label><input type="checkbox" data-k="g6c"><span>Kill switch, daily loss limit and max position size tested in code</span></label></li>
+        <li><label><input type="checkbox" data-k="g6d"><span>Bot audited for the failure modes, and the findings fixed</span></label></li>
+        <li><label><input type="checkbox" data-k="g6e"><span><strong>Bot completed 40 paper trades</strong></span></label></li>
+        <li><label><input type="checkbox" data-k="g6f"><span>Paper gate passed, and I can explain every gap between the bot and the backtest</span></label></li>
       </ul>
     </div>
-    <div class="gate-lock" data-gatelock="6">If you get here, bring your one pager, your logs, and your code to Imani before going live.</div>
+    <div class="gate-lock" data-gatelock="6">Real money waits for Gate 5 and the go or no go check. Bring the strategy file, logs and code to Imani before going live.</div>
   </div>
 </section>
 
 <hr class="div">
 
-<section id="time">
-  <p class="kicker">Honest accounting</p>
+<section id="time" data-audio>
+  <p class="kicker">Time</p>
   <h2>What this costs you in time</h2>
 
   <div class="tw">
   <table>
     <thead><tr><th>Phase</th><th>Time</th><th>Spread over</th></tr></thead>
     <tbody>
-      <tr><td>Phase 0 &middot; Reality check</td><td>About 1 hour</td><td>One sitting</td></tr>
+      <tr><td>Try it with Claude</td><td>About 2 hours of setup and backtest, then a few minutes a day to check the bot</td><td>Until the bot has 40 paper trades</td></tr>
+      <tr><td>Phase 0 &middot; What AI trading is</td><td>About 1 hour</td><td>One sitting</td></tr>
       <tr><td>Phase 1 &middot; Foundation</td><td>About 6 hours</td><td>2 weeks</td></tr>
       <tr><td>Phase 2 &middot; Chart language</td><td>About 12 hours</td><td>3 weeks</td></tr>
       <tr><td>Phase 3 &middot; The spec</td><td>About 10 hours</td><td>2 weeks</td></tr>
       <tr><td>Phase 4 &middot; Backtest</td><td>About 5 hours</td><td>1 week</td></tr>
-      <tr><td>Phase 5 &middot; Paper trade</td><td>45 to 60 min per trading day, plus 30 min Sunday</td><td>6 weeks</td></tr>
-      <tr><td>Phase 6 &middot; Automate</td><td>Optional, open ended</td><td>After everything</td></tr>
+      <tr><td>Phase 5 &middot; Paper trade</td><td>45 to 60 minutes per trading day, plus 30 minutes on Sunday</td><td>6 weeks</td></tr>
+      <tr><td>Phase 6 &middot; Build the agent</td><td>About 6 hours for the first strategy, then daily checks</td><td>Until the bot has 40 paper trades</td></tr>
     </tbody>
   </table>
   </div>
 
-  <p>Roughly <strong>34 hours of work</strong> and <strong>six weeks of daily practice</strong> before any money is at risk.</p>
-  <p>If that is not realistic right now, that is a completely valid answer. It is far cheaper to find that out on day one than at Gate 5.</p>
+  <p>Phases 0 to 5 take about <strong>34 hours of work</strong> and <strong>six weeks of daily practice</strong> before any money is at risk. If that schedule does not fit right now, start with the fast path.</p>
 </section>
 
 <hr class="div">
@@ -1313,7 +1433,7 @@ Do not tell me it looks good unless the numbers actually agree.</pre>
 
   <div class="note">
     <p class="note-l">Why these are written the way they are</p>
-    <p>AI tools default to being encouraging. That is exactly wrong for this. Every prompt here explicitly asks for failure modes, holes, and disagreement, because an assistant that tells you your strategy looks great is worse than no assistant at all.</p>
+    <p>AI tools default to being encouraging, so every prompt here asks for failure modes, holes and disagreement instead.</p>
   </div>
 
   <h3>Learning</h3>
@@ -1405,7 +1525,8 @@ Tell me:
 2. Is the instrument a CFD? If yes, explain why US retail clients cannot
    legally use it.
 3. What is the closest legal US equivalent instrument and account type?
-4. Does the Pattern Day Trader rule apply to that account type?
+4. Which day trading rule does this broker apply to that account type:
+   the old Pattern Day Trader rule or the 2026 intraday margin rule?
 
 Be specific and tell me if you are unsure about anything.</pre>
   </div>
@@ -1437,7 +1558,7 @@ Compare these two options for me:
 A) A cash stock brokerage account
 B) A micro futures account
 
-For each one cover: whether the Pattern Day Trader rule applies, how many
+For each one cover: which day trading rule applies, how many
 trades per week I can realistically make with $1,000, what a typical single
 trade risks, what the main danger is, and what it costs.
 
@@ -1648,45 +1769,61 @@ Be the person who tells me the truth, not the person who tells me what I
 want to hear.</pre>
   </div>
 
-  <h3>Automation</h3>
+  <h3>The agent</h3>
+
+  <div class="prompt">
+    <div class="prompt-top"><span class="prompt-tag">Transcripts to testable rules</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are transcripts of [NUMBER] videos where [TRADER] explains one day
+trading strategy:
+
+[PASTE TRANSCRIPTS, EACH WITH ITS VIDEO TITLE AND LINK]
+
+1. Write the strategy as a YAML file with these fields: name, source,
+   instrument, timeframe, session, signals, entry, stop, target,
+   position_size, max_trades_per_day, max_loss_per_day, invalidation,
+   undefined.
+2. Every rule must be specific enough for a program to follow with no
+   judgment call. Quote the transcript line behind each rule.
+3. Size every trade so it risks 1% of the account.
+4. List every vague or missing point under "undefined" as a question.
+5. Tell me if any video describes adding to a losing position, averaging
+   down, martingale or grid trading. Quote it.
+6. Tell me if the videos contradict each other, and quote both sides.</pre>
+  </div>
+
   <div class="prompt">
     <div class="prompt-top"><span class="prompt-tag">Build the bot</span><button class="copy" type="button">Copy</button></div>
-<pre>I want to automate a trading strategy I have already tested by hand.
+<pre>I want to run a tested strategy in an Alpaca paper account.
 I am not a programmer. Explain every step and tell me what to install.
 
-MY STRATEGY:
-[PASTE THE ONE PAGER]
+MY STRATEGY FILE:
+[PASTE strategy.yaml]
 
 MY BACKTEST CODE (the logic already works here):
 [PASTE THE BACKTEST SCRIPT]
 
-MY BROKER: [BROKER NAME]
-MY ACCOUNT TYPE: [cash stock / micro futures]
-
-Build me a live execution script that:
-1. Runs in PAPER MODE by default, and requires me to change an obvious
-   setting to go live
-2. Applies my strategy rules exactly as the backtest does
-3. Has a hard daily loss limit that stops all trading when hit
-4. Has a maximum position size check that refuses oversized orders
-5. Has a kill switch command that flattens everything and stops
-6. Logs every decision, including trades it chose NOT to take
-7. Alerts me if it loses connection or stops running
+Build me a script with alpaca-py that:
+1. Connects to the paper endpoint only, with keys read from a .env file
+2. Applies the strategy file exactly as the backtest does
+3. Sends every entry as a bracket order with its stop and target
+4. Has a hard daily loss limit that stops all trading when hit
+5. Has a maximum position size check that refuses oversized orders
+6. Has a kill switch command that flattens everything and stops
+7. Logs every decision to CSV, including trades it chose NOT to take
+8. Alerts me if it loses connection or stops running
 
 Before the code: list every safety risk in what I have asked for.
 After the code: tell me exactly how to test the kill switch first.
-
-Check the current API documentation before writing anything, because
-these change often.</pre>
+Check the current alpaca-py documentation before writing anything.</pre>
   </div>
 
   <div class="prompt">
     <div class="prompt-top"><span class="prompt-tag">Audit the bot before it runs</span><button class="copy" type="button">Copy</button></div>
-<pre>Here is my live trading bot code:
+<pre>Here is my trading bot code:
 [PASTE THE CODE]
 
-And here is the strategy it is supposed to follow:
-[PASTE THE ONE PAGER]
+And here is the strategy file it is supposed to follow:
+[PASTE strategy.yaml]
 
 Act as a code reviewer whose only job is to find the thing that empties
 my account.
@@ -1696,8 +1833,7 @@ my account.
 3. What happens if it loses connection with a position open?
 4. What happens if the broker rejects an order? Does it retry forever?
 5. Could it ever add to a losing position, even accidentally?
-6. Is the paper/live switch obvious enough that I cannot flip it by
-   accident?
+6. Could it ever connect to a live account instead of paper?
 7. What is the worst case loss in a single day if everything goes wrong
    at once?
 
@@ -1705,29 +1841,27 @@ Assume I will run this unattended. Find the failure I have not thought of.</pre>
   </div>
 
   <div class="prompt">
-    <div class="prompt-top"><span class="prompt-tag">Did the bot match my hands?</span><button class="copy" type="button">Copy</button></div>
+    <div class="prompt-top"><span class="prompt-tag">Did the bot match the backtest?</span><button class="copy" type="button">Copy</button></div>
 <pre>My bot has now completed 40 paper trades. Here is its log:
 [PASTE BOT LOG]
 
-Here is my own manual paper trading log of the same strategy:
-[PASTE YOUR LOG]
-
-And my backtest results:
+And my backtest results for the same strategy file:
 [PASTE BACKTEST]
 
-1. Do all three roughly agree? Where do they diverge?
-2. If the bot differs from the backtest, is that a code bug or a real
-   world execution difference?
-3. If the bot differs from my hands, which one was following the rules?
-4. Is this bot ready for real money, or is something unexplained?
+1. Do they roughly agree? Where do they diverge?
+2. Is each difference a code bug or a real world execution difference?
+3. Did the bot follow the strategy file on every trade? List any trade
+   where it did not.
+4. Does this pass the paper gate: 40+ trades, expectancy above 0R, no
+   loss larger than 1R plus slippage?
 
-Do not tell me it looks good unless the numbers actually agree.</pre>
+Do not tell me it looks good unless the numbers agree.</pre>
   </div>
 </section>
 
 <hr class="div">
 
-<section id="glossary">
+<section id="glossary" data-audio>
   <p class="kicker">Reference</p>
   <h2>Plain English glossary</h2>
   <p class="dek">Every term in this plan, explained once.</p>
@@ -1736,22 +1870,22 @@ Do not tell me it looks good unless the numbers actually agree.</pre>
   <div class="gl"><div class="gl-t">Paper trading</div><p>A free practice account that uses real market prices and fake money. Everything works the same except nothing is at risk.</p></div>
   <div class="gl"><div class="gl-t">Backtest</div><p>Running your strategy against past price data to see what would have happened. Fast, free, and easy to fool yourself with.</p></div>
   <div class="gl"><div class="gl-t">Overfitting</div><p>When a strategy is tuned so tightly to past data that it memorized random noise instead of finding a real pattern. Looks brilliant on old data and falls apart on new data. The cause of most fake results.</p></div>
-  <div class="gl"><div class="gl-t">In sample and out of sample</div><p>Splitting your history in two. You build and adjust on the first part, in sample, and never look at the second part, out of sample, until you are finished. The out of sample result is the honest one.</p></div>
+  <div class="gl"><div class="gl-t">In sample and out of sample</div><p>Splitting your history in two. You build and adjust on the first part, in sample, and never look at the second part, out of sample, until you are finished. The out of sample result is the one to trust.</p></div>
   <div class="gl"><div class="gl-t">Lookahead bias</div><p>A bug where a backtest accidentally uses information that would not have existed yet at that moment. Makes results look far better than reality.</p></div>
   <div class="gl"><div class="gl-t">Position size</div><p>How many shares or contracts you buy. Calculated from your stop distance and your risk limit, never from a gut feeling.</p></div>
   <div class="gl"><div class="gl-t">Stop (stop loss)</div><p>An order that automatically closes your trade at a set price so a loss cannot keep growing. You decide where it goes before you enter.</p></div>
   <div class="gl"><div class="gl-t">R</div><p>The amount you risked on a trade. Risk $10 and make $20, that is +2R. Risk $10 and lose it, that is -1R. The only fair way to compare trades of different sizes.</p></div>
   <div class="gl"><div class="gl-t">Expectancy</div><p>The average amount you make or lose per trade, measured in R. Positive expectancy means the strategy makes money over many trades. The number that matters most.</p></div>
   <div class="gl"><div class="gl-t">Drawdown</div><p>How far your account fell from its highest point before recovering. It tells you how bad the worst stretch felt.</p></div>
-  <div class="gl"><div class="gl-t">Margin account</div><p>A brokerage account that lets you borrow money to trade. The account type the Pattern Day Trader rule applies to.</p></div>
-  <div class="gl"><div class="gl-t">Cash account</div><p>A brokerage account with no borrowing. No Pattern Day Trader rule, but money from a sale takes a day to settle before you can use it again.</p></div>
-  <div class="gl"><div class="gl-t">Pattern Day Trader (PDT) rule</div><p>A US regulation. Make 4 or more day trades in 5 business days in a margin account and you need $25,000 to keep going. Does not apply to cash accounts, futures, or crypto.</p></div>
+  <div class="gl"><div class="gl-t">Margin account</div><p>A brokerage account that lets you borrow money to trade. The account type day trading margin rules apply to.</p></div>
+  <div class="gl"><div class="gl-t">Cash account</div><p>A brokerage account with no borrowing. No day trade limit, but money from a sale takes a day to settle before you can reuse it.</p></div>
+  <div class="gl"><div class="gl-t">Pattern Day Trader (PDT) rule</div><p>The old FINRA rule: 4 or more day trades in 5 business days in a margin account required $25,000. Replaced by intraday margin requirements on June 4, 2026; brokers may keep the old rule until October 20, 2027. Never applied to cash accounts, futures or crypto.</p></div>
   <div class="gl"><div class="gl-t">Settlement (T+1)</div><p>After you sell, the money takes one business day to become usable again. What limits how often a small cash account can trade.</p></div>
   <div class="gl"><div class="gl-t">Leverage</div><p>Controlling a large position with a small amount of money. Multiplies gains and losses equally. The reason small accounts disappear quickly.</p></div>
   <div class="gl"><div class="gl-t">CFD</div><p>Contract for Difference. A product that mimics an asset's price without owning it. Common overseas, and not legal for US retail customers.</p></div>
-  <div class="gl"><div class="gl-t">Micro E-mini futures</div><p>Small futures contracts, MYM for the Dow and MES for the S&amp;P 500, designed for smaller accounts. Legal in the US, no PDT rule.</p></div>
+  <div class="gl"><div class="gl-t">Micro E-mini futures</div><p>Small futures contracts, MYM for the Dow and MES for the S&amp;P 500, designed for smaller accounts. Legal in the US, with no day trade limit.</p></div>
   <div class="gl"><div class="gl-t">Averaging down</div><p>Buying more of something as it moves against you. Makes your win rate look great and is the most common way a small account gets wiped out. Banned in this plan.</p></div>
-  <div class="gl"><div class="gl-t">Slippage</div><p>The gap between the price you expected and the price you actually got. Small but constant, and why live results are worse than paper results.</p></div>
+  <div class="gl"><div class="gl-t">Slippage</div><p>The gap between the price you expected and the price you got. Small but constant, and why live results are worse than paper results.</p></div>
   <div class="gl"><div class="gl-t">Wash sale rule</div><p>A tax rule. If you sell at a loss and buy the same thing back within 30 days, you may not be able to claim the loss that year.</p></div>
   <div class="gl"><div class="gl-t">Breakout</div><p>When a price pushes past a level it has been stuck under or above, often leading to a fast move in that direction.</p></div>
   <div class="gl"><div class="gl-t">Support and resistance</div><p>Price levels where buying or selling has repeatedly stopped a move. Traders use them to decide where to enter and where to put stops.</p></div>
@@ -1870,104 +2004,59 @@ Do not tell me it looks good unless the numbers actually agree.</pre>
   window.addEventListener('scroll',spy,{passive:true});
   spy();
 
-  /* ---- text to speech ---- */
-  var synth = window.speechSynthesis;
-  if(!synth || typeof window.SpeechSynthesisUtterance === 'undefined'){
-    var sp=document.getElementById('speedPanel');
-    if(sp) sp.style.display='none';
-    return;
+  /* ---- narration: pre-rendered MP3s, Kokoro voice Sky (af_sky) at speed 1.2 ---- */
+  var player=new Audio(), order=[], playing=null, chain=false;
+  player.preload='none';
+
+  function label(btn,on){
+    btn.classList.toggle('playing',on);
+    var l=btn.querySelector('.listen-label'); if(l) l.textContent=on?'Stop':'Listen';
   }
-
-  var rate=1, current=null, queue=[], qi=0;
-
-  try{ synth.getVoices(); }catch(e){}
-  if(typeof synth.onvoiceschanged !== 'undefined'){ synth.onvoiceschanged=function(){ try{synth.getVoices();}catch(e){} }; }
-
-  function collect(sec){
-    var parts=[];
-    sec.querySelectorAll('h2,h3,h4,p,li,td').forEach(function(n){
-      if(n.closest('.prompt')) return;
-      if(n.closest('.check')) return;
-      if(n.closest('.speed')) return;
-      if(n.classList.contains('kicker')||n.classList.contains('eyebrow')) return;
-      var t=(n.textContent||'').replace(/\s+/g,' ').trim();
-      if(t) parts.push(t);
-    });
-    return parts.join('. ').replace(/\.\.+/g,'.');
+  function stopAll(){
+    player.pause(); chain=false;
+    if(playing) label(playing.btn,false);
+    playing=null;
+    var pa=document.getElementById('playAll'); if(pa) pa.textContent='Listen to the whole plan';
   }
-
-  function chunk(text){
-    var sentences=text.match(/[^.!?]+[.!?]*/g)||[text];
-    var out=[],buf='';
-    sentences.forEach(function(s){
-      if((buf+s).length>180){ if(buf) out.push(buf.trim()); buf=s; }
-      else buf+=s;
-    });
-    if(buf.trim()) out.push(buf.trim());
-    return out;
+  function play(item){
+    if(playing) label(playing.btn,false);
+    playing=item; label(item.btn,true);
+    player.src=item.src; player.currentTime=0;
+    var p=player.play(); if(p&&p.catch) p.catch(function(){ stopAll(); });
   }
+  player.addEventListener('ended',function(){
+    var k=order.indexOf(playing);
+    if(chain && k>-1 && k<order.length-1){
+      play(order[k+1]);
+      order[k+1].sec.scrollIntoView({behavior:'smooth',block:'start'});
+    } else stopAll();
+  });
 
-  function stopReading(){
-    try{ synth.cancel(); }catch(e){}
-    queue=[]; qi=0; current=null;
-    document.querySelectorAll('.listen.playing').forEach(function(b){
-      b.classList.remove('playing');
-      var lbl=b.querySelector('.listen-label');
-      if(lbl) lbl.textContent='Listen';
-    });
-  }
-
-  function speakNext(){
-    if(qi>=queue.length){ stopReading(); return; }
-    var u=new SpeechSynthesisUtterance(queue[qi]);
-    u.rate=rate; u.pitch=1;
-    u.onend=function(){ qi++; speakNext(); };
-    u.onerror=function(){ qi++; speakNext(); };
-    try{ synth.speak(u); }catch(e){ stopReading(); }
-  }
-
-  function startReading(btn){
-    var sec=btn.closest('section');
-    if(!sec) return;
-    var text=collect(sec);
-    if(!text) return;
-    queue=chunk(text); qi=0; current=btn;
-    btn.classList.add('playing');
-    var lbl=btn.querySelector('.listen-label');
-    if(lbl) lbl.textContent='Stop';
-    speakNext();
-  }
-
-  document.querySelectorAll('section').forEach(function(sec){
-    var h=sec.querySelector('h2');
-    if(!h) return;
+  document.querySelectorAll('section[data-audio]').forEach(function(sec){
+    var h=sec.querySelector('h2'); if(!h) return;
     var next=h.nextElementSibling;
     var anchor=(next && next.classList.contains('dek')) ? next : h;
-
     var btn=document.createElement('button');
-    btn.className='listen';
-    btn.type='button';
-    btn.setAttribute('aria-label','Read this section aloud');
+    btn.className='listen'; btn.type='button';
+    btn.setAttribute('aria-label','Play the narrated version of this section');
     btn.innerHTML='<span class="listen-dot"></span><span class="listen-label">Listen</span>';
     anchor.insertAdjacentElement('afterend',btn);
-
+    var item={sec:sec,btn:btn,src:'audio/'+sec.id+'.mp3'};
+    order.push(item);
     btn.addEventListener('click',function(){
-      var wasPlaying=btn.classList.contains('playing');
-      stopReading();
-      if(!wasPlaying) startReading(btn);
+      var was=(playing===item);
+      stopAll();
+      if(!was) play(item);
     });
   });
 
-  var rateSel=document.getElementById('rate');
-  if(rateSel) rateSel.addEventListener('change',function(){
-    rate=parseFloat(rateSel.value)||1;
-    var b=current;
-    if(b){ stopReading(); startReading(b); }
+  var pa=document.getElementById('playAll');
+  if(pa) pa.addEventListener('click',function(){
+    if(chain){ stopAll(); return; }
+    stopAll(); if(!order.length) return;
+    chain=true; pa.textContent='Stop listening';
+    play(order[0]);
   });
-
-  var stopBtn=document.getElementById('stopAll');
-  if(stopBtn) stopBtn.addEventListener('click',stopReading);
-  window.addEventListener('beforeunload',function(){ try{synth.cancel();}catch(e){} });
 })();
 </script>
 </body>

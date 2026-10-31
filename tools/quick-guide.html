@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>90 Day Trading Plan: Quick Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@page{size:letter;margin:0.5in}
+:root{--ink:#14201C;--soft:#4A5A54;--faint:#7C8B85;--rule:#D3DAD6;--pine:#1B4D3E;--pine-soft:#E4EDE9;--amber-soft:#FAF1DC;--rust:#93321A}
+*{box-sizing:border-box}
+body{margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:9.6pt;line-height:1.42;color:var(--ink);background:#fff}
+.page{height:10in;overflow:hidden;page-break-after:always;display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto}
+h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22pt;letter-spacing:-.02em;margin:0;line-height:1.05}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:12.5pt;margin:12pt 0 4pt;letter-spacing:-.01em}
+.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2.5pt solid var(--ink);padding-bottom:6pt;margin-bottom:6pt}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;color:var(--pine);margin:0 0 3pt}
+.url{font-family:'IBM Plex Mono',monospace;font-size:8pt;color:var(--pine);text-align:right}
+p{margin:0 0 5pt}
+table{width:100%;border-collapse:collapse;font-size:8.8pt}
+th{font-family:'IBM Plex Mono',monospace;font-size:7pt;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);text-align:left;font-weight:500;border-bottom:1pt solid var(--rule);padding:3pt 5pt}
+td{border-bottom:.5pt solid var(--rule);padding:3.5pt 5pt;vertical-align:top}
+td.n{font-family:'IBM Plex Mono',monospace;color:var(--pine);white-space:nowrap;width:46pt}
+.cols{display:flex;gap:14pt}.cols>div{flex:1}
+.box{background:var(--pine-soft);border-left:2.5pt solid var(--pine);padding:6pt 8pt;margin:6pt 0}
+.box.rust{background:#F8E9E3;border-left-color:var(--rust)}
+ol,ul{margin:0 0 5pt;padding-left:13pt}li{margin-bottom:2.5pt}
+pre{font-family:'IBM Plex Mono',monospace;font-size:7.8pt;line-height:1.4;background:#FBFCFB;border:.75pt solid var(--rule);border-radius:3pt;padding:6pt 8pt;margin:4pt 0;white-space:pre-wrap}
+.foot{margin-top:auto;font-size:7.2pt;color:var(--faint);border-top:.5pt solid var(--rule);padding-top:4pt}
+code{font-family:'IBM Plex Mono',monospace;font-size:8pt;background:var(--pine-soft);padding:0 2pt;border-radius:2pt}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="top">
+    <div><p class="eyebrow">Quick guide &middot; page 1 of 2</p><h1>The 90 Day Trading Plan</h1></div>
+    <div class="url">Full plan, audio and prompts:<br>1lb-digital.github.io/trading-plan</div>
+  </div>
+  <p>Learn first, test second, risk last. You risk no real money for the first 90 days, and each phase ends in a gate: a checklist of written work to finish before the next phase.</p>
+
+  <h2>The route</h2>
+  <table>
+    <thead><tr><th>Phase</th><th>What you do</th><th>Gate: done when</th></tr></thead>
+    <tbody>
+      <tr><td class="n">0 &middot; 1 hr</td><td>Learn what AI trading is: the five levels, overfitting, the scam checklist.</td><td>You can explain overfitting and have written your goal.</td></tr>
+      <tr><td class="n">1 &middot; 2 wk</td><td>Moschini course: a pre-market routine, stops and position sizing.</td><td>One page answering: routine, stop placement, sizing, daily max loss.</td></tr>
+      <tr><td class="n">2 &middot; 3 wk</td><td>Wealthy Education course, sections 1 to 6. Open a paper account.</td><td>Paper account open; account type chosen (cash stock or micro futures).</td></tr>
+      <tr><td class="n">3 &middot; 2 wk</td><td>Reid FX course. Write the Strategy One Pager.</td><td>Every line filled; no adding to losers; legal US instrument.</td></tr>
+      <tr><td class="n">4 &middot; 1 wk</td><td>AI writes a backtest from the one pager.</td><td>Positive expectancy on out of sample data you never looked at.</td></tr>
+      <tr><td class="n">5 &middot; 6 wk</td><td>Paper trade by hand and log every trade in R.</td><td>40+ trades, six Sunday reviews, strategy unchanged.</td></tr>
+      <tr><td class="n">6</td><td>Build the YouTube-trained agent (page 2). Paper mode any time.</td><td>Backtest and paper gates passed by the bot.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cols">
+    <div>
+      <h2>Six ground rules</h2>
+      <ol>
+        <li>No real money until Gate 5 is clear.</li>
+        <li>All practice in a paper account.</li>
+        <li>Every practice trade goes in the log.</li>
+        <li>Personal account, not business. Ask the tax preparer first.</li>
+        <li><strong>Never add to a losing trade.</strong></li>
+        <li><strong>Risk 1% per trade, maximum</strong> ($10 on $1,000).</li>
+      </ol>
+      <h2>R, the number to track</h2>
+      <p>R is what you risked. Risk $10 and make $20: +2R. Lose the $10: -1R. Expectancy is the average R per trade; positive means the strategy makes money over many trades.</p>
+    </div>
+    <div>
+      <h2>Go or no go: fund $1,000 only if all five hold</h2>
+      <ol>
+        <li>40 or more paper trades logged</li>
+        <li>Total R positive across the sample</li>
+        <li>Rule adherence 90% or higher</li>
+        <li>No loss larger than the planned maximum</li>
+        <li>The one pager never changed during the sample</li>
+      </ol>
+      <div class="box">
+        <p><strong>Account rules, 2026.</strong> FINRA replaced the $25,000 pattern day trader rule with intraday margin requirements on June 4, 2026. Brokers may keep the old rule until October 20, 2027, so ask yours. Cash stock accounts and micro futures have no day trade limit. CFDs are not legal for US retail traders.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Scam checklist: close anything that</h2>
+  <p>promises guaranteed or passive returns &middot; shows backtests but no verified live record &middot; earns its money selling the bot or course &middot; says "AI" without explaining the model &middot; sells a prop firm challenge or uses countdown timers &middot; shows a results chart with no losing stretches.</p>
+
+  <div class="foot">Educational only, not investment, legal or tax advice. Rules and prices checked October 30, 2026; sources are linked on the full plan.</div>
+</div>
+
+<div class="page">
+  <div class="top">
+    <div><p class="eyebrow">Quick guide &middot; page 2 of 2</p><h1>Build the YouTube-trained agent</h1></div>
+    <div class="url">Phase 6 and "Try it with Claude"<br>1lb-digital.github.io/trading-plan</div>
+  </div>
+  <p>An AI agent reads one trader's videos, writes exact rules, backtests them and runs them in a paper account. The language model works before the market opens; tested code places the orders. Most video strategies fail the backtest, and the gates catch them before they cost money.</p>
+
+  <h2>The build in six steps</h2>
+  <table>
+    <tbody>
+      <tr><td class="n">1 Harvest</td><td>Pick one trader who states exact rules and shows losses. Pull transcripts with <code>youtube-transcript-api</code> (free, run it on your own computer) or <code>yt-dlp --write-auto-subs --skip-download</code>. NotebookLM cross-checks rules across many videos.</td></tr>
+      <tr><td class="n">2 Extract</td><td>AI writes <code>strategy.yaml</code>: instrument, timeframe, session, signals, entry, stop, target, 1% position size, daily loss limit. Every rule quotes the transcript; vague points go under "undefined" until you decide them.</td></tr>
+      <tr><td class="n">3 Backtest</td><td>backtesting.py on Alpaca's free bars (7+ years) or yfinance (intraday only 60 days). Hold back the last 30% of the data until the rules are final.</td></tr>
+      <tr><td class="n">4 Paper</td><td>A bot on Alpaca's free paper account sends bracket orders (entry with stop and target), enforces the loss limit and size cap, logs every decision, and has a kill switch.</td></tr>
+      <tr><td class="n">5 Gate</td><td><strong>Backtest:</strong> 30+ out of sample trades, expectancy above 0R, drawdown under 10R. <strong>Paper:</strong> 40+ trades, expectancy above 0R, no loss over 1R plus slippage, rules followed on every trade.</td></tr>
+      <tr><td class="n">6 Small live</td><td>Only after Gate 5 and go or no go. 1% risk. Back to paper if drawdown reaches 10R or expectancy is at or below 0R after 40 trades.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Try it with Claude: setup</h2>
+  <div class="cols">
+    <div>
+      <ol>
+        <li>Get <strong>Claude Pro</strong> ($20 a month; Claude Code is not in the free plan) at claude.com/pricing.</li>
+        <li>Install the <strong>Claude desktop app</strong> from claude.com/download (macOS 13+ or Windows 10 1809+) and sign in.</li>
+        <li>Create an empty folder <code>Documents/trading-agent</code>.</li>
+        <li>Download <code>CLAUDE.md</code> from the plan's "Try it with Claude" section into that folder.</li>
+        <li>In the app, click "Code", choose a local environment, select the folder, and set permission mode to "Manual".</li>
+        <li>Paste the start prompt and press Enter. Approve each step, then type "next".</li>
+        <li>Open a free Alpaca account, generate <strong>paper</strong> API keys, and paste them into the <code>.env</code> file yourself. Never paste keys into chat.</li>
+      </ol>
+    </div>
+    <div>
+      <p><strong>Start prompt</strong></p>
+<pre>Read CLAUDE.md in this folder and follow it.
+I want to test whether a day-trading strategy
+from a YouTube video works, using paper money
+only.
+
+About me: [I am new to coding / I can read
+some Python]. My computer is [Mac / Windows].
+I [have / do not have] a free Alpaca paper
+account.
+
+Start with step 1. Ask before installing
+anything, do one step at a time, and wait for
+me to say "next" before each new step.</pre>
+      <div class="box rust"><p><strong>Paper only.</strong> The starter file limits Claude to Alpaca's paper endpoint and to 1% risk per trade with no adding to losers.</p></div>
+    </div>
+  </div>
+
+  <h2>Rough costs</h2>
+  <p>Claude Pro $20/mo &middot; transcripts, backtesting.py and Alpaca paper trading free &middot; NotebookLM free (Google AI Plus $9.99/mo for 100 sources) &middot; Alpaca real time data $99/mo (optional) &middot; Databento futures data $125 free credit. <strong>Minimum to try: $20 a month.</strong></p>
+
+  <div class="foot">Educational only, not investment, legal or tax advice. Prices and limits from each vendor's own page, checked October 30, 2026.</div>
+</div>
+
+</body>
+</html>
